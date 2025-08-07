@@ -29,6 +29,7 @@ import 'froala-editor/js/plugins/url.min.js'
 import 'froala-editor/js/plugins/video.min.js'
 import 'froala-editor/js/plugins/print.min.js'
 import 'froala-editor/js/plugins/save.min.js'
+import 'froala-editor/js/plugins/word_paste.min.js'
 
 export default defineNuxtPlugin(() => {
   // Plugin is automatically client-side only due to .client.js suffix

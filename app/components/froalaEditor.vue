@@ -49,6 +49,14 @@ const defaultConfig = {
   //   }
   // },
 
+  wordPasteModal: true,           // Show the Word paste dialog
+  wordPasteKeepFormatting: true,  // Keep original formatting by default
+  wordAllowedStyleProps: [        // Allow these style properties
+    'font-family', 'font-size', 'background', 'color', 'width', 'text-align', 
+    'vertical-align', 'background-color', 'padding', 'margin', 'border'
+  ],
+
+
   toolbarButtons: [
     'fullscreen', 'print', 'getPDF', 'undo', 'redo', '|',
     'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|',
