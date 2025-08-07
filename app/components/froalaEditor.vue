@@ -30,30 +30,56 @@ let editor = null
 const defaultConfig = {
   // Document ready mode configuration
   documentReady: true,
-  height: 430,
+  height: 480,
+  width: 1200,
   
-  // Toolbar configuration
-  toolbarButtons: {
-    'moreText': {
-      'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
-    },
-    'moreParagraph': {
-      'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote']
-    },
-    'moreRich': {
-      'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
-    },
-    'moreMisc': {
-      'buttons': ['undo', 'redo', 'fullscreen', 'print', 'getPDF', 'spellChecker', 'selectAll', 'html', 'help']
-    }
-  },
+  // // Toolbar configuration
+  // toolbarButtons: {
+  //   'moreText': {
+  //     'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
+  //   },
+  //   'moreParagraph': {
+  //     'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote']
+  //   },
+  //   'moreRich': {
+  //     'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
+  //   },
+  //   'moreMisc': {
+  //     'buttons': ['undo', 'redo', 'fullscreen', 'print', 'getPDF', 'spellChecker', 'selectAll', 'html', 'help']
+  //   }
+  // },
+
+  toolbarButtons: [
+    'fullscreen', 'print', 'getPDF', 'undo', 'redo', '|',
+    'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|',
+    'fontFamily', 'fontSize', 'textColor', 'backgroundColor', '|',
+    'inlineClass', 'inlineStyle', 'clearFormatting', '|',
+    'alignLeft', 'alignCenter', 'alignRight', 'alignJustify', '|',
+    'formatOL', 'formatUL', 'outdent', 'indent', '|',
+    'paragraphFormat', 'paragraphStyle', 'lineHeight', 'quote', '|',
+    'insertLink', 'insertImage', 'insertVideo', 'insertFile', '|',
+    'insertTable', 'insertHR', 'emoticons', 'specialCharacters', '|',
+    'selectAll', 'html', 'help'
+  ],
   
   // Events
   events: {
     'contentChanged': function() {
       emit('update:modelValue', this.html.get())
       console.log("html", this.html.get());
-    }
+    },
+
+    'initialized': function() {
+      // Additional styling for the content element after initialization
+      const contentElement = this.el.querySelector('.fr-element.fr-view')
+      if (contentElement) {
+        contentElement.style.setProperty('width', '20rem', 'important')
+        contentElement.style.setProperty('max-width', '10in', 'important')
+        contentElement.style.setProperty('margin', '0 auto', 'important')
+        contentElement.style.setProperty('padding', '1in', 'important')
+        console.log('Content element width set to 10in')
+      }
+    },
   }
 }
 
@@ -88,3 +114,12 @@ watch(() => props.modelValue, (newValue) => {
   }
 })
 </script>
+
+
+<style>
+/* Simple CSS to set the content element width */
+.fr-element.fr-view {
+  width: 100% !important;
+
+}
+</style>

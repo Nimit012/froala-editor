@@ -27,6 +27,9 @@ import 'froala-editor/js/plugins/table.min.js'
 import 'froala-editor/js/plugins/save.min.js'
 import 'froala-editor/js/plugins/url.min.js'
 import 'froala-editor/js/plugins/video.min.js'
+import 'froala-editor/js/plugins/print.min.js'
+import 'froala-editor/js/plugins/save.min.js'
+
 export default defineNuxtPlugin(() => {
   // Plugin is automatically client-side only due to .client.js suffix
 })

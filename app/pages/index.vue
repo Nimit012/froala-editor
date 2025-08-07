@@ -1,30 +1,31 @@
 <template>
-  <div>
-    <div>
+  <div class="flex flex-col px-8">
+      <section class="flex  align-middle my-4 gap-6 p-4s">
 
-      <h1>My Document Editor</h1>
-      
-      <div class="actions mb-6">
+        <h1 class="text-3xl ml-36">My Document Editor</h1>
+        
+        <div class="actions ml-auto">
+          <button 
+          class="btn btn-primary"
+          @click="openPreviewModal"
+          :disabled="!content.trim()"
+          >
+          Preview Document
+        </button>
         <button 
-        class="btn btn-primary"
-        @click="openPreviewModal"
-        :disabled="!content.trim()"
-        >
-        Preview Document
-      </button>
-      <button 
       class="btn btn-secondary ml-3"
       @click="saveDocument"
       >
       Save Document
     </button>
   </div>
-    </div>
+  </section>
     <ClientOnly>
       <FroalaEditor 
         v-model="content"
         :config="froalaConfig"
         editor-id="my-document-editor"
+        class="m-auto"
       />
       <template #fallback>
         <div class="loading-placeholder">
@@ -52,13 +53,7 @@ const froalaConfig = {
   height: 500,
   placeholderText: 'Start writing your document...',
   
-  toolbarButtons: [
-    'fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', '|',
-    'fontSize', 'textColor', 'backgroundColor', '|',
-    'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|',
-    'insertLink', 'insertImage', 'insertTable', '|',
-    'undo', 'redo', 'clearFormatting', 'html'
-  ]
+
 }
 
 const openPreviewModal = () => {
@@ -103,7 +98,6 @@ onMounted(() => {
 .actions {
   display: flex;
   align-items: center;
-  margin-top: 1.5rem;
 }
 
 .btn {
