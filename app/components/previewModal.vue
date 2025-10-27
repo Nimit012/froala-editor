@@ -185,7 +185,7 @@
   }
   
   .preview-content :deep(p) {
-    margin-bottom: 1em;
+    margin-bottom: 0em;
   }
   
   .preview-content :deep(ul),
