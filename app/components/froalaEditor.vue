@@ -7,7 +7,6 @@
 <script setup>
 import FroalaEditor from "froala-editor";
 
-
 const props = defineProps({
   modelValue: {
     type: String,
@@ -28,11 +27,9 @@ const emit = defineEmits(["update:modelValue"]);
 const froalaContainer = ref(null);
 let editor = null;
 
-
-
-FroalaEditor.RegisterCommand('wrapInBox', {
-  title: 'Box Text',
-  icon: 'paragraphStyle', // temporary icon
+FroalaEditor.RegisterCommand("wrapInBox", {
+  title: "Box Text",
+  icon: "paragraphStyle", // temporary icon
   focus: true,
   undo: true,
   refreshAfterCallback: true,
@@ -40,7 +37,7 @@ FroalaEditor.RegisterCommand('wrapInBox', {
     const selected = this.html.getSelected();
     if (!selected) return;
     this.html.insert(`<div class="fr-text-box">${selected}</div>`);
-  }
+  },
 });
 
 const defaultConfig = {
@@ -92,8 +89,8 @@ const defaultConfig = {
     shadow: "Shadow",
     circle: "Circle Image", // ✅ new option
   },
-  iframeStyle:
-    "body { font-family: Inter, sans-serif; } .quote-box { background: linear-gradient(135deg, rgb(102, 126, 234) 0%, rgb(118, 75, 162) 100%); padding: 24px; border-radius: 12px; color: white; }",
+  
+
 
   // // Toolbar configuration
   // toolbarButtons: {
@@ -264,8 +261,8 @@ watch(
 }
 
 .fr-text-box {
-  background-color: #E9F5FF;
-  border: 2px solid #5B9BD5;
+  background-color: #e9f5ff;
+  border: 2px solid #5b9bd5;
   border-radius: 8px;
   padding: 12px;
   margin: 8px 0;
@@ -276,4 +273,30 @@ watch(
   object-fit: cover;
   aspect-ratio: 1 / 1; /* keeps perfect circle */
 }
+
+
+.fr-element.fr-view h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0.67em 0;
+}
+
+.fr-element.fr-view h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0.75em 0;
+}
+
+.fr-element.fr-view h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 0.83em 0;
+}
+
+.fr-element.fr-view p {
+  margin: 0.5em 0;
+}
+
+
+
 </style>

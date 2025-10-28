@@ -171,6 +171,38 @@
     color: #374151;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
+
+
+  .preview-content :deep(h1) {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0.67em 0;
+}
+
+.preview-content :deep(h2) {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0.75em 0;
+}
+
+.preview-content :deep(h3) {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 0.83em 0;
+}
+
+.preview-content :deep(p) {
+  margin: 0.5em 0;
+}
+
+.preview-content :deep(.fr-text-box) {
+  background-color: #E9F5FF;
+  border: 2px solid #5B9BD5;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
   
   /* Style the preview content */
   .preview-content :deep(h1),
