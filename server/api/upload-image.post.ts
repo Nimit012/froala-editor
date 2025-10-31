@@ -7,12 +7,12 @@ export default defineEventHandler(async (event) => {
     const file = formData?.[0];
     if (!file) throw new Error('No file uploaded');
 
-    const region = process.env.AWS_REGION || 'ap-south-1';
-    const bucketName = process.env.S3_BUCKET_NAME;
+    const region = process.env.MY_AWS_REGION || 'ap-south-1';
+    const bucketName = process.env.MY_S3_BUCKET_NAME;
 
     // ✅ Ensure credentials are defined (to satisfy TS)
-    const accessKeyId = process.env.AWS_ACCESS_KEY_ID ?? '';
-    const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? '';
+    const accessKeyId = process.env.MY_AWS_ACCESS_KEY_ID ?? '';
+    const secretAccessKey = process.env.MY_AWS_SECRET_ACCESS_KEY ?? '';
 
     if (!accessKeyId || !secretAccessKey) {
       throw new Error('Missing AWS credentials in environment variables.');
