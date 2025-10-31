@@ -26,10 +26,12 @@ const emit = defineEmits(["update:modelValue"]);
 
 const froalaContainer = ref(null);
 let editor = null;
+let inputFieldCounter = 0; // Counter for input field IDs
 
+// Register custom command for wrapping in box
 FroalaEditor.RegisterCommand("wrapInBox", {
   title: "Box Text",
-  icon: "paragraphStyle", // temporary icon
+  icon: "paragraphStyle",
   focus: true,
   undo: true,
   refreshAfterCallback: true,
@@ -40,27 +42,50 @@ FroalaEditor.RegisterCommand("wrapInBox", {
   },
 });
 
+// Register custom command for inserting input fields
+FroalaEditor.RegisterCommand("insertInputField", {
+  title: "Insert Input Field",
+  icon: "insertImage",
+  focus: true,
+  undo: true,
+  refreshAfterCallback: true,
+  callback: function () {
+    const editor = this;
+    
+    // Single prompt for placeholder
+    const placeholder = prompt("Enter placeholder text (optional):", "");
+    
+    // Auto-generate field name
+    inputFieldCounter++;
+    const fieldName = `input${String(inputFieldCounter).padStart(2, '0')}`;
+    
+    // Generate unique ID
+    const fieldId = `input-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    
+    // Create the input field HTML (default to text input)
+    const inputHtml = `
+      <div class="fr-input-field" data-field-id="${fieldId}" data-field-name="${fieldName}" contenteditable="false">
+        <input 
+          type="text" 
+          class="fr-input-control" 
+          placeholder="${placeholder || ''}"
+          data-input-type="text"
+        />
+      </div>
+    `;
+    
+    editor.html.insert(inputHtml);
+  },
+});
+
 const defaultConfig = {
-  // Document ready mode configuration
   documentReady: true,
   height: 480,
   width: 1200,
 
   fontSize: [
-    "8",
-    "10",
-    "12",
-    "14",
-    "16",
-    "18",
-    "20",
-    "24",
-    "28",
-    "32",
-    "36",
-    "48",
-    "60",
-    "72",
+    "8", "10", "12", "14", "16", "18", "20", "24", 
+    "28", "32", "36", "48", "60", "72",
   ],
 
   imageUpload: true,
@@ -69,117 +94,46 @@ const defaultConfig = {
   imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
 
   htmlAllowedAttrs: [
-    "style",
-    "class",
-    "id",
-    "data-index",
-    "alt",
-    "src",
-    "href",
-    "placeholder",
+    "style", "class", "id", "data-index", "alt", "src", 
+    "href", "placeholder", "data-field-id", "data-field-name",
+    "data-input-type", "type", "contenteditable"
   ],
-  htmlAllowedEmptyTags: ["textarea", "img", "br", "hr"],
+  htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
   htmlAllowedStyleProps: [".*"],
   htmlRemoveTags: [],
   htmlUntouched: true,
   htmlExecuteScripts: false,
+  
   imageStyles: {
     rounded: "Rounded",
     bordered: "Bordered",
     shadow: "Shadow",
-    circle: "Circle Image", // ✅ new option
+    circle: "Circle Image",
   },
-  
 
-
-  // // Toolbar configuration
-  // toolbarButtons: {
-  //   'moreText': {
-  //     'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'inlineClass', 'inlineStyle', 'clearFormatting']
-  //   },
-  //   'moreParagraph': {
-  //     'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote']
-  //   },
-  //   'moreRich': {
-  //     'buttons': ['insertLink', 'insertImage', 'insertVideo', 'insertTable', 'emoticons', 'fontAwesome', 'specialCharacters', 'embedly', 'insertFile', 'insertHR']
-  //   },
-  //   'moreMisc': {
-  //     'buttons': ['undo', 'redo', 'fullscreen', 'print', 'getPDF', 'spellChecker', 'selectAll', 'html', 'help']
-  //   }
-  // },
-
-  wordPasteModal: true, // Show the Word paste dialog
-  wordPasteKeepFormatting: true, // Keep original formatting by default
+  wordPasteModal: true,
+  wordPasteKeepFormatting: true,
   wordAllowedStyleProps: [
-    // Allow these style properties
-    "font-family",
-    "font-size",
-    "background",
-    "color",
-    "width",
-    "text-align",
-    "vertical-align",
-    "background-color",
-    "padding",
-    "margin",
-    "border",
+    "font-family", "font-size", "background", "color", "width",
+    "text-align", "vertical-align", "background-color", 
+    "padding", "margin", "border",
   ],
 
   toolbarButtons: [
-    "fullscreen",
-    "print",
-    "getPDF",
-    "undo",
-    "redo",
-    "|",
-    "bold",
-    "italic",
-    "underline",
-    "strikeThrough",
-    "subscript",
-    "superscript",
-    "|",
-    "fontFamily",
-    "fontSize",
-    "textColor",
-    "backgroundColor",
-    "|",
-    "inlineClass",
-    "inlineStyle",
-    "clearFormatting",
-    "|",
-    "alignLeft",
-    "alignCenter",
-    "alignRight",
-    "alignJustify",
-    "|",
-    "formatOL",
-    "formatUL",
-    "outdent",
-    "indent",
-    "|",
-    "paragraphFormat",
-    "paragraphStyle",
-    "lineHeight",
-    "quote",
-    "|",
-    "insertLink",
-    "insertImage",
-    "insertVideo",
-    "insertFile",
-    "|",
-    "insertTable",
-    "insertHR",
-    "emoticons",
-    "specialCharacters",
-    "|",
-    "selectAll",
-    "html",
-    "help",
-    "wrapInBox",
+    "fullscreen", "print", "getPDF", "undo", "redo", "|",
+    "bold", "italic", "underline", "strikeThrough", 
+    "subscript", "superscript", "|",
+    "fontFamily", "fontSize", "textColor", "backgroundColor", "|",
+    "inlineClass", "inlineStyle", "clearFormatting", "|",
+    "alignLeft", "alignCenter", "alignRight", "alignJustify", "|",
+    "formatOL", "formatUL", "outdent", "indent", "|",
+    "paragraphFormat", "paragraphStyle", "lineHeight", "quote", "|",
+    "insertLink", "insertImage", "insertVideo", "insertFile", "|",
+    "insertTable", "insertHR", "emoticons", "specialCharacters", "|",
+    "selectAll", "html", "help", 
+    "wrapInBox", "insertInputField",
   ],
 
-  // Events
   events: {
     contentChanged: function () {
       emit("update:modelValue", this.html.get());
@@ -187,34 +141,13 @@ const defaultConfig = {
     },
 
     initialized: function () {
-      // Additional styling for the content element after initialization
       const contentElement = this.el.querySelector(".fr-element.fr-view");
       if (contentElement) {
         contentElement.style.setProperty("width", "20rem", "important");
         contentElement.style.setProperty("max-width", "10in", "important");
         contentElement.style.setProperty("margin", "0 auto", "important");
         contentElement.style.setProperty("padding", "1in", "important");
-        console.log("Content element width set to 10in");
       }
-
-      const editor = this;
-
-      FroalaEditor.RegisterCommand("wrapInBox", {
-        title: "Box Text",
-        icon: "highlight", // you can replace with custom icon later
-        focus: true,
-        undo: true,
-        refreshAfterCallback: true,
-
-        callback: function () {
-          const selectedHtml = editor.html.getSelected();
-
-          if (!selectedHtml) return;
-
-          const wrapped = `<div class="fr-text-box">${selectedHtml}</div>`;
-          editor.html.insert(wrapped);
-        },
-      });
     },
   },
 };
@@ -222,13 +155,9 @@ const defaultConfig = {
 onMounted(() => {
   nextTick(() => {
     if (froalaContainer.value) {
-      // Merge default config with user config
       const editorConfig = defaultConfig;
-
-      // Initialize Froala editor
       editor = new FroalaEditor(`#${props.editorId}`, editorConfig);
 
-      // Set initial content
       if (props.modelValue) {
         editor.html.set(props.modelValue);
       }
@@ -243,7 +172,6 @@ onBeforeUnmount(() => {
   }
 });
 
-// Watch for external content changes
 watch(
   () => props.modelValue,
   (newValue) => {
@@ -255,7 +183,6 @@ watch(
 </script>
 
 <style>
-/* Simple CSS to set the content element width */
 .fr-element.fr-view {
   width: 100% !important;
 }
@@ -268,12 +195,33 @@ watch(
   margin: 8px 0;
 }
 
+/* Input field styles for editor */
+.fr-input-field {
+  background-color: #f9fafb;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 12px 0;
+  display: block;
+}
+
+.fr-input-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: white;
+  pointer-events: none; /* Disable in editor */
+  opacity: 0.7;
+}
+
 .circle {
   border-radius: 50% !important;
   object-fit: cover;
-  aspect-ratio: 1 / 1; /* keeps perfect circle */
+  aspect-ratio: 1 / 1;
 }
-
 
 .fr-element.fr-view h1 {
   font-size: 2em;
@@ -296,7 +244,4 @@ watch(
 .fr-element.fr-view p {
   margin: 0.5em 0;
 }
-
-
-
 </style>
