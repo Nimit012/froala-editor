@@ -1,7 +1,5 @@
-// server/api/upload-image.post.js
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { readMultipartFormData } from 'h3';
-import fs from 'fs';
 
 export default defineEventHandler(async (event) => {
   try {
@@ -9,22 +7,36 @@ export default defineEventHandler(async (event) => {
     const file = formData?.[0];
     if (!file) throw new Error('No file uploaded');
 
-    // Create S3 client - uses your local ~/.aws credentials automatically
-    const s3 = new S3Client({ region: 'us-east-1' });
+    const region = process.env.AWS_REGION || 'ap-south-1';
+    const bucketName = process.env.S3_BUCKET_NAME;
 
-    // Upload file
-    const uploadParams = {
-      Bucket: 'reflowable-content-dev', // <-- replace with your actual bucket name
-      Key: `uploads/${Date.now()}_${file.filename}`,
+    // ✅ Ensure credentials are defined (to satisfy TS)
+    const accessKeyId = process.env.AWS_ACCESS_KEY_ID ?? '';
+    const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY ?? '';
+
+    if (!accessKeyId || !secretAccessKey) {
+      throw new Error('Missing AWS credentials in environment variables.');
+    }
+
+    const s3 = new S3Client({
+      region,
+      credentials: {
+        accessKeyId,
+        secretAccessKey
+      }
+    });
+
+    const key = `uploads/${Date.now()}_${file.filename}`;
+
+    await s3.send(new PutObjectCommand({
+      Bucket: bucketName,
+      Key: key,
       Body: file.data,
       ContentType: file.type
-    };
+    }));
 
-    await s3.send(new PutObjectCommand(uploadParams));
-
-    // ✅ Use CloudFront URL instead of direct S3 URL
-    const imageUrl = `https://reader2-content-dev.comprodls.com/${uploadParams.Key}`;
-
+    // Return CloudFront URL
+    const imageUrl = `https://reader2-content-dev.comprodls.com/${key}`;
     return { link: imageUrl };
   } catch (error) {
     console.error('Upload error:', error);
