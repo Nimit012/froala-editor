@@ -1,40 +1,24 @@
 <template>
-  <div class="flex flex-col px-8">
-      <section class="flex  align-middle my-4 gap-6 p-4s">
-
-        <h1 class="text-3xl ml-36">My Document Editor</h1>
-        
-        <div class="actions ml-auto">
-          <button 
-          class="btn btn-primary"
-          @click="openPreviewModal"
-          :disabled="!content.trim()"
-          >
-          Preview Document
-        </button>
-        <button 
-      class="btn btn-secondary ml-3"
-      @click="saveDocument"
-      >
-      Save Document
-    </button>
-  </div>
-  </section>
+  <div>
     <ClientOnly>
-      <FroalaEditor 
-        v-model="content"
-        :config="froalaConfig"
-        editor-id="my-document-editor"
-        class="m-auto"
-      />
+      <template #default>
+      <div class="docs-layout">
+            <FroalaEditor
+              v-model="content"
+              :config="froalaConfig"
+              editor-id="my-document-editor"
+             
+            />
+      </div>
+      </template>
+
       <template #fallback>
         <div class="loading-placeholder">
           Loading editor...
         </div>
       </template>
     </ClientOnly>
-  
-    
+
     <!-- Preview Modal -->
     <PreviewModal
       :is-open="isPreviewModalOpen"
@@ -84,6 +68,31 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.docs-layout {
+  background-color: #f1f3f4; /* Google Docs-like background */
+  height: 100vh;
+  overflow-y: auto;
+  padding :0;
+}
+
+
+.fr-box,
+.fr-wrapper,
+.fr-element {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding : 5rem 0;
+}
+
+.fr-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
 .loading-placeholder {
   height: 500px;
   border: 1px solid #ddd;

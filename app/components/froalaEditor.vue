@@ -78,10 +78,57 @@ FroalaEditor.RegisterCommand("insertInputField", {
   },
 });
 
+//Register custom command for inserting dropdown menu
+FroalaEditor.DefineIcon('insertFieldDropdown', { NAME: 'edit', SVG_KEY: 'edit' });
+
+FroalaEditor.RegisterCommand('insertFieldDropdown', {
+  title: 'Insert Field',
+  type: 'dropdown',
+  focus: true,
+  undo: true,
+  refreshAfterCallback: true,
+
+  // Menu items
+  options: {
+    text: 'Insert TextField',
+    textarea: 'Insert Textarea',
+  },
+
+  // What happens when an item is clicked
+  callback: function (cmd, val) {
+    const editor = this;
+    let html = '';
+
+    // Auto-generate unique IDs
+    const fieldId = `field-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`;
+    const fieldName = `field-${val}-${Math.random().toString(36).substr(2, 3)}`;
+
+    if (val === 'text') {
+      html = `
+        <div class="fr-input-field" data-field-id="${fieldId}" data-field-name="${fieldName}" contenteditable="false">
+          <input type="text" class="fr-input-control" placeholder="Enter text" />
+        </div>
+      `;
+    } else if (val === 'textarea') {
+      html = `
+        <div class="fr-input-field" data-field-id="${fieldId}" data-field-name="${fieldName}" contenteditable="false">
+          <textarea class="fr-input-control" placeholder="Enter multiline text"></textarea>
+        </div>
+      `;
+    }
+
+    editor.html.insert(html);
+  },
+});
+
+
 const defaultConfig = {
   documentReady: true,
-  height: 480,
-  width: 1200,
+  height: "auto",
+  width: "auto",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "flex-start",
 
   fontSize: [
     "8", "10", "12", "14", "16", "18", "20", "24", 
@@ -120,18 +167,15 @@ const defaultConfig = {
   ],
 
   toolbarButtons: [
-    "fullscreen", "print", "getPDF", "undo", "redo", "|",
+    "undo", "redo", "|",
     "bold", "italic", "underline", "strikeThrough", 
     "subscript", "superscript", "|",
-    "fontFamily", "fontSize", "textColor", "backgroundColor", "|",
-    "inlineClass", "inlineStyle", "clearFormatting", "|",
     "alignLeft", "alignCenter", "alignRight", "alignJustify", "|",
-    "formatOL", "formatUL", "outdent", "indent", "|",
-    "paragraphFormat", "paragraphStyle", "lineHeight", "quote", "|",
     "insertLink", "insertImage", "insertVideo", "insertFile", "|",
     "insertTable", "insertHR", "emoticons", "specialCharacters", "|",
     "selectAll", "html", "help", 
     "wrapInBox", "insertInputField",
+    "wrapInBox", "insertFieldDropdown"
   ],
 
   events: {
@@ -183,6 +227,17 @@ watch(
 </script>
 
 <style>
+.fr-wrapper {
+  padding:2rem 18rem !important; /* top/bottom = 0, left/right = 5rem */
+}
+.fr-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
 .fr-element.fr-view {
   width: 100% !important;
 }
