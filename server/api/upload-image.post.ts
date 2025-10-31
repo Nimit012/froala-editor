@@ -1,29 +1,33 @@
 // server/api/upload-image.post.js
+import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import { readMultipartFormData } from 'h3';
+import fs from 'fs';
 
 export default defineEventHandler(async (event) => {
-    try {
-      // For now, we're just returning a hardcoded URL
-      // Later, this will handle the actual file upload
-      
-      // You can still read the file if you want to log it
-      // const formData = await readMultipartFormData(event)
-      // console.log('File received:', formData)
-      
-      
-      // Hardcoded S3 URL for testing
-      const imageUrl = 'https://asgard-thor-assets.comprodls.com/engage/1741695276052/ootb-config/1df98e77/ootb/assets/images/logo_mc.webp'
-      
-      // Froala expects this exact response format
-      return {
-        link: imageUrl
-      }
-      
-    } catch (error) {
-      console.error('Upload error:', error)
-      
-      // Froala expects error in this format
-      return {
-        error: 'Upload failed: ' + error.message
-      }
-    }
-  })
+  try {
+    const formData = await readMultipartFormData(event);
+    const file = formData?.[0];
+    if (!file) throw new Error('No file uploaded');
+
+    // Create S3 client - uses your local ~/.aws credentials automatically
+    const s3 = new S3Client({ region: 'us-east-1' });
+
+    // Upload file
+    const uploadParams = {
+      Bucket: 'reflowable-content-dev', // <-- replace with your actual bucket name
+      Key: `uploads/${Date.now()}_${file.filename}`,
+      Body: file.data,
+      ContentType: file.type
+    };
+
+    await s3.send(new PutObjectCommand(uploadParams));
+
+    // ✅ Use CloudFront URL instead of direct S3 URL
+    const imageUrl = `https://reader2-content-dev.comprodls.com/${uploadParams.Key}`;
+
+    return { link: imageUrl };
+  } catch (error) {
+    console.error('Upload error:', error);
+    return { error: 'Upload failed: ' + error.message };
+  }
+});
