@@ -114,10 +114,21 @@ defineExpose({
   width: 100% !important;
 }
 
+.fr-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
 
 .fr-wrapper {
-  padding:2rem 18rem !important; /* top/bottom = 0, left/right = 5rem */
+  padding:2rem auto !important; /* top/bottom = 0, left/right = 5rem */
   height :auto !important;
+}
+.fr-element{
+max-width:1000px;
 }
 
 .fr-text-box {
