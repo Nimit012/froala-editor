@@ -142,6 +142,45 @@ const insertFlashcardPlugin: FroalaPlugin = {
   },
 }
 
+/**
+ * Plugin: Insert Components Dropdown
+ * Provides a dropdown menu for inserting Input Fields or Flashcards
+ */
+/**
+ * Plugin: Insert Components Dropdown
+ * Dropdown to insert Input Field or Flashcard
+ */
+
+FroalaEditor.DefineIcon("edit", { NAME: "edit", SVG_KEY: "edit" })
+
+const insertComponentsDropdownPlugin: FroalaPlugin = {
+  name: "insertComponentsDropdown",
+  config: {
+    title: "Insert",
+    icon: '<span style="font-size:16px; font-weight:500;">GRADPATH CAPABILITIES</span>',
+    type: "dropdown",
+    focus: false,
+    undo: false,
+    refreshAfterCallback: false,
+    options: {
+      insertInputField: "Insert Input Field",
+      insertFlashcard: "Insert Flashcard",
+    },
+  },
+  callback: function (this: any, _cmd: string, val: string) {
+    const editor = this
+
+    if (val === "insertInputField") {
+      const plugin = plugins.find((p) => p.name === "insertInputField")
+      plugin?.callback?.call(editor, editor)
+    } else if (val === "insertFlashcard") {
+      const plugin = plugins.find((p) => p.name === "insertFlashcard")
+      plugin?.callback?.call(editor, editor)
+    }
+  },
+}
+
+
 // ============================================================================
 // REGISTRY
 // ============================================================================
@@ -155,7 +194,8 @@ const insertFlashcardPlugin: FroalaPlugin = {
  */
 const plugins: FroalaPlugin[] = [
   insertInputFieldPlugin,
-  insertFlashcardPlugin
+  insertFlashcardPlugin,
+  insertComponentsDropdownPlugin
   // Add more plugins here
 ]
 

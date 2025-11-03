@@ -114,6 +114,12 @@ defineExpose({
   width: 100% !important;
 }
 
+
+.fr-wrapper {
+  padding:2rem 18rem !important; /* top/bottom = 0, left/right = 5rem */
+  height :auto !important;
+}
+
 .fr-text-box {
   background-color: #e9f5ff;
   border: 2px solid #5b9bd5;
