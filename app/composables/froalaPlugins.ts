@@ -134,7 +134,7 @@ const insertInputFieldPlugin: FroalaPlugin = {
     editor.selection.save()
 
     const { openModal } = useFroalaModals()
-    const result = await openModal<{ placeholder: string; fieldLabel: string }>(
+    const result = await openModal<{ placeholder: string; fieldLabel: string; inputType: 'single' | 'multi' }>(
       InputFieldModal
     )
 
@@ -151,9 +151,11 @@ const insertInputFieldPlugin: FroalaPlugin = {
       .toString(36)
       .substr(2, 9)}`
 
+    const defaultPlaceholder = `Response ${inputFieldCounter}`
     const html = generateInputFieldHtml({
-      placeholder: result.data.placeholder,
+      placeholder: result.data.placeholder || defaultPlaceholder,
       fieldLabel: result.data.fieldLabel,
+      inputType: result.data.inputType,
       fieldName,
       fieldId
     })
@@ -208,7 +210,7 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
   name: "insertComponentsDropdown",
   config: {
     title: "Insert",
-    icon: '<span style="font-size:16px; font-weight:500;">GRADPATH CAPABILITIES</span>',
+    icon: '<span style="font-size:14px; font-weight:500;">GRADPATH CAPABILITIES</span>',
     type: "dropdown",
     focus: false,
     undo: false,

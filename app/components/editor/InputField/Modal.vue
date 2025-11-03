@@ -24,6 +24,17 @@
   
         <div class="mb-6">
           <label class="block mb-2 font-medium text-slate-700">
+            Input Type
+          </label>
+          <select 
+            v-model="inputType"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white mb-4"
+          >
+            <option value="single">Single Line</option>
+            <option value="multi">Multi Line</option>
+          </select>
+
+          <label class="block mb-2 font-medium text-slate-700">
             Placeholder Text (Optional)
           </label>
           <input
@@ -55,24 +66,35 @@
   
   <script setup lang="ts">
   import { ref, onMounted } from 'vue'
-  
+
+  type InputType = 'single' | 'multi'
+
   const emit = defineEmits<{
-    submit: [data: { placeholder: string; fieldLabel: string }]
+    submit: [data: { placeholder: string; fieldLabel: string; inputType: InputType }]
     cancel: []
   }>()
   
   const placeholder = ref('')
   const fieldLabel = ref('')
+  const inputType = ref<InputType>('single')
   const labelInput = ref<HTMLInputElement | null>(null)
   
   onMounted(() => {
     labelInput.value?.focus()
   })
+
+  // Encode quotes before emitting
+  const escapeHTML = (str: string) => {
+    return str
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+  }
   
   const handleSubmit = () => {
     emit('submit', {
-      placeholder: placeholder.value,
-      fieldLabel: fieldLabel.value
+      placeholder: escapeHTML(placeholder.value),
+      fieldLabel: escapeHTML(fieldLabel.value),
+      inputType: inputType.value
     })
   }
   

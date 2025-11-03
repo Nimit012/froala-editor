@@ -94,7 +94,7 @@ onMounted(() => {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto !important;
-  padding: 5rem 0;
+  padding: auto 0;
 }
 
 .fr-toolbar {
