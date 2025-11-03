@@ -21,8 +21,11 @@ export const useFroalaConfig = () => {
   ) => {
     return {
       documentReady: true,
-      height: 480,
-      width: 1200,
+       height: "auto",
+       width: "100%",
+       display: "flex",
+      justifyContent: "center",
+      alignItems: "flex-start",
 
       fontSize: [
         "8",
@@ -91,9 +94,6 @@ export const useFroalaConfig = () => {
       ],
 
       toolbarButtons: [
-        "fullscreen",
-        "print",
-        "getPDF",
         "undo",
         "redo",
         "|",
@@ -104,11 +104,6 @@ export const useFroalaConfig = () => {
         "subscript",
         "superscript",
         "|",
-        "fontFamily",
-        "fontSize",
-        "textColor",
-        "backgroundColor",
-        "|",
         "inlineClass",
         "inlineStyle",
         "clearFormatting",
@@ -117,32 +112,15 @@ export const useFroalaConfig = () => {
         "alignCenter",
         "alignRight",
         "alignJustify",
-        "|",
-        "formatOL",
-        "formatUL",
-        "outdent",
-        "indent",
-        "|",
-        "paragraphFormat",
-        "paragraphStyle",
-        "lineHeight",
-        "quote",
-        "|",
         "insertLink",
         "insertImage",
         "insertVideo",
         "insertFile",
         "|",
-        "insertTable",
-        "insertHR",
-        "emoticons",
-        "specialCharacters",
-        "|",
         "selectAll",
         "html",
         "help",
-        "insertInputField",
-        "insertFlashcard"
+        "insertComponentsDropdown"
       ],
 
       events: {
