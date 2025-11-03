@@ -3,20 +3,13 @@ import { useFroalaModals } from "~/composables/useFroalaModals"
 import InputFieldModal from "~/components/editor/InputField/Modal.vue"
 import FlashcardModal from "~/components/editor/Flashcard/Modal.vue"
 import { generateInputFieldHtml } from "~/components/editor/InputField/Template"
-import { generateFlashcardHtml } from "~/components/editor/Flashcard/Template"
+import { generateFlashcardHtml, type FlashcardDeckData } from "~/components/editor/Flashcard/Template"
 
 /**
  * Plugin definition interface for Froala custom commands
  */
 export interface FroalaPlugin {
-  /**
-   * The command name (e.g., "insertInputField")
-   */
   name: string
-
-  /**
-   * Plugin configuration
-   */
   config: {
     title: string
     icon?: string
@@ -25,22 +18,97 @@ export interface FroalaPlugin {
     refreshAfterCallback?: boolean
     [key: string]: any
   }
-
-  /**
-   * Callback function that executes when the command is invoked
-   * @param editor - The Froala editor instance
-   */
-  callback: (editor: any) => void
-
-  /**
-   * Optional: Initialize function called when plugin is registered
-   */
+  callback: (this: any, ...args: any[]) => void | Promise<void>
   initialize?: () => void
-
-  /**
-   * Optional: Cleanup function called when plugin is unregistered
-   */
   cleanup?: () => void
+}
+
+// ============================================================================
+// HELPER FUNCTIONS FOR FLASHCARD EDITING
+// ============================================================================
+
+/**
+ * Global function to handle flashcard editing
+ * This is called from the onclick handler in the button
+ */
+export async function editFlashcardDeck(deckId: string) {
+  try {
+    // Find the deck element
+    const deckElement = document.querySelector(`[data-deck-id="${deckId}"]`)
+    
+    if (!deckElement) {
+      console.error('Deck not found:', deckId)
+      return
+    }
+    
+    // Get serialized data
+    const serializedData = deckElement.getAttribute('data-deck-data')
+    if (!serializedData) {
+      console.error('Deck data not found')
+      return
+    }
+    
+    // Decode and parse the data
+    const existingData: FlashcardDeckData = JSON.parse(
+      decodeURIComponent(atob(serializedData))
+    )
+    
+    // Open modal with existing data
+    const { openModal } = useFroalaModals()
+    const result = await openModal<FlashcardDeckData>(FlashcardModal, {
+      existingData,
+      uploadEndpoint: '/api/upload-image'
+    })
+    
+    if (!result.confirmed || !result.data) return
+    
+    // Generate new HTML
+    const newHtml = generateFlashcardHtml(result.data)
+    
+    // Replace the old element
+    deckElement.outerHTML = newHtml
+  } catch (error) {
+    console.error('Error editing flashcard:', error)
+    alert('Failed to edit flashcard. Please try again.')
+  }
+}
+
+export function deleteFlashcardDeck(deckId: string) {
+
+  
+  try {
+    const deckElement = document.querySelector(`[data-deck-id="${deckId}"]`)
+    
+    if (deckElement) {
+      deckElement.remove()
+    }
+  } catch (error) {
+    console.error('Error deleting flashcard:', error)
+    alert('Failed to delete flashcard. Please try again.')
+  }
+}
+
+
+export function deleteInputField(fieldId: string) {
+
+  try {
+    const fieldElement = document.querySelector(`[data-field-id="${fieldId}"]`)
+    
+    if (fieldElement) {
+      fieldElement.remove()
+    }
+  } catch (error) {
+    console.error('Error deleting input field:', error)
+    alert('Failed to delete input field. Please try again.')
+  }
+}
+
+
+// Make it globally available
+if (typeof window !== 'undefined') {
+  (window as any).editFlashcardDeck = editFlashcardDeck;
+  (window as any).deleteFlashcardDeck = deleteFlashcardDeck;
+  (window as any).deleteInputField = deleteInputField;
 }
 
 // ============================================================================
@@ -51,7 +119,6 @@ let inputFieldCounter = 0
 
 /**
  * Plugin: Insert Input Field
- * Inserts a form input field into the editor
  */
 const insertInputFieldPlugin: FroalaPlugin = {
   name: "insertInputField",
@@ -95,12 +162,11 @@ const insertInputFieldPlugin: FroalaPlugin = {
   },
 }
 
-let flashcardCounter = 0
-
 /**
  * Plugin: Insert Flashcard
- * Inserts a flashcard into the editor
  */
+let flashcardCounter = 0
+
 const insertFlashcardPlugin: FroalaPlugin = {
   name: "insertFlashcard",
   config: {
@@ -115,9 +181,9 @@ const insertFlashcardPlugin: FroalaPlugin = {
     editor.selection.save()
 
     const { openModal } = useFroalaModals()
-    const result = await openModal<{ question: string; answer: string }>(
-      FlashcardModal
-    )
+    const result = await openModal<FlashcardDeckData>(FlashcardModal, {
+      uploadEndpoint: '/api/upload-image'
+    })
 
     if (!result.confirmed || !result.data) {
       editor.selection.restore()
@@ -127,30 +193,15 @@ const insertFlashcardPlugin: FroalaPlugin = {
     editor.selection.restore()
 
     flashcardCounter++
-    const flashcardId = `flashcard-${Date.now()}-${Math.random()
-      .toString(36)
-      .substr(2, 9)}`
-
-    const html = generateFlashcardHtml({
-      question: result.data.question,
-      answer: result.data.answer,
-      flashcardNumber: flashcardCounter,
-      flashcardId
-    })
+    const html = generateFlashcardHtml(result.data)
 
     editor.html.insert(html)
-  },
+  }
 }
 
 /**
  * Plugin: Insert Components Dropdown
- * Provides a dropdown menu for inserting Input Fields or Flashcards
  */
-/**
- * Plugin: Insert Components Dropdown
- * Dropdown to insert Input Field or Flashcard
- */
-
 FroalaEditor.DefineIcon("edit", { NAME: "edit", SVG_KEY: "edit" })
 
 const insertComponentsDropdownPlugin: FroalaPlugin = {
@@ -180,23 +231,14 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
   },
 }
 
-
 // ============================================================================
 // REGISTRY
 // ============================================================================
 
-/**
- * Registry of all Froala custom plugins
- * To add a new plugin:
- * 1. Create it above
- * 2. Add it to this array
- * 3. (Optional) Add the plugin name to toolbarButtons in useFroalaConfig.ts
- */
 const plugins: FroalaPlugin[] = [
   insertInputFieldPlugin,
   insertFlashcardPlugin,
   insertComponentsDropdownPlugin
-  // Add more plugins here
 ]
 
 /**
@@ -206,12 +248,10 @@ export const registerFroalaPlugins = (): void => {
   plugins.forEach((plugin) => {
     const { name, config, callback } = plugin
 
-    // Call initialize if provided
     if (plugin.initialize) {
       plugin.initialize()
     }
 
-    // Register the command with Froala
     FroalaEditor.RegisterCommand(name, {
       ...config,
       callback: callback,

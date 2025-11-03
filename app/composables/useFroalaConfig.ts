@@ -50,19 +50,9 @@ export const useFroalaConfig = () => {
       imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
 
       htmlAllowedAttrs: [
-        "style",
-        "class",
-        "id",
-        "data-index",
-        "alt",
-        "src",
-        "href",
-        "placeholder",
-        "data-field-id",
-        "data-field-name",
-        "data-input-type",
-        "type",
-        "contenteditable",
+        "style", "class", "id", "data-index", "alt", "src", "href",
+        "placeholder", "data-field-id", "data-field-name", "data-input-type",
+        "data-deck-id", "data-deck-data", "type", "contenteditable", "onclick"
       ],
       htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
       htmlAllowedStyleProps: [".*"],
@@ -80,55 +70,29 @@ export const useFroalaConfig = () => {
       wordPasteModal: true,
       wordPasteKeepFormatting: true,
       wordAllowedStyleProps: [
-        "font-family",
-        "font-size",
-        "background",
-        "color",
-        "width",
-        "text-align",
-        "vertical-align",
-        "background-color",
-        "padding",
-        "margin",
-        "border",
+        "font-family", "font-size", "background", "color", "width",
+        "text-align", "vertical-align", "background-color",
+        "padding", "margin", "border",
       ],
 
       toolbarButtons: [
-        "undo",
-        "redo",
-        "|",
-        "bold",
-        "italic",
-        "underline",
-        "strikeThrough",
-        "subscript",
-        "superscript",
-        "|",
-        "inlineClass",
-        "inlineStyle",
-        "clearFormatting",
-        "|",
-        "alignLeft",
-        "alignCenter",
-        "alignRight",
-        "alignJustify",
-        "insertLink",
-        "insertImage",
-        "insertVideo",
-        "insertFile",
-        "|",
-        "selectAll",
-        "html",
-        "help",
-        "insertComponentsDropdown"
+        "undo", "redo", "|",
+        "bold", "italic", "underline", "strikeThrough",
+        "subscript", "superscript", "|",
+        "inlineClass", "inlineStyle", "clearFormatting", "|",
+        "alignLeft", "alignCenter", "alignRight", "alignJustify",
+        "insertLink", "insertImage", "insertVideo", "insertFile", "|",
+        "selectAll", "html", "help", "insertComponentsDropdown"
       ],
+
+      // Disable quick insert to prevent menu interference
+      quickInsertEnabled: false,
 
       events: {
         contentChanged: function (this: FroalaEditor) {
           const content = this.html.get();
           emit("update:modelValue", content);
 
-          // Auto-save to localStorage if enabled
           if (autoSave) {
             saveToStorage(content);
           }
@@ -145,7 +109,6 @@ export const useFroalaConfig = () => {
             contentElement.style.setProperty("padding", "1in", "important");
           }
 
-          // Load content after editor is initialized
           const savedContent = loadFromStorage();
           const initialContent = savedContent || initialModelValue;
 
@@ -160,5 +123,4 @@ export const useFroalaConfig = () => {
   return {
     getDefaultConfig,
   };
-};
-
+};  
