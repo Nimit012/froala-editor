@@ -124,8 +124,11 @@ defineExpose({
 
 
 .fr-wrapper {
-  padding:2rem 18rem !important; /* top/bottom = 0, left/right = 5rem */
+  padding:2rem auto !important; /* top/bottom = 0, left/right = 5rem */
   height :auto !important;
+}
+.fr-element{
+max-width:1000px;
 }
 
 .fr-text-box {
