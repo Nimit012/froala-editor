@@ -58,99 +58,202 @@ const insertInputFieldPlugin: FroalaPlugin = {
     refreshAfterCallback: true,
   },
   callback: function (this: any) {
-    const placeholder = prompt("Enter placeholder text (optional):", "");
     const editor = this;
 
-    inputFieldCounter++;
-    const fieldName = `input${String(inputFieldCounter).padStart(2, "0")}`;
-    const fieldId = `input-${Date.now()}-${Math.random()
-      .toString(36)
-      .substr(2, 9)}`;
 
-    const inputHtml = `
-      <input 
-        type="text" 
-        class="fr-input-control" 
-        placeholder="${placeholder || ""}"
-        data-input-type="text"
-        data-field-id="${fieldId}"
-        data-field-name="${fieldName}"
-        contenteditable="false"
-        style="display: block; width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; margin: 12px 0; font-size: 14px; pointer-events: none; opacity: 0.7;"
-      />
-    `;
+    editor.selection.save();
 
-    editor.html.insert(inputHtml);
+
+    const modal = createInputFieldModal((placeholder, fieldLabel) => {
+
+      editor.selection.restore();
+
+      
+      inputFieldCounter++;
+      const fieldName = `input${String(inputFieldCounter).padStart(2, "0")}`;
+      const fieldId = `input-${Date.now()}-${Math.random()
+        .toString(36)
+        .substr(2, 9)}`;
+
+      const inputHtml = `
+        <input 
+          type="text" 
+          class="fr-input-control" 
+          placeholder="${placeholder || ""}"
+          data-input-type="text"
+          data-field-id="${fieldId}"
+          data-field-name="${fieldName}"
+          data-label="${escapeHtml(fieldLabel || '')}"
+          contenteditable="false"
+          style="display: block; width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; margin: 12px 0; font-size: 14px; pointer-events: none; opacity: 0.7;"
+        />
+      `;
+
+      editor.html.insert(inputHtml);
+      modal.remove();
+    });
+
+    document.body.appendChild(modal);
   },
 };
 
+/**
+ * Creates a modal for input field configuration
+ */
+function createInputFieldModal(
+  onSubmit: (placeholder: string, fieldLabel: string) => void
+): HTMLElement {
+  const overlay = document.createElement("div");
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  `;
 
+  const modal = document.createElement("div");
+  modal.style.cssText = `
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  `;
 
+  modal.innerHTML = `
+    <h3 style="margin: 0 0 20px 0; font-size: 20px; color: #1e293b;">Insert Input Field</h3>
+    
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #334155;">Field Label (Optional)</label>
+      <input 
+        type="text"
+        id="input-field-label" 
+        placeholder="e.g., Full Name, Email Address..."
+        style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit; font-size: 14px;"
+      />
+    </div>
+    
+    <div style="margin-bottom: 24px;">
+      <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #334155;">Placeholder Text (Optional)</label>
+      <input 
+        type="text"
+        id="input-field-placeholder" 
+        placeholder="e.g., Enter your name..."
+        style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit; font-size: 14px;"
+      />
+    </div>
+    
+    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+      <button 
+        id="input-field-cancel"
+        style="padding: 8px 16px; border: 1px solid #d1d5db; border-radius: 6px; background: white; cursor: pointer; font-size: 14px;"
+      >
+        Cancel
+      </button>
+      <button 
+        id="input-field-submit"
+        style="padding: 8px 16px; border: none; border-radius: 6px; background: #3b82f6; color: white; cursor: pointer; font-size: 14px; font-weight: 500;"
+      >
+        Insert Field
+      </button>
+    </div>
+  `;
 
+  overlay.appendChild(modal);
+
+  // Event handlers
+  const labelInput = modal.querySelector("#input-field-label") as HTMLInputElement;
+  const placeholderInput = modal.querySelector("#input-field-placeholder") as HTMLInputElement;
+  const submitBtn = modal.querySelector("#input-field-submit") as HTMLButtonElement;
+  const cancelBtn = modal.querySelector("#input-field-cancel") as HTMLButtonElement;
+
+  submitBtn.addEventListener("click", () => {
+    onSubmit(placeholderInput.value, labelInput.value);
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    overlay.remove();
+  });
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      overlay.remove();
+    }
+  });
+
+  // Focus the first input
+  setTimeout(() => labelInput.focus(), 100);
+
+  return overlay;
+}
 
 let flashcardCounter = 0;
 
 const insertFlashcardPlugin: FroalaPlugin = {
-    name: "insertFlashcard",
-    config: {
-      title: "Insert Flashcard",
-      icon: "insertImage",
-      focus: true,
-      undo: true,
-      refreshAfterCallback: true,
-    },
-    callback: function (this: any) {
+  name: "insertFlashcard",
+  config: {
+    title: "Insert Flashcard",
+    icon: "insertImage",
+    focus: true,
+    undo: true,
+    refreshAfterCallback: true,
+  },
+  callback: function (this: any) {
+    const editor = this;
 
-      const editor = this;
+    const modal = createFlashcardModal((question, answer) => {
+      if (!question.trim() || !answer.trim()) {
+        alert("Both question and answer are required");
+        return;
+      }
 
-      
-      const modal = createFlashcardModal((question, answer) => {
-        if (!question.trim() || !answer.trim()) {
-          alert("Both question and answer are required");
-          return;
-        }
-  
-        flashcardCounter++;
-        const flashcardId = `flashcard-${Date.now()}-${Math.random()
-          .toString(36)
-          .substr(2, 9)}`;
-  
-        const flashcardHtml = `
-          <div 
-            class="fr-flashcard-block" 
-            data-flashcard-id="${flashcardId}"
-            data-flashcard-number="${flashcardCounter}"
-            contenteditable="false"
-            style="border: 2px solid #3b82f6; border-radius: 8px; padding: 16px; margin: 16px 0; background: #f8fafc; pointer-events: none;"
-          >
-            <div style="font-weight: 600; color: #3b82f6; margin-bottom: 12px; font-size: 12px; text-transform: uppercase;">
-              Flashcard ${flashcardCounter}
-            </div>
-            <div 
-              class="fr-flashcard-question" 
-              data-question="${escapeHtml(question)}"
-              style="margin-bottom: 12px;"
-            >
-              <strong style="color: #1e293b;">Q:</strong> ${question}
-            </div>
-            <div 
-              class="fr-flashcard-answer" 
-              data-answer="${escapeHtml(answer)}"
-              style="border-top: 1px solid #cbd5e1; padding-top: 12px; color: #475569;"
-            >
-              <strong style="color: #1e293b;">A:</strong> ${answer}
-            </div>
+      flashcardCounter++;
+      const flashcardId = `flashcard-${Date.now()}-${Math.random()
+        .toString(36)
+        .substr(2, 9)}`;
+
+      const flashcardHtml = `
+        <div 
+          class="fr-flashcard-block" 
+          data-flashcard-id="${flashcardId}"
+          data-flashcard-number="${flashcardCounter}"
+          contenteditable="false"
+          style="border: 2px solid #3b82f6; border-radius: 8px; padding: 16px; margin: 16px 0; background: #f8fafc; pointer-events: none;"
+        >
+          <div style="font-weight: 600; color: #3b82f6; margin-bottom: 12px; font-size: 12px; text-transform: uppercase;">
+            Flashcard ${flashcardCounter}
           </div>
-        `;
-  
-        // Use the stored editor reference
-        editor.html.insert(flashcardHtml);
-        modal.remove();
-      });
-  
-      document.body.appendChild(modal);
-    },
-  };
+          <div 
+            class="fr-flashcard-question" 
+            data-question="${escapeHtml(question)}"
+            style="margin-bottom: 12px;"
+          >
+            <strong style="color: #1e293b;">Q:</strong> ${question}
+          </div>
+          <div 
+            class="fr-flashcard-answer" 
+            data-answer="${escapeHtml(answer)}"
+            style="border-top: 1px solid #cbd5e1; padding-top: 12px; color: #475569;"
+          >
+            <strong style="color: #1e293b;">A:</strong> ${answer}
+          </div>
+        </div>
+      `;
+
+      editor.html.insert(flashcardHtml);
+      modal.remove();
+    });
+
+    document.body.appendChild(modal);
+  },
+};
 
 /**
  * Creates a modal for flashcard authoring
@@ -255,19 +358,6 @@ function escapeHtml(text: string): string {
   return div.innerHTML;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ============================================================================
 // REGISTRY
 // ============================================================================
@@ -324,4 +414,3 @@ export const unregisterFroalaPlugins = (): void => {
 export const getRegisteredPluginNames = (): string[] => {
   return plugins.map((p) => p.name);
 };
-
