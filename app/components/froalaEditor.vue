@@ -6,6 +6,9 @@
 
 <script setup>
 import FroalaEditor from "froala-editor";
+import { useFroalaStorage } from "~/composables/useFroalaStorage";
+import { useFroalaConfig } from "~/composables/useFroalaConfig";
+import { registerFroalaPlugins } from "~/composables/froalaPlugins";
 
 const props = defineProps({
   modelValue: {
@@ -20,153 +23,60 @@ const props = defineProps({
     type: String,
     default: () => `froala-${Math.random().toString(36).substr(2, 9)}`,
   },
+  storageKey: {
+    type: String,
+    default: "froala-editor-content",
+  },
+  autoSave: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
 const froalaContainer = ref(null);
 let editor = null;
-let inputFieldCounter = 0; // Counter for input field IDs
 
-// Register custom command for wrapping in box
-FroalaEditor.RegisterCommand("wrapInBox", {
-  title: "Box Text",
-  icon: "paragraphStyle",
-  focus: true,
-  undo: true,
-  refreshAfterCallback: true,
-  callback: function () {
-    const selected = this.html.getSelected();
-    if (!selected) return;
-    this.html.insert(`<div class="fr-text-box">${selected}</div>`);
-  },
-});
+// Initialize storage composable
+const { loadFromStorage, saveToStorage, clearStorage } = useFroalaStorage(
+  props.storageKey
+);
 
-// Register custom command for inserting input fields
-FroalaEditor.RegisterCommand("insertInputField", {
-  title: "Insert Input Field",
-  icon: "insertImage",
-  focus: true,
-  undo: true,
-  refreshAfterCallback: true,
-  callback: function () {
-    const editor = this;
-    
-    // Single prompt for placeholder
-    const placeholder = prompt("Enter placeholder text (optional):", "");
-    
-    // Auto-generate field name
-    inputFieldCounter++;
-    const fieldName = `input${String(inputFieldCounter).padStart(2, '0')}`;
-    
-    // Generate unique ID
-    const fieldId = `input-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    
-    // Create the input field HTML (default to text input)
-    const inputHtml = `
-      <div class="fr-input-field" data-field-id="${fieldId}" data-field-name="${fieldName}" contenteditable="false">
-        <input 
-          type="text" 
-          class="fr-input-control" 
-          placeholder="${placeholder || ''}"
-          data-input-type="text"
-        />
-      </div>
-    `;
-    
-    editor.html.insert(inputHtml);
-  },
-});
+// Initialize config composable
+const { getDefaultConfig } = useFroalaConfig();
 
+// Register all custom plugins
+registerFroalaPlugins();
+
+// Get default configuration with event handlers
 const defaultConfig = {
-  documentReady: true,
-  height: 480,
-  width: 1200,
-
-  fontSize: [
-    "8", "10", "12", "14", "16", "18", "20", "24", 
-    "28", "32", "36", "48", "60", "72",
-  ],
-
-  imageUpload: true,
-  imageUploadURL: "/api/upload-image",
-  imageMaxSize: 5 * 1024 * 1024,
-  imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
-
-  htmlAllowedAttrs: [
-    "style", "class", "id", "data-index", "alt", "src", 
-    "href", "placeholder", "data-field-id", "data-field-name",
-    "data-input-type", "type", "contenteditable"
-  ],
-  htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
-  htmlAllowedStyleProps: [".*"],
-  htmlRemoveTags: [],
-  htmlUntouched: true,
-  htmlExecuteScripts: false,
-  
-  imageStyles: {
-    rounded: "Rounded",
-    bordered: "Bordered",
-    shadow: "Shadow",
-    circle: "Circle Image",
-  },
-
-  wordPasteModal: true,
-  wordPasteKeepFormatting: true,
-  wordAllowedStyleProps: [
-    "font-family", "font-size", "background", "color", "width",
-    "text-align", "vertical-align", "background-color", 
-    "padding", "margin", "border",
-  ],
-
-  toolbarButtons: [
-    "fullscreen", "print", "getPDF", "undo", "redo", "|",
-    "bold", "italic", "underline", "strikeThrough", 
-    "subscript", "superscript", "|",
-    "fontFamily", "fontSize", "textColor", "backgroundColor", "|",
-    "inlineClass", "inlineStyle", "clearFormatting", "|",
-    "alignLeft", "alignCenter", "alignRight", "alignJustify", "|",
-    "formatOL", "formatUL", "outdent", "indent", "|",
-    "paragraphFormat", "paragraphStyle", "lineHeight", "quote", "|",
-    "insertLink", "insertImage", "insertVideo", "insertFile", "|",
-    "insertTable", "insertHR", "emoticons", "specialCharacters", "|",
-    "selectAll", "html", "help", 
-    "wrapInBox", "insertInputField",
-  ],
-
-  events: {
-    contentChanged: function () {
-      emit("update:modelValue", this.html.get());
-      console.log("html", this.html.get());
-    },
-
-    initialized: function () {
-      const contentElement = this.el.querySelector(".fr-element.fr-view");
-      if (contentElement) {
-        contentElement.style.setProperty("width", "20rem", "important");
-        contentElement.style.setProperty("max-width", "10in", "important");
-        contentElement.style.setProperty("margin", "0 auto", "important");
-        contentElement.style.setProperty("padding", "1in", "important");
-      }
-    },
-  },
+  ...getDefaultConfig(
+    emit,
+    props.autoSave,
+    saveToStorage,
+    loadFromStorage,
+    props.modelValue
+  ),
+  // Merge with user-provided config
+  ...props.config,
 };
 
 onMounted(() => {
   nextTick(() => {
     if (froalaContainer.value) {
-      const editorConfig = defaultConfig;
-      editor = new FroalaEditor(`#${props.editorId}`, editorConfig);
-
-      if (props.modelValue) {
-        editor.html.set(props.modelValue);
-      }
+      editor = new FroalaEditor(`#${props.editorId}`, defaultConfig);
     }
   });
 });
 
 onBeforeUnmount(() => {
   if (editor) {
+    // Save one final time before unmounting
+    if (props.autoSave) {
+      saveToStorage(editor.html.get());
+    }
+
     editor.destroy();
     editor = null;
   }
@@ -180,6 +90,23 @@ watch(
     }
   }
 );
+
+// Expose methods for manual control
+defineExpose({
+  saveToStorage: () => {
+    if (editor) {
+      saveToStorage(editor.html.get());
+    }
+  },
+  clearStorage,
+  loadFromStorage: () => {
+    const content = loadFromStorage();
+    if (content && editor) {
+      editor.html.set(content);
+    }
+    return content;
+  },
+});
 </script>
 
 <style>
@@ -195,26 +122,18 @@ watch(
   margin: 8px 0;
 }
 
-/* Input field styles for editor */
-.fr-input-field {
-  background-color: #f9fafb;
-  border: 2px dashed #d1d5db;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 12px 0;
-  display: block;
-}
-
 .fr-input-control {
+  display: block;
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
   font-size: 14px;
   font-family: inherit;
-  background-color: white;
-  pointer-events: none; /* Disable in editor */
-  opacity: 0.7;
+  margin: 12px 0;
+  pointer-events: none;
+  background-color: rgb(248, 250, 252);
+  border: 1px dashed rgb(203, 213, 224);
+  border-radius: 6px;
+  padding: 12px;
 }
 
 .circle {

@@ -51,7 +51,7 @@ const props = defineProps({
   },
   documentId: {
     type: String,
-    default: 'default-doc' // Unique ID for each document
+    default: 'default-doc'
   }
 })
 
@@ -59,7 +59,6 @@ const emit = defineEmits(['close', 'formDataCollected'])
 
 const previewContent = ref(null)
 
-// Generate storage key based on document ID
 const getStorageKey = () => {
   return `froala-form-data-${props.documentId}`
 }
@@ -68,7 +67,6 @@ const closeModal = () => {
   emit('close')
 }
 
-// Enable inputs in preview after mount
 onMounted(() => {
   watch(() => props.isOpen, (isOpen) => {
     if (isOpen) {
@@ -83,21 +81,14 @@ onMounted(() => {
 const enableInputsInPreview = () => {
   if (!previewContent.value) return
   
-  // Enable all input fields in preview
-  const inputFields = previewContent.value.querySelectorAll('.fr-input-field')
-  inputFields.forEach(field => {
-    field.style.backgroundColor = '#ffffff'
-    field.style.border = '2px solid #3b82f6'
+  const inputFields = previewContent.value.querySelectorAll('.fr-input-control')
+  inputFields.forEach(input => {
+    input.style.pointerEvents = 'auto'
+    input.style.opacity = '1'
+    input.style.border = '2px solid #3b82f6'
+    input.disabled = false
     
-    const input = field.querySelector('.fr-input-control')
-    if (input) {
-      input.style.pointerEvents = 'auto'
-      input.style.opacity = '1'
-      input.disabled = false
-      
-      // Add blur event listener to save data
-      input.addEventListener('blur', saveFormData)
-    }
+    input.addEventListener('blur', saveFormData)
   })
 }
 
@@ -105,18 +96,16 @@ const saveFormData = () => {
   if (!previewContent.value) return
   
   const formData = {}
-  const inputFields = previewContent.value.querySelectorAll('.fr-input-field')
+  const inputFields = previewContent.value.querySelectorAll('.fr-input-control')
   
-  inputFields.forEach(field => {
-    const fieldName = field.getAttribute('data-field-name')
-    const input = field.querySelector('.fr-input-control')
+  inputFields.forEach(input => {
+    const fieldName = input.getAttribute('data-field-name')
     
-    if (input && fieldName) {
+    if (fieldName) {
       formData[fieldName] = input.value
     }
   })
   
-  // Save to localStorage
   try {
     localStorage.setItem(getStorageKey(), JSON.stringify(formData))
     console.log('Form data saved to localStorage:', formData)
@@ -133,13 +122,12 @@ const restoreFormData = () => {
     if (!savedData) return
     
     const formData = JSON.parse(savedData)
-    const inputFields = previewContent.value.querySelectorAll('.fr-input-field')
+    const inputFields = previewContent.value.querySelectorAll('.fr-input-control')
     
-    inputFields.forEach(field => {
-      const fieldName = field.getAttribute('data-field-name')
-      const input = field.querySelector('.fr-input-control')
+    inputFields.forEach(input => {
+      const fieldName = input.getAttribute('data-field-name')
       
-      if (input && fieldName && formData[fieldName] !== undefined) {
+      if (fieldName && formData[fieldName] !== undefined) {
         input.value = formData[fieldName]
       }
     })
@@ -153,21 +141,15 @@ const restoreFormData = () => {
 const clearFormData = () => {
   if (!previewContent.value) return
   
-  // Confirm before clearing
   if (!confirm('Are you sure you want to clear all form data?')) {
     return
   }
   
-  // Clear all input values
-  const inputFields = previewContent.value.querySelectorAll('.fr-input-field')
-  inputFields.forEach(field => {
-    const input = field.querySelector('.fr-input-control')
-    if (input) {
-      input.value = ''
-    }
+  const inputFields = previewContent.value.querySelectorAll('.fr-input-control')
+  inputFields.forEach(input => {
+    input.value = ''
   })
   
-  // Remove from localStorage
   try {
     localStorage.removeItem(getStorageKey())
     console.log('Form data cleared from localStorage')
@@ -181,14 +163,13 @@ const collectFormData = () => {
   if (!previewContent.value) return
   
   const formData = {}
-  const inputFields = previewContent.value.querySelectorAll('.fr-input-field')
+  const inputFields = previewContent.value.querySelectorAll('.fr-input-control')
   
-  inputFields.forEach(field => {
-    const fieldName = field.getAttribute('data-field-name')
-    const fieldId = field.getAttribute('data-field-id')
-    const input = field.querySelector('.fr-input-control')
+  inputFields.forEach(input => {
+    const fieldName = input.getAttribute('data-field-name')
+    const fieldId = input.getAttribute('data-field-id')
     
-    if (input && fieldName) {
+    if (fieldName) {
       formData[fieldName] = {
         id: fieldId,
         name: fieldName,
@@ -199,11 +180,7 @@ const collectFormData = () => {
   })
   
   console.log('Collected Form Data:', formData)
-  
-  // Save one final time before emitting
   saveFormData()
-  
-  // Emit the collected data to parent component
   emit('formDataCollected', formData)
 }
 
@@ -225,18 +202,14 @@ const printPreview = () => {
           table { border-collapse: collapse; width: 100%; }
           th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
           th { background-color: #f2f2f2; }
-          .fr-input-field {
-            background-color: #f9fafb;
-            border: 2px solid #3b82f6;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 12px 0;
-          }
           .fr-input-control {
+            display: block;
             width: 100%;
             padding: 8px 12px;
-            border: 1px solid #d1d5db;
+            border: 2px solid #3b82f6;
             border-radius: 6px;
+            margin: 12px 0;
+            font-size: 14px;
           }
           @media print {
             body { margin: 0; }
@@ -256,7 +229,6 @@ const exportAsPDF = () => {
   printPreview()
 }
 
-// Close modal on Escape key
 onMounted(() => {
   const handleEscape = (e) => {
     if (e.key === 'Escape' && props.isOpen) {
@@ -369,17 +341,8 @@ onMounted(() => {
   margin: 8px 0;
 }
 
-/* Input field styles for preview - interactive */
-.preview-content :deep(.fr-input-field) {
-  background-color: #ffffff;
-  border: 2px solid #3b82f6;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 12px 0;
-  display: block;
-}
-
 .preview-content :deep(.fr-input-control) {
+  display: block;
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #d1d5db;
@@ -387,6 +350,7 @@ onMounted(() => {
   font-size: 14px;
   font-family: inherit;
   background-color: white;
+  margin: 12px 0;
   transition: border-color 0.2s;
 }
 
@@ -401,7 +365,6 @@ onMounted(() => {
   resize: vertical;
 }
 
-/* Other preview styles */
 .preview-content :deep(h1),
 .preview-content :deep(h2),
 .preview-content :deep(h3),
@@ -516,7 +479,6 @@ onMounted(() => {
   border-color: #d97706;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .modal-container {
     margin: 10px;

@@ -1,40 +1,35 @@
 <template>
   <div class="flex flex-col px-8">
-      <section class="flex  align-middle my-4 gap-6 p-4s">
+    <section class="flex align-middle my-4 gap-6 p-4s">
+      <h1 class="text-3xl ml-36">My Document Editor</h1>
 
-        <h1 class="text-3xl ml-36">My Document Editor</h1>
-        
-        <div class="actions ml-auto">
-          <button 
+      <div class="actions ml-auto">
+        <button
           class="btn btn-primary"
           @click="openPreviewModal"
           :disabled="!content.trim()"
-          >
+        >
           Preview Document
         </button>
-        <button 
-      class="btn btn-secondary ml-3"
-      @click="saveDocument"
-      >
-      Save Document
-    </button>
-  </div>
-  </section>
+        <button class="btn btn-secondary ml-3" @click="saveDocument">
+          Save Document
+        </button>
+      </div>
+    </section>
     <ClientOnly>
-      <FroalaEditor 
+      <FroalaEditor
         v-model="content"
         :config="froalaConfig"
         editor-id="my-document-editor"
         class="m-auto"
+        storage-key="my-document-1"
+        :auto-save="true"
       />
       <template #fallback>
-        <div class="loading-placeholder">
-          Loading editor...
-        </div>
+        <div class="loading-placeholder">Loading editor...</div>
       </template>
     </ClientOnly>
-  
-    
+
     <!-- Preview Modal -->
     <PreviewModal
       :is-open="isPreviewModalOpen"
@@ -45,42 +40,40 @@
 </template>
 
 <script setup>
-const content = ref('<p>Start writing your document...</p>')
-const isPreviewModalOpen = ref(false)
+const content = ref("<p>Start writing your document...</p>");
+const isPreviewModalOpen = ref(false);
 
 const froalaConfig = {
   documentReady: true,
   height: 500,
-  placeholderText: 'Start writing your document...',
-  
-
-}
+  placeholderText: "Start writing your document...",
+};
 
 const openPreviewModal = () => {
   if (content.value && content.value.trim()) {
-    isPreviewModalOpen.value = true
+    isPreviewModalOpen.value = true;
   }
-}
+};
 
 const closePreviewModal = () => {
-  isPreviewModalOpen.value = false
-}
+  isPreviewModalOpen.value = false;
+};
 
 const saveDocument = () => {
   // Implement your save logic here
-  console.log('Saving document:', content.value)
+  console.log("Saving document:", content.value);
   // You could save to localStorage, send to API, etc.
-  localStorage.setItem('froala-document', content.value)
-  alert('Document saved!')
-}
+  localStorage.setItem("froala-document", content.value);
+  alert("Document saved!");
+};
 
 // Load saved content on mount
 onMounted(() => {
-  const saved = localStorage.getItem('froala-document')
+  const saved = localStorage.getItem("froala-document");
   if (saved) {
-    content.value = saved
+    content.value = saved;
   }
-})
+});
 </script>
 
 <style scoped>
