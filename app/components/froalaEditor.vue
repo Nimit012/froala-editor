@@ -9,6 +9,7 @@ import FroalaEditor from "froala-editor";
 import { useFroalaStorage } from "~/composables/useFroalaStorage";
 import { useFroalaConfig } from "~/composables/useFroalaConfig";
 import { registerFroalaPlugins } from "~/composables/froalaPlugins";
+FroalaEditor.LICENSE_KEY = 'oc1F2vB1C1D1jB2rB5B5A4E3H4sA9yB-13D4A5G4A-8H-8yB3eD3fbfF1H1E2A2owa1DBKSPC1WKTUCQOe1OURPG1KDa6A-61PWOFDB1B1B1C1B17B1A1B1E6B4==';
 
 const props = defineProps({
   modelValue: {
@@ -124,7 +125,37 @@ defineExpose({
   z-index: 100;
   background-color: white;
   border-bottom: 1px solid #ddd;
-  padding-top: 2px !important;
+}
+
+/* Style for Froala toolbar separators */
+.fr-toolbar .fr-btn-grp:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 24px;
+  background-color: #bdbdbd;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+/* Hide divider for the group that contains the insertComponentsDropdown button */
+.fr-toolbar .fr-btn-grp:has(#insertComponentsDropdown-1)::after {
+  display: none !important;
+  content: none !important;
+}
+
+
+
+/* Add margin to the last button in each group */
+.fr-toolbar .fr-btn-grp .fr-btn:last-child {
+    margin-right: 10px; 
+}
+
+/* If you're using the '|' character as a separator in your toolbar config */
+.fr-toolbar .fr-separator:after {
+    content: "|";
+    color: #e0e0e0;
+    font-weight: normal;
 }
 
 
@@ -142,16 +173,20 @@ max-width:1000px;
   justify-content: flex-start !important;
   align-items: center !important;
   flex-wrap: wrap !important;
-  gap: 2px !important;
+  gap: 0px !important;
 }
 
-.fr-toolbar .fr-btn-grp {
+.fr-toolbar .fr-btn-grp{
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 4px !important;
+  margin-left :0px !important;
+  margin-right :14px !important;
+}
+.fr-toolbar .fr-btn-grp .fr-dropdown{
+  margin-right :17px !important;
 }
 
 #insertComponentsDropdown-9{
