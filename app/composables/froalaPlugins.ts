@@ -27,13 +27,8 @@ export interface FroalaPlugin {
 // HELPER FUNCTIONS FOR FLASHCARD EDITING
 // ============================================================================
 
-/**
- * Global function to handle flashcard editing
- * This is called from the onclick handler in the button
- */
 export async function editFlashcardDeck(deckId: string) {
   try {
-    // Find the deck element
     const deckElement = document.querySelector(`[data-deck-id="${deckId}"]`)
     
     if (!deckElement) {
@@ -41,19 +36,16 @@ export async function editFlashcardDeck(deckId: string) {
       return
     }
     
-    // Get serialized data
     const serializedData = deckElement.getAttribute('data-deck-data')
     if (!serializedData) {
       console.error('Deck data not found')
       return
     }
     
-    // Decode and parse the data
     const existingData: FlashcardDeckData = JSON.parse(
       decodeURIComponent(atob(serializedData))
     )
     
-    // Open modal with existing data
     const { openModal } = useFroalaModals()
     const result = await openModal<FlashcardDeckData>(FlashcardModal, {
       existingData,
@@ -62,10 +54,7 @@ export async function editFlashcardDeck(deckId: string) {
     
     if (!result.confirmed || !result.data) return
     
-    // Generate new HTML
     const newHtml = generateFlashcardHtml(result.data)
-    
-    // Replace the old element
     deckElement.outerHTML = newHtml
   } catch (error) {
     console.error('Error editing flashcard:', error)
@@ -74,11 +63,8 @@ export async function editFlashcardDeck(deckId: string) {
 }
 
 export function deleteFlashcardDeck(deckId: string) {
-
-  
   try {
     const deckElement = document.querySelector(`[data-deck-id="${deckId}"]`)
-    
     if (deckElement) {
       deckElement.remove()
     }
@@ -88,12 +74,9 @@ export function deleteFlashcardDeck(deckId: string) {
   }
 }
 
-
 export function deleteInputField(fieldId: string) {
-
   try {
     const fieldElement = document.querySelector(`[data-field-id="${fieldId}"]`)
-    
     if (fieldElement) {
       fieldElement.remove()
     }
@@ -103,8 +86,7 @@ export function deleteInputField(fieldId: string) {
   }
 }
 
-
-// Make it globally available
+// Make globally available
 if (typeof window !== 'undefined') {
   (window as any).editFlashcardDeck = editFlashcardDeck;
   (window as any).deleteFlashcardDeck = deleteFlashcardDeck;
@@ -112,105 +94,87 @@ if (typeof window !== 'undefined') {
 }
 
 // ============================================================================
-// PLUGINS
+// ACTION HANDLERS (Not plugins, just functions)
 // ============================================================================
 
 let inputFieldCounter = 0
-
-/**
- * Plugin: Insert Input Field
- */
-const insertInputFieldPlugin: FroalaPlugin = {
-  name: "insertInputField",
-  config: {
-    title: "Insert Input Field",
-    icon: "insertImage",
-    focus: true,
-    undo: true,
-    refreshAfterCallback: true,
-  },
-  callback: async function (this: any) {
-    const editor = this
-    editor.selection.save()
-
-    const { openModal } = useFroalaModals()
-    const result = await openModal<{ placeholder: string; fieldLabel: string; inputType: 'single' | 'multi' }>(
-      InputFieldModal
-    )
-
-    if (!result.confirmed || !result.data) {
-      editor.selection.restore()
-      return
-    }
-
-    editor.selection.restore()
-
-    inputFieldCounter++
-    const fieldName = `input${String(inputFieldCounter).padStart(2, "0")}`
-    const fieldId = `input-${Date.now()}-${Math.random()
-      .toString(36)
-      .substr(2, 9)}`
-
-    const defaultPlaceholder = `Response ${inputFieldCounter}`
-    const html = generateInputFieldHtml({
-      placeholder: result.data.placeholder || defaultPlaceholder,
-      fieldLabel: result.data.fieldLabel,
-      inputType: result.data.inputType,
-      fieldName,
-      fieldId
-    })
-
-    editor.html.insert(html)
-  },
-}
-
-/**
- * Plugin: Insert Flashcard
- */
 let flashcardCounter = 0
 
-const insertFlashcardPlugin: FroalaPlugin = {
-  name: "insertFlashcard",
-  config: {
-    title: "Insert Flashcard",
-    icon: "insertImage",
-    focus: true,
-    undo: true,
-    refreshAfterCallback: true,
-  },
-  callback: async function (this: any) {
-    const editor = this
-    editor.selection.save()
+/**
+ * Handles inserting an input field
+ */
+async function handleInsertInputField(editor: any) {
+  editor.selection.save()
 
-    const { openModal } = useFroalaModals()
-    const result = await openModal<FlashcardDeckData>(FlashcardModal, {
-      uploadEndpoint: '/api/upload-image'
-    })
+  const { openModal } = useFroalaModals()
+  const result = await openModal<{ placeholder: string; fieldLabel: string; inputType: 'single' | 'multi' }>(
+    InputFieldModal
+  )
 
-    if (!result.confirmed || !result.data) {
-      editor.selection.restore()
-      return
-    }
-
+  if (!result.confirmed || !result.data) {
     editor.selection.restore()
-
-    flashcardCounter++
-    const html = generateFlashcardHtml(result.data)
-
-    editor.html.insert(html)
+    return
   }
+
+  editor.selection.restore()
+
+  inputFieldCounter++
+  const fieldName = `input${String(inputFieldCounter).padStart(2, "0")}`
+  const fieldId = `input-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+
+  const defaultPlaceholder = `Response ${inputFieldCounter}`
+  const html = generateInputFieldHtml({
+    placeholder: result.data.placeholder || defaultPlaceholder,
+    fieldLabel: result.data.fieldLabel,
+    inputType: result.data.inputType,
+    fieldName,
+    fieldId
+  })
+
+  editor.html.insert(html)
 }
 
 /**
- * Plugin: Insert Components Dropdown
+ * Handles inserting a flashcard
  */
-FroalaEditor.DefineIcon("edit", { NAME: "edit", SVG_KEY: "edit" })
+async function handleInsertFlashcard(editor: any) {
+  editor.selection.save()
+
+  const { openModal } = useFroalaModals()
+  const result = await openModal<FlashcardDeckData>(FlashcardModal, {
+    uploadEndpoint: '/api/upload-image'
+  })
+
+  if (!result.confirmed || !result.data) {
+    editor.selection.restore()
+    return
+  }
+
+  editor.selection.restore()
+
+  flashcardCounter++
+  const html = generateFlashcardHtml(result.data)
+
+  editor.html.insert(html)
+}
+
+// ============================================================================
+// PLUGIN - Single Dropdown
+// ============================================================================
+
+
+
+FroalaEditor.DefineIcon('gradpathIcon', {
+  template: 'text',
+  NAME: '<span style="font-size:13px; font-weight:500;">GRADPATH CAPABILITIES</span>'
+
+})
 
 const insertComponentsDropdownPlugin: FroalaPlugin = {
   name: "insertComponentsDropdown",
   config: {
-    title: "Insert",
-    icon: '<span style="font-size:13px; font-weight:500;">GRADPATH CAPABILITIES</span>',
+    title: "Gradpath Capabilities",
+    icon: 'gradpathIcon',
     type: "dropdown",
     focus: false,
     undo: false,
@@ -220,15 +184,13 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
       insertFlashcard: "Insert Flashcard",
     },
   },
-  callback: function (this: any, _cmd: string, val: string) {
+  callback: async function (this: any, _cmd: string, val: string) {
     const editor = this
 
     if (val === "insertInputField") {
-      const plugin = plugins.find((p) => p.name === "insertInputField")
-      plugin?.callback?.call(editor, editor)
+      await handleInsertInputField(editor)
     } else if (val === "insertFlashcard") {
-      const plugin = plugins.find((p) => p.name === "insertFlashcard")
-      plugin?.callback?.call(editor, editor)
+      await handleInsertFlashcard(editor)
     }
   },
 }
@@ -238,8 +200,6 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
 // ============================================================================
 
 const plugins: FroalaPlugin[] = [
-  insertInputFieldPlugin,
-  insertFlashcardPlugin,
   insertComponentsDropdownPlugin
 ]
 
@@ -274,9 +234,3 @@ export const unregisterFroalaPlugins = (): void => {
   })
 }
 
-/**
- * Get all registered plugin names
- */
-export const getRegisteredPluginNames = (): string[] => {
-  return plugins.map((p) => p.name)
-}

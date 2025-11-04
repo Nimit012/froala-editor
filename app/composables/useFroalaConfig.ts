@@ -1,6 +1,6 @@
 /**
  * Default Froala editor configuration
- * 
+ *
  * Note: FroalaEditorInstance type is not exported from froala-editor,
  * so we use a minimal interface for the event handler context
  */
@@ -21,11 +21,8 @@ export const useFroalaConfig = () => {
   ) => {
     return {
       documentReady: true,
-       height: "auto",
-       width: "100%",
-       display: "flex",
-      justifyContent: "center",
-      alignItems: "flex-start",
+      height: "auto",
+      width: "100%",
 
       fontSize: [
         "8",
@@ -40,8 +37,6 @@ export const useFroalaConfig = () => {
         "32",
         "36",
         "48",
-        "60",
-        "72",
       ],
 
       imageUpload: true,
@@ -50,9 +45,22 @@ export const useFroalaConfig = () => {
       imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
 
       htmlAllowedAttrs: [
-        "style", "class", "id", "data-index", "alt", "src", "href",
-        "placeholder", "data-field-id", "data-field-name", "data-input-type",
-        "data-deck-id", "data-deck-data", "type", "contenteditable", "onclick"
+        "style",
+        "class",
+        "id",
+        "data-index",
+        "alt",
+        "src",
+        "href",
+        "placeholder",
+        "data-field-id",
+        "data-field-name",
+        "data-input-type",
+        "data-deck-id",
+        "data-deck-data",
+        "type",
+        "contenteditable",
+        "onclick",
       ],
       htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
       htmlAllowedStyleProps: [".*"],
@@ -61,18 +69,23 @@ export const useFroalaConfig = () => {
       htmlExecuteScripts: false,
 
       imageStyles: {
-        rounded: "Rounded",
-        bordered: "Bordered",
-        shadow: "Shadow",
         circle: "Circle Image",
       },
 
       wordPasteModal: true,
       wordPasteKeepFormatting: true,
       wordAllowedStyleProps: [
-        "font-family", "font-size", "background", "color", "width",
-        "text-align", "vertical-align", "background-color",
-        "padding", "margin", "border",
+        "font-family",
+        "font-size",
+        "background",
+        "color",
+        "width",
+        "text-align",
+        "vertical-align",
+        "background-color",
+        "padding",
+        "margin",
+        "border",
       ],
 
       toolbarButtons: [
@@ -93,7 +106,7 @@ export const useFroalaConfig = () => {
         "|",
         "insertComponentsDropdown",
         "|",
-         "|",
+        "|",
         "formatOL",
         "formatUL",
         "outdent",
@@ -112,30 +125,16 @@ export const useFroalaConfig = () => {
         "|",
       ],
 
-      // Disable quick insert to prevent menu interference
-      quickInsertEnabled: false,
-
       events: {
         contentChanged: function (this: FroalaEditor) {
           const content = this.html.get();
-          emit("update:modelValue", content);
 
           if (autoSave) {
             saveToStorage(content);
           }
-
-          console.log("html", content);
         },
 
         initialized: function (this: FroalaEditor) {
-          const contentElement = this.el.querySelector(".fr-element.fr-view") as HTMLElement;
-          if (contentElement) {
-            contentElement.style.setProperty("width", "20rem", "important");
-            contentElement.style.setProperty("max-width", "10in", "important");
-            contentElement.style.setProperty("margin", "0 auto", "important");
-            contentElement.style.setProperty("padding", "1in", "important");
-          }
-
           const savedContent = loadFromStorage();
           const initialContent = savedContent || initialModelValue;
 
@@ -150,4 +149,4 @@ export const useFroalaConfig = () => {
   return {
     getDefaultConfig,
   };
-};  
+};
