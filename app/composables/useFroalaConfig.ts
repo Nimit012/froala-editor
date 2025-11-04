@@ -1,6 +1,6 @@
 /**
  * Default Froala editor configuration
- * 
+ *
  * Note: FroalaEditorInstance type is not exported from froala-editor,
  * so we use a minimal interface for the event handler context
  */
@@ -21,11 +21,8 @@ export const useFroalaConfig = () => {
   ) => {
     return {
       documentReady: true,
-       height: "auto",
-       width: "100%",
-       display: "flex",
-      justifyContent: "center",
-      alignItems: "flex-start",
+      height: "auto",
+      width: "100%",
 
       fontSize: [
         "8",
@@ -40,8 +37,6 @@ export const useFroalaConfig = () => {
         "32",
         "36",
         "48",
-        "60",
-        "72",
       ],
 
       imageUpload: true,
@@ -61,8 +56,11 @@ export const useFroalaConfig = () => {
         "data-field-id",
         "data-field-name",
         "data-input-type",
+        "data-deck-id",
+        "data-deck-data",
         "type",
         "contenteditable",
+        "onclick",
       ],
       htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
       htmlAllowedStyleProps: [".*"],
@@ -71,9 +69,6 @@ export const useFroalaConfig = () => {
       htmlExecuteScripts: false,
 
       imageStyles: {
-        rounded: "Rounded",
-        bordered: "Bordered",
-        shadow: "Shadow",
         circle: "Circle Image",
       },
 
@@ -111,7 +106,7 @@ export const useFroalaConfig = () => {
         "|",
         "insertComponentsDropdown",
         "|",
-         "|",
+        "|",
         "formatOL",
         "formatUL",
         "outdent",
@@ -133,26 +128,13 @@ export const useFroalaConfig = () => {
       events: {
         contentChanged: function (this: FroalaEditor) {
           const content = this.html.get();
-          emit("update:modelValue", content);
 
-          // Auto-save to localStorage if enabled
           if (autoSave) {
             saveToStorage(content);
           }
-
-          console.log("html", content);
         },
 
         initialized: function (this: FroalaEditor) {
-          const contentElement = this.el.querySelector(".fr-element.fr-view") as HTMLElement;
-          if (contentElement) {
-            contentElement.style.setProperty("width", "20rem", "important");
-            contentElement.style.setProperty("max-width", "10in", "important");
-            contentElement.style.setProperty("margin", "0 auto", "important");
-            contentElement.style.setProperty("padding", "1in", "important");
-          }
-
-          // Load content after editor is initialized
           const savedContent = loadFromStorage();
           const initialContent = savedContent || initialModelValue;
 
@@ -168,4 +150,3 @@ export const useFroalaConfig = () => {
     getDefaultConfig,
   };
 };
-

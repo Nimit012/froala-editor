@@ -38,8 +38,11 @@ export default defineEventHandler(async (event) => {
     // Return CloudFront URL
     const imageUrl = `https://reader2-content-dev.comprodls.com/${key}`;
     return { link: imageUrl };
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error
+      ? error.message
+      : (typeof error === 'string' ? error : 'Unknown error');
     console.error('Upload error:', error);
-    return { error: 'Upload failed: ' + error.message };
+    return { error: 'Upload failed: ' + message };
   }
 });
