@@ -241,4 +241,8 @@ max-width:1000px;
 .fr-element.fr-view p {
   margin: 0.5em 0;
 }
+/* Hide Froala unlicensed banner */
+div.has(a[href="https://www.froala.com/wysiwyg-editor?k=u"]){
+  display: none !important;
+}
 </style>
