@@ -9,8 +9,6 @@ import FroalaEditor from "froala-editor";
 import { useFroalaStorage } from "~/composables/useFroalaStorage";
 import { useFroalaConfig } from "~/composables/useFroalaConfig";
 import { registerFroalaPlugins } from "~/composables/froalaPlugins";
-FroalaEditor.LICENSE_KEY = 'oc1F2vB1C1D1jB2rB5B5A4E3H4sA9yB-13D4A5G4A-8H-8yB3eD3fbfF1H1E2A2owa1DBKSPC1WKTUCQOe1OURPG1KDa6A-61PWOFDB1B1B1C1B17B1A1B1E6B4==';
-
 const props = defineProps({
   modelValue: {
     type: String,
