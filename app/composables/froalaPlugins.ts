@@ -159,7 +159,7 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
   name: "insertComponentsDropdown",
   config: {
     title: "Insert",
-    icon: '<span style="font-size:14px; font-weight:500;">GRADPATH CAPABILITIES</span>',
+    icon: '<span style="font-size:13px; font-weight:500;">GRADPATH CAPABILITIES</span>',
     type: "dropdown",
     focus: false,
     undo: false,
