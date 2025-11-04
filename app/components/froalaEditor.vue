@@ -173,7 +173,7 @@ max-width:1000px;
   justify-content: flex-start !important;
   align-items: center !important;
   flex-wrap: wrap !important;
-  gap: 2px !important;
+  gap: 0px !important;
 }
 
 .fr-toolbar .fr-btn-grp{

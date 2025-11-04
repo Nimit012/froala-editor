@@ -88,7 +88,7 @@ export const useFroalaConfig = () => {
         "border",
       ],
 
-      toolbarButtons: [
+        toolbarButtons: [
         "undo",
         "redo",
         "print",
