@@ -48,7 +48,6 @@ const { loadFromStorage, saveToStorage, clearStorage } = useFroalaStorage(
 const { getDefaultConfig } = useFroalaConfig();
 
 // Register all custom plugins
-registerFroalaPlugins();
 
 // Get default configuration with event handlers
 const defaultConfig = {
@@ -64,6 +63,8 @@ const defaultConfig = {
 };
 
 onMounted(() => {
+  registerFroalaPlugins();
+
   nextTick(() => {
     if (froalaContainer.value) {
       editor = new FroalaEditor(`#${props.editorId}`, defaultConfig);
@@ -81,6 +82,9 @@ onBeforeUnmount(() => {
     editor.destroy();
     editor = null;
   }
+
+  unregisterFroalaPlugins();
+
 });
 
 watch(
