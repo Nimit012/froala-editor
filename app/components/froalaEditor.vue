@@ -9,7 +9,6 @@ import FroalaEditor from "froala-editor";
 import { useFroalaStorage } from "~/composables/useFroalaStorage";
 import { useFroalaConfig } from "~/composables/useFroalaConfig";
 import { registerFroalaPlugins } from "~/composables/froalaPlugins";
-
 const props = defineProps({
   modelValue: {
     type: String,
@@ -83,7 +82,6 @@ onBeforeUnmount(() => {
   }
 
   unregisterFroalaPlugins();
-
 });
 
 watch(
@@ -124,16 +122,43 @@ defineExpose({
   z-index: 100;
   background-color: white;
   border-bottom: 1px solid #ddd;
-  padding-top: 2px !important;
 }
 
+/* Style for Froala toolbar separators */
+.fr-toolbar .fr-btn-grp:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 24px;
+  background-color: #bdbdbd;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+/* Hide divider for the group that contains the insertComponentsDropdown button */
+.fr-toolbar .fr-btn-grp:has(#insertComponentsDropdown-1)::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Add margin to the last button in each group */
+.fr-toolbar .fr-btn-grp .fr-btn:last-child {
+  margin-right: 10px;
+}
+
+/* If you're using the '|' character as a separator in your toolbar config */
+.fr-toolbar .fr-separator:after {
+  content: "|";
+  color: #e0e0e0;
+  font-weight: normal;
+}
 
 .fr-wrapper {
-  padding:2rem auto !important; /* top/bottom = 0, left/right = 5rem */
-  height :auto !important;
+  padding: 2rem auto !important; /* top/bottom = 0, left/right = 5rem */
+  height: auto !important;
 }
-.fr-element{
-max-width:1000px;
+.fr-element {
+  max-width: 1000px;
 }
 
 .fr-toolbar {
@@ -142,7 +167,7 @@ max-width:1000px;
   justify-content: flex-start !important;
   align-items: center !important;
   flex-wrap: wrap !important;
-  gap: 2px !important;
+  gap: 0px !important;
 }
 
 .fr-toolbar .fr-btn-grp {
@@ -151,13 +176,16 @@ max-width:1000px;
   flex-wrap: wrap !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 4px !important;
+  margin-left: 0px !important;
+  margin-right: 14px !important;
+}
+.fr-toolbar .fr-btn-grp .fr-dropdown {
+  margin-right: 17px !important;
 }
 
-#insertComponentsDropdown-9{
- padding-top: 5px !important; 
+#insertComponentsDropdown-9 {
+  padding-top: 5px !important;
 }
-
 
 .fr-text-box {
   background-color: #e9f5ff;
@@ -207,5 +235,19 @@ max-width:1000px;
 
 .fr-element.fr-view p {
   margin: 0.5em 0;
+}
+/* Restore default ordered/unordered list styles inside Froala editor view */
+.fr-view ol {
+  list-style-type: decimal;
+  list-style-position: outside;
+  margin-left: 1.5em;
+  padding-left: 0.5em;
+}
+
+.fr-view ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left: 1.5em;
+  padding-left: 0.5em;
 }
 </style>
