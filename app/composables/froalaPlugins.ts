@@ -107,9 +107,18 @@ async function handleInsertInputField(editor: any) {
   editor.selection.save()
 
   const { openModal } = useFroalaModals()
-  const result = await openModal<{ placeholder: string; fieldLabel: string; inputType: 'single' | 'multi' }>(
-    InputFieldModal
-  )
+  const result = await openModal<{ 
+    placeholder: string
+    inputType: 'single' | 'multi'
+    singleLineType?: string
+    minRows?: number
+    maxRows?: number
+    maxWords?: number
+    enableFormatting?: boolean
+    allowImageUpload?: boolean
+    spellChecker?: boolean
+    disablePaste?: boolean
+  }>(InputFieldModal)
 
   if (!result.confirmed || !result.data) {
     editor.selection.restore()
@@ -125,8 +134,15 @@ async function handleInsertInputField(editor: any) {
   const defaultPlaceholder = `Response ${inputFieldCounter}`
   const html = generateInputFieldHtml({
     placeholder: result.data.placeholder || defaultPlaceholder,
-    fieldLabel: result.data.fieldLabel,
     inputType: result.data.inputType,
+    singleLineType: result.data.singleLineType,
+    minRows: result.data.minRows,
+    maxRows: result.data.maxRows,
+    maxWords: result.data.maxWords,
+    enableFormatting: result.data.enableFormatting,
+    allowImageUpload: result.data.allowImageUpload,
+    spellChecker: result.data.spellChecker,
+    disablePaste: result.data.disablePaste,
     fieldName,
     fieldId
   })

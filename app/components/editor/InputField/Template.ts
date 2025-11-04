@@ -1,13 +1,33 @@
 export interface InputFieldData {
   placeholder: string;
-  fieldLabel: string;
   fieldName: string;
   fieldId: string;
   inputType: "single" | "multi";
+  singleLineType?: string;
+  minRows?: number;
+  maxRows?: number;
+  maxWords?: number;
+  enableFormatting?: boolean;
+  allowImageUpload?: boolean;
+  spellChecker?: boolean;
+  disablePaste?: boolean;
 }
 
 export const generateInputFieldHtml = (data: InputFieldData): string => {
-  const { placeholder, fieldLabel, fieldName, fieldId, inputType } = data;
+  const { 
+    placeholder, 
+    fieldName, 
+    fieldId, 
+    inputType,
+    singleLineType = 'text',
+    minRows = 3,
+    maxRows = 10,
+    maxWords = 1000,
+    enableFormatting = false,
+    allowImageUpload = false,
+    spellChecker = true,
+    disablePaste = false
+  } = data;
 
   const baseStyles = `
       .fr-input-control::placeholder {
@@ -21,21 +41,28 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
       ? `<textarea 
           class="fr-input-control" 
           placeholder="${placeholder || ""}" 
-          data-input-type="text"
+          data-input-type="multi"
           data-field-id="${fieldId}"
           data-field-name="${fieldName}"
-          data-label="${escapeHtml(fieldLabel || "")}"
+          data-min-rows="${minRows}"
+          data-max-rows="${maxRows}"
+          data-max-words="${maxWords}"
+          data-enable-formatting="${enableFormatting}"
+          data-allow-image-upload="${allowImageUpload}"
+          data-spell-checker="${spellChecker}"
+          data-disable-paste="${disablePaste}"
           contenteditable="false"
           style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7;"
         ></textarea>`
       : `<input 
-          type="text" 
+          type="${singleLineType}" 
           class="fr-input-control" 
           placeholder="${placeholder || ""}"
-          data-input-type="text"
+          data-input-type="single"
+          data-single-line-type="${singleLineType}"
           data-field-id="${fieldId}"
           data-field-name="${fieldName}"
-          data-label="${escapeHtml(fieldLabel || "")}"
+          data-spell-checker="${spellChecker}"
           contenteditable="false"
           style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7;"
         />`;
