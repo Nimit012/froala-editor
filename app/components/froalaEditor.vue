@@ -120,6 +120,7 @@ defineExpose({
   z-index: 100;
   background-color: white;
   border-bottom: 1px solid #ddd;
+  padding-top: 2px !important;
 }
 
 
@@ -130,6 +131,29 @@ defineExpose({
 .fr-element{
 max-width:1000px;
 }
+
+.fr-toolbar {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 2px !important;
+}
+
+.fr-toolbar .fr-btn-grp {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+#insertComponentsDropdown-9{
+ padding-top: 5px !important; 
+}
+
 
 .fr-text-box {
   background-color: #e9f5ff;
