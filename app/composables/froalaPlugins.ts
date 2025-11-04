@@ -165,14 +165,17 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
     undo: false,
     refreshAfterCallback: false,
     options: {
-      insertInputField: "Insert Input Field",
+      assessmentInputBox: "Assessment Input Box",
       insertFlashcard: "Insert Flashcard",
+      insertGraph : "Insert Graph",
+      insertEquation : "Insert Equation"
     },
   },
   callback: function (this: any, _cmd: string, val: string) {
     const editor = this
+    console.log('Froala license key:', FroalaEditor.LICENSE_KEY)
 
-    if (val === "insertInputField") {
+    if (val === "assessmentInputBox") {
       const plugin = plugins.find((p) => p.name === "insertInputField")
       plugin?.callback?.call(editor, editor)
     } else if (val === "insertFlashcard") {
