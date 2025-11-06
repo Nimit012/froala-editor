@@ -116,7 +116,7 @@ defineExpose({
   top: 0;
   z-index: 100;
   background-color: white;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #e0e0e0 !important;
 }
 
 .fr-toolbar .fr-btn-grp:not(:last-child)::after {
@@ -150,7 +150,7 @@ defineExpose({
 }
 
 .fr-element {
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .fr-toolbar {
@@ -243,4 +243,8 @@ defineExpose({
   margin-left: 1.5em;
   padding-left: 0.5em;
 }
+.fr-box{
+ margin: 48px !important; 
+}
+
 </style>

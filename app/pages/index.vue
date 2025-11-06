@@ -19,6 +19,17 @@
     <ClientOnly>
       <template #default>
         <div class="docs-layout">
+       
+          <div class="header">
+           <h1 class="step-name" style="margin: 0">
+                  Quotable Connections - "I sit with Shakespeare and he winces
+                  not." —W.E.B. DuBois
+                </h1>
+                 <h2 class="lesson-name"> Lesson-name: Othello's Renaissance </h2>
+  <p class="unit-name"> UNIT: HARLEM RENAISSANCE & SHAKESPEAREAN TRAGEDY </p>
+
+
+  </div>
           <FroalaEditor
             v-model="content"
             :config="froalaConfig"
@@ -82,10 +93,11 @@ onMounted(() => {
 
 <style scoped>
 .docs-layout {
-  background-color: #f1f3f4; /* Google Docs-like background */
+
   height: 100vh;
   overflow-y: auto;
   padding: 0;
+  margin :0;
 }
 
 .fr-box,
@@ -167,4 +179,30 @@ onMounted(() => {
 .ml-3 {
   margin-left: 0.75rem;
 }
+
+.unit-name{
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    margin-bottom: 4px !important;
+  
+}
+.step-name{
+    font-size: 36px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    margin-bottom: 12px !important;
+}
+.lesson-name{
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    margin-bottom: 8px !important;
+}
+.header{
+
+margin :24px;
+
+}
+
 </style>
