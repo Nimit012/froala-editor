@@ -6,7 +6,7 @@
 
 <script setup>
 import FroalaEditor from "froala-editor"
-import { useFroalaStorage } from "~/composables/useFroalaStorage"
+import { loadFromStorage, saveToStorage, clearStorage } from "~/utils/froalaStorage"
 import { getFroalaConfig } from "~/utils/froalaConfig"
 import { registerFroalaPlugins } from "~/utils/froalaPlugins"
 
@@ -38,16 +38,25 @@ const emit = defineEmits(["update:modelValue"])
 const froalaContainer = ref(null)
 let editor = null
 
-const { loadFromStorage, saveToStorage, clearStorage } = useFroalaStorage(
-  props.storageKey
-)
+// Create wrapper functions that bind the storageKey
+const saveToStorageWrapper = (content) => {
+  saveToStorage(props.storageKey, content)
+}
+
+const loadFromStorageWrapper = () => {
+  return loadFromStorage(props.storageKey)
+}
+
+const clearStorageWrapper = () => {
+  clearStorage(props.storageKey)
+}
 
 const defaultConfig = {
   ...getFroalaConfig(
     emit,
     props.autoSave,
-    saveToStorage,
-    loadFromStorage,
+    saveToStorageWrapper,
+    loadFromStorageWrapper,
     props.modelValue
   ),
   ...props.config,
@@ -73,7 +82,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (editor) {
     if (props.autoSave) {
-      saveToStorage(editor.html.get())
+      saveToStorageWrapper(editor.html.get())
     }
     editor.destroy()
     editor = null
@@ -92,12 +101,12 @@ watch(
 defineExpose({
   saveToStorage: () => {
     if (editor) {
-      saveToStorage(editor.html.get())
+      saveToStorageWrapper(editor.html.get())
     }
   },
-  clearStorage,
+  clearStorage: clearStorageWrapper,
   loadFromStorage: () => {
-    const content = loadFromStorage()
+    const content = loadFromStorageWrapper()
     if (content && editor) {
       editor.html.set(content)
     }
