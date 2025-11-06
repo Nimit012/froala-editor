@@ -260,4 +260,8 @@ defineExpose({
   text-decoration: underline;
 }
 
+p:has(a[href*="froala.com"]) {
+  display: none !important;
+}
+
 </style>
