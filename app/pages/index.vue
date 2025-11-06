@@ -21,12 +21,11 @@
         <div class="docs-layout">
        
           <div class="header">
+           <p class="unit-name"> < Harlem Renaissance & Shakespearean Tragedy / Othello's Renaissance </p>
            <h1 class="step-name" style="margin: 0">
-                  Quotable Connections - "I sit with Shakespeare and he winces
+                  Segment : Quotable Connections - "I sit with Shakespeare and he winces
                   not." —W.E.B. DuBois
                 </h1>
-                 <h2 class="lesson-name"> Lesson : Othello's Renaissance </h2>
-  <p class="unit-name"> Unit : Harlem Renaissance & Shakespearean Tragedy </p>
 
 
   </div>
@@ -182,13 +181,14 @@ onMounted(() => {
 
 .unit-name{
     font-size: 18px;
+    color:#757575;
     font-family: 'Inter', sans-serif;
     margin: 0;
-    margin-bottom: 4px !important;
+    margin-bottom: 8px !important;
   
 }
 .step-name{
-    font-size: 36px;
+    font-size: 32px;
     font-family: 'Inter', sans-serif;
     margin: 0;
     margin-bottom: 12px !important;
