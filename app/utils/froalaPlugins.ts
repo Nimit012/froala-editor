@@ -103,7 +103,7 @@ let flashcardCounter = 0
 async function handleInsertInputField(editor: any) {
   editor.selection.save()
 
-  const result = await openModal<{  // Changed this line
+  const result = await openModal<{  
     placeholder: string
     inputType: 'single' | 'multi'
     singleLineType?: string

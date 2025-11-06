@@ -1,4 +1,5 @@
 import { createApp, type Component, h } from 'vue'
+import ModalWrapper from '@/components/ModalWrapper.vue'
 
 interface ModalResult<T> {
   confirmed: boolean
@@ -13,39 +14,31 @@ export function openModal<T>(
     const container = document.createElement('div')
     document.body.appendChild(container)
 
-    const ModalWrapper = {
+    const Root = {
       setup() {
         const handleSubmit = (data: T) => {
           cleanup()
           resolve({ confirmed: true, data })
         }
-        
+
         const handleCancel = () => {
           cleanup()
           resolve({ confirmed: false })
         }
 
-        return () => 
-          h('div', {
-            class: 'fixed inset-0 bg-black/50 flex items-center justify-center z-[9999] p-4',
-            onClick: (e: MouseEvent) => {
-              if (e.target === e.currentTarget) handleCancel()
-            }
-          }, [
-            h('div', {
-              class: 'bg-white rounded-xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl'
-            }, [
-              h(contentComponent, {
-                ...props,
-                onSubmit: handleSubmit,
-                onCancel: handleCancel
-              })
-            ])
+        return () =>
+          h(ModalWrapper, { onCancel: handleCancel }, () => [
+            h(contentComponent, {
+              ...props,
+              inModal: true,
+              onSubmit: handleSubmit,
+              onCancel: handleCancel
+            })
           ])
       }
     }
 
-    const app = createApp(ModalWrapper)
+    const app = createApp(Root)
     app.mount(container)
 
     function cleanup() {
