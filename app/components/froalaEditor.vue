@@ -256,4 +256,8 @@ defineExpose({
  margin: 48px !important; 
 }
 
+p:has(a[href*="froala.com"]) {
+  display: none !important;
+}
+
 </style>
