@@ -25,8 +25,8 @@
                   Quotable Connections - "I sit with Shakespeare and he winces
                   not." —W.E.B. DuBois
                 </h1>
-                 <h2 class="lesson-name"> Lesson-name: Othello's Renaissance </h2>
-  <p class="unit-name"> UNIT: HARLEM RENAISSANCE & SHAKESPEAREAN TRAGEDY </p>
+                 <h2 class="lesson-name"> Lesson : Othello's Renaissance </h2>
+  <p class="unit-name"> Unit : Harlem Renaissance & Shakespearean Tragedy </p>
 
 
   </div>
@@ -181,7 +181,7 @@ onMounted(() => {
 }
 
 .unit-name{
-    font-size: 13px;
+    font-size: 18px;
     font-family: 'Inter', sans-serif;
     margin: 0;
     margin-bottom: 4px !important;
@@ -201,7 +201,8 @@ onMounted(() => {
 }
 .header{
 
-margin :24px;
+margin :32px;
+margin-left: 48px !important;
 
 }
 
