@@ -1,7 +1,7 @@
 import FroalaEditor from "froala-editor"
-import { useFroalaModals } from "~/composables/useFroalaModals"
-import InputFieldModal from "~/components/editor/InputField/Modal.vue"
-import FlashcardModal from "~/components/editor/Flashcard/Modal.vue"
+import InputFieldForm from "~/components/editor/InputField/Form.vue"
+import FlashcardForm from "~/components/editor/Flashcard/Form.vue"
+import { openModal } from "../utils/modal"
 import { generateInputFieldHtml } from "~/components/editor/InputField/Template"
 import { generateFlashcardHtml, type FlashcardDeckData } from "~/components/editor/Flashcard/Template"
 
@@ -46,8 +46,7 @@ export async function editFlashcardDeck(deckId: string) {
       decodeURIComponent(atob(serializedData))
     )
     
-    const { openModal } = useFroalaModals()
-    const result = await openModal<FlashcardDeckData>(FlashcardModal, {
+    const result = await openModal<FlashcardDeckData>(FlashcardForm, {
       existingData,
       uploadEndpoint: '/api/upload-image'
     })
@@ -97,19 +96,25 @@ if (typeof window !== 'undefined') {
 // ACTION HANDLERS (Not plugins, just functions)
 // ============================================================================
 
+
 let inputFieldCounter = 0
 let flashcardCounter = 0
 
-/**
- * Handles inserting an input field
- */
 async function handleInsertInputField(editor: any) {
   editor.selection.save()
 
-  const { openModal } = useFroalaModals()
-  const result = await openModal<{ placeholder: string; fieldLabel: string; inputType: 'single' | 'multi' }>(
-    InputFieldModal
-  )
+  const result = await openModal<{  // Changed this line
+    placeholder: string
+    inputType: 'single' | 'multi'
+    singleLineType?: string
+    minRows?: number
+    maxRows?: number
+    maxWords?: number
+    enableFormatting?: boolean
+    allowImageUpload?: boolean
+    spellChecker?: boolean
+    disablePaste?: boolean
+  }>(InputFieldForm)
 
   if (!result.confirmed || !result.data) {
     editor.selection.restore()
@@ -125,8 +130,15 @@ async function handleInsertInputField(editor: any) {
   const defaultPlaceholder = `Response ${inputFieldCounter}`
   const html = generateInputFieldHtml({
     placeholder: result.data.placeholder || defaultPlaceholder,
-    fieldLabel: result.data.fieldLabel,
     inputType: result.data.inputType,
+    singleLineType: result.data.singleLineType,
+    minRows: result.data.minRows,
+    maxRows: result.data.maxRows,
+    maxWords: result.data.maxWords,
+    enableFormatting: result.data.enableFormatting,
+    allowImageUpload: result.data.allowImageUpload,
+    spellChecker: result.data.spellChecker,
+    disablePaste: result.data.disablePaste,
     fieldName,
     fieldId
   })
@@ -134,14 +146,10 @@ async function handleInsertInputField(editor: any) {
   editor.html.insert(html)
 }
 
-/**
- * Handles inserting a flashcard
- */
 async function handleInsertFlashcard(editor: any) {
   editor.selection.save()
 
-  const { openModal } = useFroalaModals()
-  const result = await openModal<FlashcardDeckData>(FlashcardModal, {
+  const result = await openModal<FlashcardDeckData>(FlashcardForm, {  // Changed this line
     uploadEndpoint: '/api/upload-image'
   })
 

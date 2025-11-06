@@ -1,0 +1,144 @@
+/**
+ * Default Froala editor configuration
+ *
+ * Note: FroalaEditorInstance type is not exported from froala-editor,
+ * so we use a minimal interface for the event handler context
+ */
+interface FroalaEditor {
+  html: {
+    get: () => string;
+    set: (html: string) => void;
+  };
+  el: HTMLElement;
+}
+export const getFroalaConfig = (
+  emit: (event: string, ...args: any[]) => void,
+  autoSave: boolean,
+  saveToStorage: (content: string) => void,
+  loadFromStorage: () => string | null,
+  initialModelValue: string
+) => {
+  return {
+    documentReady: true,
+    height: "auto",
+    width: "100%",
+
+    fontSize: [
+      "8",
+      "10",
+      "12",
+      "14",
+      "16",
+      "18",
+      "20",
+      "24",
+      "28",
+      "32",
+      "36",
+      "48",
+    ],
+
+    imageUpload: true,
+    imageUploadURL: "/api/upload-image",
+    imageMaxSize: 5 * 1024 * 1024,
+    imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
+
+    htmlAllowedAttrs: [
+      "style",
+      "class",
+      "id",
+      "data-index",
+      "alt",
+      "src",
+      "href",
+      "placeholder",
+      "data-field-id",
+      "data-field-name",
+      "data-input-type",
+      "data-deck-id",
+      "data-deck-data",
+      "type",
+      "contenteditable",
+      "onclick",
+    ],
+    htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
+    htmlAllowedStyleProps: [".*"],
+    htmlRemoveTags: [],
+    htmlUntouched: true,
+    htmlExecuteScripts: false,
+
+    imageStyles: {
+      circle: "Circle Image",
+    },
+
+    wordPasteModal: true,
+    wordPasteKeepFormatting: true,
+    wordAllowedStyleProps: [
+      "font-family",
+      "font-size",
+      "background",
+      "color",
+      "width",
+      "text-align",
+      "vertical-align",
+      "background-color",
+      "padding",
+      "margin",
+      "border",
+    ],
+
+    toolbarButtons: [
+      "undo",
+      "redo",
+      "print",
+      "spellChecker",
+      "|",
+      "paragraphFormat",
+      "|",
+      "bold",
+      "italic",
+      "underline",
+      "clearFormatting",
+      "subscript",
+      "superscript",
+      "|",
+      "alignLeft",
+      "alignRight",
+      "alignCenter",
+      "alignJustify",
+      "|",
+      "lineHeight",
+      "formatOL",
+      "formatUL",
+      "outdent",
+      "indent",
+      "|",
+      "insertLink",
+      "insertImage",
+      "insertVideo",
+      "insertTable",
+      "quote",
+      "|",
+      "insertComponentsDropdown",
+    ],
+
+    events: {
+      contentChanged: function (this: FroalaEditor) {
+        const content = this.html.get();
+
+        if (autoSave) {
+          saveToStorage(content);
+        }
+      },
+
+      initialized: function (this: FroalaEditor) {
+        const savedContent = loadFromStorage();
+        const initialContent = savedContent || initialModelValue;
+
+        if (initialContent) {
+          this.html.set(initialContent);
+        }
+      },
+    },
+  };
+};
