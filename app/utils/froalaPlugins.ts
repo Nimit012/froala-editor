@@ -1,7 +1,7 @@
 import FroalaEditor from "froala-editor"
-import { useFroalaModals } from "~/composables/useFroalaModals"
-import InputFieldModal from "~/components/editor/InputField/Modal.vue"
-import FlashcardModal from "~/components/editor/Flashcard/Modal.vue"
+import InputFieldForm from "~/components/editor/InputField/Form.vue"
+import FlashcardForm from "~/components/editor/Flashcard/Form.vue"
+import { openModal } from "../utils/modal"
 import { generateInputFieldHtml } from "~/components/editor/InputField/Template"
 import { generateFlashcardHtml, type FlashcardDeckData } from "~/components/editor/Flashcard/Template"
 
@@ -46,8 +46,7 @@ export async function editFlashcardDeck(deckId: string) {
       decodeURIComponent(atob(serializedData))
     )
     
-    const { openModal } = useFroalaModals()
-    const result = await openModal<FlashcardDeckData>(FlashcardModal, {
+    const result = await openModal<FlashcardDeckData>(FlashcardForm, {
       existingData,
       uploadEndpoint: '/api/upload-image'
     })
@@ -97,17 +96,14 @@ if (typeof window !== 'undefined') {
 // ACTION HANDLERS (Not plugins, just functions)
 // ============================================================================
 
+
 let inputFieldCounter = 0
 let flashcardCounter = 0
 
-/**
- * Handles inserting an input field
- */
 async function handleInsertInputField(editor: any) {
   editor.selection.save()
 
-  const { openModal } = useFroalaModals()
-  const result = await openModal<{ 
+  const result = await openModal<{  // Changed this line
     placeholder: string
     inputType: 'single' | 'multi'
     singleLineType?: string
@@ -118,7 +114,7 @@ async function handleInsertInputField(editor: any) {
     allowImageUpload?: boolean
     spellChecker?: boolean
     disablePaste?: boolean
-  }>(InputFieldModal)
+  }>(InputFieldForm)
 
   if (!result.confirmed || !result.data) {
     editor.selection.restore()
@@ -150,14 +146,10 @@ async function handleInsertInputField(editor: any) {
   editor.html.insert(html)
 }
 
-/**
- * Handles inserting a flashcard
- */
 async function handleInsertFlashcard(editor: any) {
   editor.selection.save()
 
-  const { openModal } = useFroalaModals()
-  const result = await openModal<FlashcardDeckData>(FlashcardModal, {
+  const result = await openModal<FlashcardDeckData>(FlashcardForm, {  // Changed this line
     uploadEndpoint: '/api/upload-image'
   })
 

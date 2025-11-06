@@ -5,10 +5,11 @@
 </template>
 
 <script setup>
-import FroalaEditor from "froala-editor";
-import { useFroalaStorage } from "~/composables/useFroalaStorage";
-import { useFroalaConfig } from "~/composables/useFroalaConfig";
-import { registerFroalaPlugins } from "~/composables/froalaPlugins";
+import FroalaEditor from "froala-editor"
+import { useFroalaStorage } from "~/composables/useFroalaStorage"
+import { getFroalaConfig } from "~/utils/froalaConfig"
+import { registerFroalaPlugins } from "~/utils/froalaPlugins"
+
 const props = defineProps({
   modelValue: {
     type: String,
@@ -30,85 +31,79 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-});
+})
 
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"])
 
-const froalaContainer = ref(null);
-let editor = null;
+const froalaContainer = ref(null)
+let editor = null
 
-// Initialize storage composable
 const { loadFromStorage, saveToStorage, clearStorage } = useFroalaStorage(
   props.storageKey
-);
+)
 
-// Initialize config composable
-const { getDefaultConfig } = useFroalaConfig();
-
-// Register all custom plugins
-
-// Get default configuration with event handlers
 const defaultConfig = {
-  ...getDefaultConfig(
+  ...getFroalaConfig(
     emit,
     props.autoSave,
     saveToStorage,
     loadFromStorage,
     props.modelValue
   ),
-  // Merge with user-provided config
   ...props.config,
-};
+}
+
+// Track plugin registration globally to avoid multiple registrations
+const PLUGINS_REGISTERED_KEY = "__froala_plugins_registered__"
 
 onMounted(() => {
-  registerFroalaPlugins();
+  // Register plugins only once across all editor instances
+  if (!window[PLUGINS_REGISTERED_KEY]) {
+    registerFroalaPlugins()
+    window[PLUGINS_REGISTERED_KEY] = true
+  }
 
   nextTick(() => {
     if (froalaContainer.value) {
-      editor = new FroalaEditor(`#${props.editorId}`, defaultConfig);
+      editor = new FroalaEditor(`#${props.editorId}`, defaultConfig)
     }
-  });
-});
+  })
+})
 
 onBeforeUnmount(() => {
   if (editor) {
-    // Save one final time before unmounting
     if (props.autoSave) {
-      saveToStorage(editor.html.get());
+      saveToStorage(editor.html.get())
     }
-
-    editor.destroy();
-    editor = null;
+    editor.destroy()
+    editor = null
   }
-
-  unregisterFroalaPlugins();
-});
+})
 
 watch(
   () => props.modelValue,
   (newValue) => {
     if (editor && editor.html.get() !== newValue) {
-      editor.html.set(newValue || "");
+      editor.html.set(newValue || "")
     }
   }
-);
+)
 
-// Expose methods for manual control
 defineExpose({
   saveToStorage: () => {
     if (editor) {
-      saveToStorage(editor.html.get());
+      saveToStorage(editor.html.get())
     }
   },
   clearStorage,
   loadFromStorage: () => {
-    const content = loadFromStorage();
+    const content = loadFromStorage()
     if (content && editor) {
-      editor.html.set(content);
+      editor.html.set(content)
     }
-    return content;
+    return content
   },
-});
+})
 </script>
 
 <style>
@@ -124,7 +119,6 @@ defineExpose({
   border-bottom: 1px solid #ddd;
 }
 
-/* Style for Froala toolbar separators */
 .fr-toolbar .fr-btn-grp:not(:last-child)::after {
   content: "";
   display: inline-block;
@@ -135,18 +129,15 @@ defineExpose({
   margin-left: 2px;
 }
 
-/* Hide divider for the group that contains the insertComponentsDropdown button */
 .fr-toolbar .fr-btn-grp:has(#insertComponentsDropdown-1)::after {
   display: none !important;
   content: none !important;
 }
 
-/* Add margin to the last button in each group */
 .fr-toolbar .fr-btn-grp .fr-btn:last-child {
   margin-right: 10px;
 }
 
-/* If you're using the '|' character as a separator in your toolbar config */
 .fr-toolbar .fr-separator:after {
   content: "|";
   color: #e0e0e0;
@@ -154,9 +145,10 @@ defineExpose({
 }
 
 .fr-wrapper {
-  padding: 2rem auto !important; /* top/bottom = 0, left/right = 5rem */
+  padding: 2rem auto !important;
   height: auto !important;
 }
+
 .fr-element {
   max-width: 1000px;
 }
@@ -179,6 +171,7 @@ defineExpose({
   margin-left: 0px !important;
   margin-right: 14px !important;
 }
+
 .fr-toolbar .fr-btn-grp .fr-dropdown {
   margin-right: 17px !important;
 }
@@ -236,7 +229,7 @@ defineExpose({
 .fr-element.fr-view p {
   margin: 0.5em 0;
 }
-/* Restore default ordered/unordered list styles inside Froala editor view */
+
 .fr-view ol {
   list-style-type: decimal;
   list-style-position: outside;
