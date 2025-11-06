@@ -19,16 +19,20 @@
     <ClientOnly>
       <template #default>
         <div class="docs-layout">
-       
           <div class="header">
-           <p class="unit-name"> < Harlem Renaissance & Shakespearean Tragedy / Othello's Renaissance </p>
-           <h1 class="step-name" style="margin: 0">
-                  Segment : Quotable Connections - "I sit with Shakespeare and he winces
-                  not." —W.E.B. DuBois
-                </h1>
+            <ul class="breadcrumbs">
+              <li>Harlem Renaissance & Shakespearean Tragedy</li>
+              <li>
+                <span class="separator">❯</span>
+                Othello's Renaissance
+              </li>
+            </ul>
 
-
-  </div>
+            <h1 class="step-name" style="margin: 0">
+              Segment : Quotable Connections - "I sit with Shakespeare and he
+              winces not." —W.E.B. DuBois
+            </h1>
+          </div>
           <FroalaEditor
             v-model="content"
             :config="froalaConfig"
@@ -54,6 +58,7 @@
 </template>
 
 <script setup>
+import PrevIcon from "@/assets/icons/chevron-right.svg?component";
 const content = ref("<p>Start writing your document...</p>");
 const isPreviewModalOpen = ref(false);
 
@@ -92,11 +97,10 @@ onMounted(() => {
 
 <style scoped>
 .docs-layout {
-
   height: 100vh;
   overflow-y: auto;
   padding: 0;
-  margin :0;
+  margin: 0;
 }
 
 .fr-box,
@@ -179,31 +183,64 @@ onMounted(() => {
   margin-left: 0.75rem;
 }
 
-.unit-name{
-    font-size: 18px;
-    color:#757575;
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    margin-bottom: 8px !important;
-  
-}
-.step-name{
-    font-size: 32px;
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    margin-bottom: 12px !important;
-}
-.lesson-name{
-    font-size: 24px;
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    margin-bottom: 8px !important;
-}
-.header{
-
-margin :32px;
-margin-left: 48px !important;
-
+.unit-name {
+  display: flex;
+  align-items: center; /* Aligns items vertically center */
+  gap: 10px; /* Space between icon and text */
+  font-size: 20px;
+  color: #757575;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  margin-bottom: 8px !important;
 }
 
+/* Ensure the SVG icon has a proper size */
+.unit-name svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0; /* Prevents the icon from shrinking */
+}
+.step-name {
+  font-size: 32px;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  margin-bottom: 12px !important;
+}
+.lesson-name {
+  font-size: 24px;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  margin-bottom: 8px !important;
+}
+.header {
+  margin: 32px;
+  margin-left: 48px !important;
+}
+.unit-name svg {
+  fill: #757575; /* Same as your text color */
+}
+.unit-name-text {
+  padding-left: 4px !important;
+}
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: Arial, sans-serif;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #757575;
+}
+
+.breadcrumbs .separator {
+  margin: 0 8px;
+  color: #757575;
+  font-size: 14px;
+}
 </style>
