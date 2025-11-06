@@ -255,5 +255,9 @@ defineExpose({
 .fr-box{
  margin: 48px !important; 
 }
+.fr-view a {
+  color: #007bff;       /* Change this to your desired color */
+  text-decoration: underline;
+}
 
 </style>
