@@ -23,6 +23,7 @@ export const getFroalaConfig = (
     height: "auto",
     width: "100%",
     spellcheck: false,
+    pastePlain: true,
 
     fontSize: [
       "8",
@@ -102,6 +103,7 @@ export const getFroalaConfig = (
       "spellChecker",
       "|",
       "paragraphFormat",
+      "fontSize",
       "|",
       "bold",
       "italic",
