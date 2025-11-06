@@ -22,6 +22,7 @@ export const getFroalaConfig = (
     documentReady: true,
     height: "auto",
     width: "100%",
+    spellcheck: false,
 
     fontSize: [
       "8",
@@ -37,6 +38,13 @@ export const getFroalaConfig = (
       "36",
       "48",
     ],
+    paragraphFormat: {
+      N: "Paragraph",
+      H1: "Heading 1",
+      H2: "Heading 2",
+      H3: "Heading 3",
+      H4: "Heading 4",
+    },
 
     imageUpload: true,
     imageUploadURL: "/api/upload-image",
