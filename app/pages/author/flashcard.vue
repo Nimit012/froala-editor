@@ -18,8 +18,8 @@
   
   <script setup lang="ts">
   import { ref } from 'vue'
-  import FlashcardForm from '~/components/editor/Flashcard/Form.vue'
-  import { generateFlashcardHtml } from '~/components/editor/Flashcard/Template'
+  import FlashcardForm from '~/components/plugin/Flashcard/Form.vue'
+  import { generateFlashcardHtml } from '~/components/plugin/Flashcard/Template'
   
   const flashcardHtml = ref('')
   
