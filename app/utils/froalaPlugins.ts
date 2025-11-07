@@ -1,9 +1,9 @@
 import FroalaEditor from "froala-editor"
-import InputFieldForm from "~/components/editor/InputField/Form.vue"
-import FlashcardForm from "~/components/editor/Flashcard/Form.vue"
+import InputFieldForm from "~/components/plugin/InputField/Form.vue"
+import FlashcardForm from "~/components/plugin/Flashcard/Form.vue"
 import { openModal } from "../utils/modal"
-import { generateInputFieldHtml } from "~/components/editor/InputField/Template"
-import { generateFlashcardHtml, type FlashcardDeckData } from "~/components/editor/Flashcard/Template"
+import { generateInputFieldHtml } from "~/components/plugin/InputField/Template"
+import { generateFlashcardHtml, type FlashcardDeckData } from "~/components/plugin/Flashcard/Template"
 
 /**
  * Plugin definition interface for Froala custom commands

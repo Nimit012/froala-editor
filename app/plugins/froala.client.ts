@@ -1,6 +1,6 @@
 import 'froala-editor/css/froala_editor.pkgd.min.css'
 import 'froala-editor/css/froala_style.min.css'
-// You might need to import additional plugins
+// additional plugins
 import 'froala-editor/js/plugins/align.min.js'
 import 'froala-editor/js/plugins/char_counter.min.js'
 import 'froala-editor/js/plugins/code_beautifier.min.js'
@@ -31,10 +31,6 @@ import 'froala-editor/js/plugins/print.min.js'
 import 'froala-editor/js/plugins/save.min.js'
 import 'froala-editor/js/plugins/word_paste.min.js'
 import 'froala-editor/js/plugins/line_height.min.js'
-// Other Froala plugin imports…
-
-
-// ✅ Add print plugin
 import "froala-editor/js/plugins/print.min.js";
 import "froala-editor/js/third_party/spell_checker.min.js";
 import "froala-editor/css/third_party/spell_checker.min.css"
