@@ -31,13 +31,8 @@ import 'froala-editor/js/plugins/print.min.js'
 import 'froala-editor/js/plugins/save.min.js'
 import 'froala-editor/js/plugins/word_paste.min.js'
 import 'froala-editor/js/plugins/line_height.min.js'
-// Other Froala plugin imports…
-
-
-// ✅ Add print plugin
-import "froala-editor/js/plugins/print.min.js";
-import "froala-editor/js/third_party/spell_checker.min.js";
-import "froala-editor/css/third_party/spell_checker.min.css"
+import 'froala-editor/js/third_party/spell_checker.min.js'
+import 'froala-editor/css/third_party/spell_checker.min.css'
 
 
 
