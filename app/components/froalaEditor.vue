@@ -129,6 +129,7 @@ defineExpose({
 .fr-toolbar {
   position: sticky;
   top: 0;
+  z-index :100;
   background-color: white;
   border-bottom: 2px solid #e0e0e0 !important;
 }
