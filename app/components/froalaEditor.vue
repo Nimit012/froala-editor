@@ -119,11 +119,17 @@ defineExpose({
 .fr-element.fr-view {
   width: 100% !important;
 }
+.fr-element.fr-view hr {
+  border: 0 !important;
+  border-top: 2px solid #ccc !important;
+  height : 0 !important;
+ margin : 12px !important;
+}
 
 .fr-toolbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index :100;
   background-color: white;
   border-bottom: 2px solid #e0e0e0 !important;
 }
