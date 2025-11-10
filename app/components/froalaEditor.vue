@@ -127,9 +127,6 @@ defineExpose({
 }
 
 .fr-toolbar {
-  position: sticky;
-  top: 0;
-  z-index :100;
   background-color: white;
   border-bottom: 2px solid #e0e0e0 !important;
 }
@@ -161,7 +158,7 @@ defineExpose({
 
 .fr-wrapper {
   padding: 2rem auto !important;
-  height: auto !important;
+  height: 432px !important;
 }
 
 .fr-element {
@@ -224,7 +221,7 @@ defineExpose({
 }
 
 .fr-element.fr-view h1 {
-  font-size: 2em;
+  font-size: 1.75em;
   font-weight: 700;
   margin: 0.67em 0;
 }
@@ -237,6 +234,11 @@ defineExpose({
 
 .fr-element.fr-view h3 {
   font-size: 1.25em;
+  font-weight: 600;
+  margin: 0.83em 0;
+}
+.fr-element.fr-view h4 {
+  font-size: 1em;
   font-weight: 600;
   margin: 0.83em 0;
 }

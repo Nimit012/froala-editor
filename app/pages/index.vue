@@ -21,7 +21,10 @@
         <div class="docs-layout">
           <div class="header">
             <ul class="breadcrumbs">
-              <li>Harlem Renaissance & Shakespearean Tragedy</li>
+            <li> Survey Course </li>
+              <li>
+                <span class="separator">❯</span>
+              ELA</li>
               <li>
                 <span class="separator">❯</span>
                 Othello's Renaissance
@@ -113,9 +116,6 @@ onMounted(() => {
 }
 
 .fr-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
   background-color: white;
   border-bottom: 1px solid #ddd;
 }
