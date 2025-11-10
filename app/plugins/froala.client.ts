@@ -34,8 +34,8 @@ import 'froala-editor/js/plugins/line_height.min.js'
 import "froala-editor/js/plugins/print.min.js";
 import "froala-editor/js/third_party/spell_checker.min.js";
 import "froala-editor/css/third_party/spell_checker.min.css"
-
-
+import 'froala-editor/js/plugins/special_characters.min.js'
+import 'froala-editor/css/plugins/special_characters.min.css'
 
 export default defineNuxtPlugin(() => {
   // Plugin is automatically client-side only due to .client.js suffix
