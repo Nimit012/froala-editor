@@ -24,6 +24,7 @@ export const getFroalaConfig = (
     width: "100%",
     spellcheck: true,
     pastePlain: true,
+    toolbarSticky: false,
 
     fontSize: [
       "8",

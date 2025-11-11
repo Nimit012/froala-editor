@@ -125,15 +125,6 @@ defineExpose({
   height : 0 !important;
  margin : 12px !important;
 }
-
-.fr-toolbar {
- position: sticky;
- top:0 !important;
- z-index: 100 !important;
- background-color: white;
- border-bottom: 2px solid #e0e0e0 !important;
-}
-
 .fr-toolbar .fr-btn-grp:not(:last-child)::after {
   content: "";
   display: inline-block;
@@ -162,6 +153,7 @@ defineExpose({
 .fr-wrapper {
   padding: 2rem auto !important;
   height: auto !important;
+  border: none !important;
 }
 
 .fr-element {
@@ -263,9 +255,8 @@ defineExpose({
   margin-left: 1.5em;
   padding-left: 0.5em;
 }
-.fr-box{
- margin: 48px !important; 
-}
+
+
 .fr-view a {
   color: #007bff;       /* Change this to your desired color */
   text-decoration: underline;
@@ -273,6 +264,18 @@ defineExpose({
 
 p:has(a[href*="froala.com"]) {
   display: none !important;
+}
+
+.fr-toolbar {
+  position: sticky !important;
+  top: 123px !important; /* equal to header height */
+  z-index: 999 !important;
+  background: white !important;
+  border: none !important;
+  border-radius: 0px !important;
+  background-color: white;
+ border-bottom: 2px solid #e0e0e0 !important;
+ padding-left: 16px !important;
 }
 
 </style>
