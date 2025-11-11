@@ -32,10 +32,10 @@
             </ul>
 
             <h1 class="step-name" style="margin: 0">
-              Segment : Quotable Connections - "I sit with Shakespeare and he
-              winces not." —W.E.B. DuBois
+              Segment : Quotable Connections
             </h1>
           </div>
+        
           <FroalaEditor
             v-model="content"
             :config="froalaConfig"
@@ -113,6 +113,18 @@ onMounted(() => {
   max-width: 100% !important;
   margin: 0 auto !important;
   padding: auto 0;
+  margin-top: 50px !important;
+}
+.fr-toolbar {
+  position: sticky !important;
+  top: 70px !important; /* equal to header height */
+  z-index: 999 !important;
+  background: white !important;
+  border-bottom: 1px solid #ddd;
+}
+
+.fr-wrapper {
+ margin-top: 50px; /* equal to toolbar height */
 }
 
 .fr-toolbar {
@@ -204,7 +216,7 @@ onMounted(() => {
   font-size: 32px;
   font-family: "Inter", sans-serif;
   margin: 0;
-  margin-bottom: 12px !important;
+  margin-bottom: 0px !important;
 }
 .lesson-name {
   font-size: 24px;
@@ -213,8 +225,14 @@ onMounted(() => {
   margin-bottom: 8px !important;
 }
 .header {
-  margin: 32px;
-  margin-left: 48px !important;
+position: sticky !important;
+top: 0 !important;
+z-index: 100 !important;
+  padding:32px;
+ 
+  padding-left: 24px !important;
+ padding-bottom: 16px !important;
+  background-color: white;
 }
 .unit-name svg {
   fill: #757575; /* Same as your text color */
