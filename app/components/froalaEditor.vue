@@ -127,8 +127,11 @@ defineExpose({
 }
 
 .fr-toolbar {
-  background-color: white;
-  border-bottom: 2px solid #e0e0e0 !important;
+ position: sticky;
+ top:0 !important;
+ z-index: 100 !important;
+ background-color: white;
+ border-bottom: 2px solid #e0e0e0 !important;
 }
 
 .fr-toolbar .fr-btn-grp:not(:last-child)::after {
@@ -158,11 +161,11 @@ defineExpose({
 
 .fr-wrapper {
   padding: 2rem auto !important;
-  height: 432px !important;
+  height: auto !important;
 }
 
 .fr-element {
-  max-width: 1200px;
+  max-width: 1440px;
 }
 
 .fr-toolbar {
