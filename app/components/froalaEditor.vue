@@ -165,7 +165,7 @@ defineExpose({
 }
 
 .fr-element {
-  max-width: 1200px;
+  max-width: 1440px;
 }
 
 .fr-toolbar {
