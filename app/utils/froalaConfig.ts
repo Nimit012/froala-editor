@@ -101,7 +101,6 @@ export const getFroalaConfig = (
       "undo",
       "redo",
       "print",
-      "spellChecker",
       "|",
       "paragraphFormat",
       "fontSize",
