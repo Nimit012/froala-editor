@@ -100,7 +100,6 @@ export const getFroalaConfig = (
     toolbarButtons: [
       "undo",
       "redo",
-      "print",
       "|",
       "paragraphFormat",
       "fontSize",
