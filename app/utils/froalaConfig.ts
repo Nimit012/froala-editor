@@ -136,8 +136,6 @@ export const getFroalaConfig = (
       "fullscreen",
       "html",
       "specialCharacters",
-      "|",
-      "insertComponentsDropdown",
     ],
 
     events: {
