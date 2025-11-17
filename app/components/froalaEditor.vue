@@ -77,6 +77,7 @@ onMounted(() => {
       editor = new FroalaEditor(`#${props.editorId}`, defaultConfig)
     }
   })
+
 })
 
 onBeforeUnmount(() => {
@@ -116,15 +117,36 @@ defineExpose({
 </script>
 
 <style>
-.fr-element.fr-view {
+.fr-element.fr-box {
+  height: 100% !important;
+  max-width: 100% !important;
   width: 100% !important;
+  display: flex;
+  flex-direction: column;
 }
+
+.fr-box.fr-fullscreen {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background: white;
+}
+
+.fr-box .fr-wrapper {
+  flex: 1;
+  overflow: auto;
+}
+
 .fr-element.fr-view hr {
   border: 0 !important;
   border-top: 2px solid #ccc !important;
   height : 0 !important;
- margin : 12px !important;
+  margin : 12px !important;
 }
+
 .fr-toolbar .fr-btn-grp:not(:last-child)::after {
   content: "";
   display: inline-block;
@@ -151,13 +173,19 @@ defineExpose({
 }
 
 .fr-wrapper {
-  padding: 2rem auto !important;
-  height: auto !important;
+  padding: 0 !important;
+  height: 100% !important;
   border: none !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box;
 }
 
 .fr-element {
-  max-width: 1440px;
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .fr-toolbar {
