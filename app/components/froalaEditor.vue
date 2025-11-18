@@ -275,6 +275,7 @@ p:has(a[href*="froala.com"]) {
   border-radius: 0px !important;
   background-color: white;
  border-bottom: 2px solid #e0e0e0 !important;
+ border-top : 2px solid #e0e0e0 !important;
  padding-left: 16px !important;
 }
 
