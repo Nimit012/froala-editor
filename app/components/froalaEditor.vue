@@ -155,7 +155,12 @@ defineExpose({
   height: auto !important;
   border: none !important;
 }
-
+.fr-fullscreen .fr-wrapper {
+  height: 636px !important;
+}
+.fr-fullscreen .fr-wrapper .fr-element {
+padding: 0  !important;
+}
 .fr-element {
   max-width: 1440px;
 }
