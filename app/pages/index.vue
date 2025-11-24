@@ -188,6 +188,15 @@ const saveDocument = () => {
 
 // Load saved content on mount
 onMounted(() => {
+
+    if (typeof window !== 'undefined') {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('reset')) {
+      localStorage.removeItem('my-document-1');
+    }
+  }
+
+  
   const saved = localStorage.getItem("froala-document");
   if (saved) {
     content.value = saved;
