@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <section class="flex align-middle my-4 gap-6 p-4s">
+    <section class="flex align-middle my-4 gap-6 p-4s">
       <h1 class="text-3xl ml-36">My Document Editor</h1>
 
       <div class="actions ml-auto">
@@ -15,7 +15,7 @@
           Save Document
         </button>
       </div>
-    </section> -->
+    </section>
     <ClientOnly>
       <template #default>
         <div class="docs-layout">
@@ -64,7 +64,7 @@
 import PrevIcon from "@/assets/icons/chevron-right.svg?component";
 const content = ref("<p>Start writing your document...</p>");
 const isPreviewModalOpen = ref(false);
-
+console.log("content", content)
 const froalaConfig = {
   documentReady: true,
   height: 500,

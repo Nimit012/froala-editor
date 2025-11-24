@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.921.0",
     "froala-editor": "^4.6.0",
+    "froala-pages": "^1.2.0",
     "nuxt": "^4.0.1",
     "vue": "^3.5.18",
     "vue-froala-wysiwyg": "^4.6.0",
