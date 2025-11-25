@@ -72,26 +72,26 @@ const content =
 </blockquote>
 <hr>
 
-<p><strong><span style="font-size: 18px;">&nbsp; &nbsp;Part A</span></strong><span style="font-size: 16px;"> : Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></p>
+<p><strong><span style="font-size: 18px;">  Part A</span></strong><span style="font-size: 16px;"> : Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></p>
 
 <p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
 
-<p id="isPasted" style="margin-left: 20px; line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
+<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
-<p style="margin-left: 20px; line-height: 1;">&nbsp; &nbsp; <strong><span style="font-size: 18px;">W.E.B Dubois</span></strong></p>
+<p style="line-height: 1;">&nbsp; &nbsp; <strong><span style="font-size: 18px;">W.E.B Dubois</span></strong></p>
 
-<p style="margin-left: 20px; line-height: 1;">&nbsp; &nbsp; <span style="font-size: 14px;"><em>The Souls Of Black Folk</em></span></p>
+<p style="line-height: 1;">&nbsp; &nbsp; <span style="font-size: 14px;"><em>The Souls Of Black Folk</em></span></p>
 
 <p>
 
 	<br>
 </p>
 
-<p><span style="font-size: 16px;">&nbsp; &nbsp; ...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
+<p><span style="font-size: 16px;">&nbsp;...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
 
 <p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
 
-<table style="width: 93%; height: 100px; margin: auto auto auto calc(2%); border-width: 1px; border-style: solid;">
+<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
 	<tbody>
 		<tr>
 			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
@@ -101,11 +101,11 @@ const content =
 
 <p><span style="font-size: 16px;">&nbsp; &nbsp;&nbsp;</span></p>
 
-<p id="isPasted" style="margin-left: 20px; line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
+<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
-<p style="line-height: 1; margin-left: 20px;"><span style="font-size: 18px;"><strong>Ralph Ellison</strong></span></p>
+<p style="line-height: 1;"><span style="font-size: 18px;"><strong>Ralph Ellison</strong></span></p>
 
-<p style="line-height: 1; margin-left: 20px;"><em>Invisible Man</em></p>
+<p style="line-height: 1;"><em>Invisible Man</em></p>
 
 <p style="line-height: 1; margin-left: 20px;">
 	<br>
@@ -113,13 +113,13 @@ const content =
 
 <p style="line-height: 1; margin-left: 20px;">&nbsp;&nbsp;</p>
 
-<p style="line-height: 1; margin-left: 20px;"><span style="font-size: 16px;">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span></p>
+<p><span style="font-size: 16px;">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span></p>
 
 <p style="line-height: 1; margin-left: 20px;">
 	<br>
 </p>
 
-<table style="width: 95%; height: 100px; margin: auto auto auto calc(1%); border-width: 1px; border-style: solid;">
+<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
 	<tbody>
 		<tr>
 			<td style="width: 1146px; height: 106px; padding: 16px; vertical-align: top;">Please add your response here.</td>
@@ -129,33 +129,29 @@ const content =
 
 <p>&nbsp; &nbsp; &nbsp;</p>
 
-<p id="isPasted" style="margin-left: 20px; line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764047689070_image3.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></p>
+<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764047689070_image3.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></p>
 
-<p style="margin-left: 100px; line-height: 1;">
+<p style="margin-left: 80px; line-height: 1;">
 	<br>
 </p>
 
+<p id="isPasted" style="margin-left: 80px; line-height: 1;"><span style="font-size: 18px;"><strong>William Shakespeare</strong></span></p>
 
-
-<p id="isPasted" style="margin-left: 100px; line-height: 1;"><span style="font-size: 18px;"><strong>William Shakespeare</strong></span></p>
-
-<p style="margin-left: 100px; line-height: 1;"><em>Othello</em></p>
+<p style="margin-left: 80px; line-height: 1;"><em>Othello</em></p>
 
 <p style="line-height: 1; margin-left: 100px;">
 	<br>
 </p>
 
-
-
 <p>&nbsp; &nbsp;</p>
 
-<p>&nbsp; <span style="font-size: 16px;">&nbsp; &nbsp; &hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;away &nbsp;richer than all his tribe&hellip;</span></p>
+<p>&nbsp;<span style="font-size: 16px;">&hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl &nbsp;away &nbsp;richer than all his tribe&hellip;</span></p>
 
 <p>
 	<br>
 </p>
 
-<table style="width: 90%; height: 100px; margin: auto auto auto calc(2%); border-width: 1px; border-style: solid;">
+<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
 	<tbody>
 		<tr>
 			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
@@ -180,11 +176,11 @@ const content =
 	<br>
 </p>
 
-<p><span style="font-size: 16px;"><strong>&nbsp; &nbsp;</strong></span><span style="font-size: 18px;"><strong>Part B</strong></span><span style="font-size: 16px;"><strong> : </strong>Connect the main ideas stated by the authors above. How do their ideas compliment each other? Explain..</span></p>
+<p><span style="font-size: 18px;"><strong>Part B</strong></span><span style="font-size: 16px;"><strong> : </strong>Connect the main ideas stated by the authors above. How do their ideas compliment each other? Explain..</span></p>
 
 <p>&nbsp; &nbsp;</p>
 
-<table style="width: 95%; height: 100px; margin: auto auto auto calc(1%); border-width: 1px; border-style: solid;">
+<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
 	<tbody>
 		<tr>
 			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
@@ -197,6 +193,8 @@ const content =
 
 <br>
 </span></p>
+
+<p style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1">Froala Editor</a></p>
 
 
 `);
