@@ -21,10 +21,11 @@
         <div class="docs-layout">
           <div class="header">
             <ul class="breadcrumbs">
-            <li> Survey Course </li>
+              <li>Survey Course</li>
               <li>
                 <span class="separator">❯</span>
-              ELA</li>
+                ELA
+              </li>
               <li>
                 <span class="separator">❯</span>
                 Othello's Renaissance
@@ -35,7 +36,7 @@
               Segment : Quotable Connections
             </h1>
           </div>
-        
+
           <FroalaEditor
             v-model="content"
             :config="froalaConfig"
@@ -62,8 +63,8 @@
 
 <script setup>
 import PrevIcon from "@/assets/icons/chevron-right.svg?component";
-const content = ref(`
-<p><strong><span style="font-size: 24px;">Quotable Connections</span></strong></p>
+const content =
+  ref(`<p><strong><span style="font-size: 24px;">Quotable Connections</span></strong></p>
 
 <blockquote>
 
@@ -73,90 +74,129 @@ const content = ref(`
 
 <p><strong><span style="font-size: 18px;">&nbsp; &nbsp;Part A</span></strong><span style="font-size: 16px;"> : Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></p>
 
+<p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
+
+<p id="isPasted" style="margin-left: 20px; line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
+
+<p style="margin-left: 20px; line-height: 1;">&nbsp; &nbsp; <strong><span style="font-size: 18px;">W.E.B Dubois</span></strong></p>
+
+<p style="margin-left: 20px; line-height: 1;">&nbsp; &nbsp; <span style="font-size: 14px;"><em>The Souls Of Black Folk</em></span></p>
+
 <p>
 
 	<br>
 </p>
 
-<table style="width: 99%; height: 100px; margin: auto; border-width: 0px; border-style: solid;">
+<p><span style="font-size: 16px;">&nbsp; &nbsp; ...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
+
+<p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
+
+<table style="width: 93%; height: 100px; margin: auto auto auto calc(2%); border-width: 1px; border-style: solid;">
 	<tbody>
 		<tr>
-			<td style="width: 6.2549%; vertical-align: top; text-align: justify;">&nbsp; 1.
-			</td>
-			<td style="width: 47.115%; vertical-align: top; text-align: left; padding: 4px;" data-cell-padding="4px">
-
-				...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him see himself through the revelation of the other world. It is a peculiar sensation, this double-consciousness, this sense of always <strong>looking at one&#39;s self through the eyes of others, of measuring one&#39;s soul by the tape of a world that looks on in amused contempt and pity</strong>.
-
-				<p style="text-align: left; line-height: 1;"><span style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 60px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </span></p>
-
-				<p style="text-align: left; line-height: 1;"><span style="line-height: 1;"><strong><span style="font-size: 16px;">&nbsp; &nbsp; W.E.B Dubois</span></strong></span></p>
-
-				<p style="text-align: left; line-height: 1;"><span style="line-height: 1;">&nbsp; &nbsp; <em>The Souls Of Black Folk</em></span>
-					<br>
-				</p>
-			</td>
-			<td style="width: 46.5472%;"></td>
-		</tr>
-		<tr>
-			<td style="width: 6.2549%; vertical-align: top;">&nbsp; 2.</td>
-			<td style="width: 47.115%; text-align: right; padding: 4px;" data-cell-padding="4px">
-
-				<p id="isPasted" style="text-align: left;">I am an invisible man. . .<strong> I am invisible</strong>, understand, simply because people refuse to see me. Like the bodiless heads you see sometimes in circus sideshows, it is as though I have been surrounded by mirrors of hard, distorting glass. When they approach me <strong>they see only my surroundings, themselves or figments of their imagination, indeed, everything and anything except me.</strong></p>
-
-				<p style="text-align: left; line-height: 1;"><span style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763376364127_image2.png" style="width: 60px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></span></p>
-
-				<p style="text-align: left; line-height: 1;">
-					<br>
-				</p>
-
-				<p style="text-align: left; line-height: 1;"><strong>&nbsp; &nbsp;&nbsp;</strong><strong><span style="line-height: 1; font-size: 16px;">Ralph Ellison</span></strong></p>
-
-				<p style="text-align: left; line-height: 1;"><span style="line-height: 1;"><em>&nbsp; &nbsp; <span style="font-size: 14px;">Invisible Man</span></em></span></p>
-			</td>
-			<td style="width: 46.5472%;"></td>
-		</tr>
-		<tr>
-			<td style="width: 6.2549%; vertical-align: top; text-align: left;">&nbsp;3.</td>
-			<td style="width: 47.115%; padding: 4px;" data-cell-padding="4px">. . .I pray you, in your letters, / When you shall these unlucky deeds relate, / <strong>Speak of me as I am. Nothing extenuate, / Nor set down aught in malice</strong>. Then must you speak / Of one that loved not wisely, but too well. / Of one not easily jealous, but being wrought, / Perplexed in the extreme. Of one whose hand, / Like the base Indian, threw a pearl away / Richer than all his tribe. Of one whose subdued eyes, / Albeit unused to the melting mood, / Drop tears as fast as the Arabian trees / Their medicinal gum. . . &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
-				<p id="isPasted" style="line-height: 1;"><span style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763376718173_image3.png" style="width: 60px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></span></p>
-
-				<p style="line-height: 1;">
-					<br>
-				</p>
-
-				<p style="line-height: 1;"><strong>&nbsp;<span style="font-size: 16px;"> &nbsp;&nbsp;</span><span style="line-height: 1; font-size: 16px;">William Shakespeare</span></strong></p>
-
-				<p style="line-height: 1;"><span style="line-height: 1;"><em>&nbsp; &nbsp; Othello</em></span></p>
-			</td>
-			<td style="width: 46.5472%;"></td>
+			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
 		</tr>
 	</tbody>
 </table>
 
+<p><span style="font-size: 16px;">&nbsp; &nbsp;&nbsp;</span></p>
+
+<p id="isPasted" style="margin-left: 20px; line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
+
+<p style="line-height: 1; margin-left: 20px;"><span style="font-size: 18px;"><strong>Ralph Ellison</strong></span></p>
+
+<p style="line-height: 1; margin-left: 20px;"><em>Invisible Man</em></p>
+
+<p style="line-height: 1; margin-left: 20px;">
+	<br>
+</p>
+
+<p style="line-height: 1; margin-left: 20px;">&nbsp;&nbsp;</p>
+
+<p style="line-height: 1; margin-left: 20px;"><span style="font-size: 16px;">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span></p>
+
+<p style="line-height: 1; margin-left: 20px;">
+	<br>
+</p>
+
+<table style="width: 95%; height: 100px; margin: auto auto auto calc(1%); border-width: 1px; border-style: solid;">
+	<tbody>
+		<tr>
+			<td style="width: 1146px; height: 106px; padding: 16px; vertical-align: top;">Please add your response here.</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp; &nbsp; &nbsp;</p>
+
+<p id="isPasted" style="margin-left: 20px; line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764047689070_image3.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></p>
+
+<p style="margin-left: 100px; line-height: 1;">
+	<br>
+</p>
+
+
+
+<p id="isPasted" style="margin-left: 100px; line-height: 1;"><span style="font-size: 18px;"><strong>William Shakespeare</strong></span></p>
+
+<p style="margin-left: 100px; line-height: 1;"><em>Othello</em></p>
+
+<p style="line-height: 1; margin-left: 100px;">
+	<br>
+</p>
+
+
+
+<p>&nbsp; &nbsp;</p>
+
+<p>&nbsp; <span style="font-size: 16px;">&nbsp; &nbsp; &hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;away &nbsp;richer than all his tribe&hellip;</span></p>
+
 <p>
+	<br>
+</p>
+
+<table style="width: 90%; height: 100px; margin: auto auto auto calc(2%); border-width: 1px; border-style: solid;">
+	<tbody>
+		<tr>
+			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="margin-left: 20px;">
+	<br>
+</p>
+
+<p style="margin-left: 20px;">
 	<br>
 </p>
 <hr>
 
 <p>
-	<span style="font-size: 16px;"><strong>&nbsp; &nbsp;</strong></span></p>
+	<br>
+</p>
 
-<p><span style="font-size: 16px;"><strong>&nbsp; &nbsp;</strong></span><span style="font-size: 18px;"><strong>Part B</strong></span><span style="font-size: 16px;"><strong> : </strong>Connect the main ideas stated by the authors above. How do their ideas compliment each other? Explain..
+<p>
+	<br>
+</p>
 
-</span></p>
+<p><span style="font-size: 16px;"><strong>&nbsp; &nbsp;</strong></span><span style="font-size: 18px;"><strong>Part B</strong></span><span style="font-size: 16px;"><strong> : </strong>Connect the main ideas stated by the authors above. How do their ideas compliment each other? Explain..</span></p>
+
+<p>&nbsp; &nbsp;</p>
+
+<table style="width: 95%; height: 100px; margin: auto auto auto calc(1%); border-width: 1px; border-style: solid;">
+	<tbody>
+		<tr>
+			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
+		</tr>
+	</tbody>
+</table>
 
 <p><span style="font-size: 16px;">
 
 
 <br>
 </span></p>
-
-<p style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1">Froala Editor</a></p>
-
-<p style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1">Froala Editor</a></p>
-
-<p data-f-id="pbf" style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1" title="Froala Editor">Froala Editor</a></p>
 
 
 `);
@@ -188,15 +228,15 @@ const saveDocument = () => {
 
 // Load saved content on mount
 onMounted(() => {
-
-    if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const url = new URL(window.location.href);
-    if (url.searchParams.has('reset')) {
-      localStorage.removeItem('my-document-1');
+    if (url.searchParams.has("reset")) {
+      localStorage.removeItem("my-document-1");
+      url.searchParams.delete("reset");
+      window.history.replaceState({}, "", url);
     }
   }
 
-  
   const saved = localStorage.getItem("froala-document");
   if (saved) {
     content.value = saved;
@@ -230,7 +270,7 @@ onMounted(() => {
 }
 
 .fr-wrapper {
- margin-top: 50px; /* equal to toolbar height */
+  margin-top: 50px; /* equal to toolbar height */
 }
 
 .fr-toolbar {
@@ -331,13 +371,13 @@ onMounted(() => {
   margin-bottom: 8px !important;
 }
 .header {
-position: sticky !important;
-top: 0 !important;
-z-index: 100 !important;
-  padding:32px;
- 
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  padding: 32px;
+
   padding-left: 24px !important;
- padding-bottom: 16px !important;
+  padding-bottom: 16px !important;
   background-color: white;
 }
 .unit-name svg {
