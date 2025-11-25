@@ -123,7 +123,7 @@ defineExpose({
   border: 0 !important;
   border-top: 2px solid #ccc !important;
   height : 0 !important;
- margin : 12px !important;
+  margin : 12px 0px  !important;
 }
 .fr-toolbar .fr-btn-grp:not(:last-child)::after {
   content: "";

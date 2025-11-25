@@ -41,7 +41,7 @@
             v-model="content"
             :config="froalaConfig"
             editor-id="my-document-editor"
-            storage-key="my-document-1"
+            storage-key="my-document-data"
             :auto-save="true"
           />
         </div>
@@ -64,32 +64,39 @@
 <script setup>
 import PrevIcon from "@/assets/icons/chevron-right.svg?component";
 const content =
-  ref(`<p><strong><span style="font-size: 24px;">Quotable Connections</span></strong></p>
+  ref(`<h2 style="text-align: left;"><strong><span style="font-size: 24px; color: rgb(26, 32, 44);">Quotable Connections</span></strong><span style="font-size: 24px; color: rgb(26, 32, 44);"></span></h2>
 
 <blockquote>
 
-	<p><span style="font-size: 20px; color: rgb(0, 0, 0);"><em>&nbsp;&quot;I sit with Shakespeare and he winces not.&quot; &mdash;W.E.B. DuBois</em></span></p>
+	<p><span style="font-size: 20px; color: rgb(0, 0, 0);"><em>&nbsp;</em><em>&quot;I sit with Shakespeare and he winces not.&quot; &mdash;W.E.B. DuBois</em></span></p>
 </blockquote>
+
+<p>
+	<br>
+</p>
 <hr>
 
-<p><strong><span style="font-size: 18px;">  Part A</span></strong><span style="font-size: 16px;"> : Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></p>
+<p>
+	<br>
+</p>
+
+<p style="
+    color: #343434;
+"><strong><span style="font-size: 18px; color: rgb(52, 52, 52);">Part A</span></strong><span style="font-size: 16px;"><span style="color: rgb(52, 52, 52);">: Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></span></p>
 
 <p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
 
 <p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
-<p style="line-height: 1;">&nbsp; &nbsp; <strong><span style="font-size: 18px;">W.E.B Dubois</span></strong></p>
+<h4 style="line-height: 1;">&nbsp; &nbsp; <strong><span style="font-size: 18px; color: rgb(26, 32, 44);">W.E.B Dubois</span></strong></h4>
 
-<p style="line-height: 1;">&nbsp; &nbsp; <span style="font-size: 14px;"><em>The Souls Of Black Folk</em></span></p>
+<p style="line-height: 1;">&nbsp; &nbsp; <span style="font-size: 14px;"><em><span style="color: rgb(113, 128, 150);">The Souls Of Black Folk</span></em></span></p>
 
 <p>
-
 	<br>
 </p>
 
-<p><span style="font-size: 16px;">&nbsp;...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
-
-<p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p><span style="font-size: 16px; color: rgb(45, 55, 72);">...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
 
 <table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
 	<tbody>
@@ -103,19 +110,14 @@ const content =
 
 <p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
-<p style="line-height: 1;"><span style="font-size: 18px;"><strong>Ralph Ellison</strong></span></p>
+<h4 style="line-height: 1;"><span style="font-size: 18px;"><strong><span style="color: rgb(26, 32, 44);">Ralph Ellison</span></strong></span></h4>
 
-<p style="line-height: 1;"><em>Invisible Man</em></p>
-
-<p style="line-height: 1; margin-left: 20px;">
-	<br>
-</p>
-
-<p style="line-height: 1; margin-left: 20px;">&nbsp;&nbsp;</p>
-
-<p><span style="font-size: 16px;">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span></p>
+<p style="line-height: 1;"><em><span style="color: rgb(113, 128, 150);">Invisible Man</span></em></p>
 
 <p style="line-height: 1; margin-left: 20px;">
+	&nbsp;</p>
+
+<p><span style="font-size: 16px; color: rgb(45, 55, 72);">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span>
 	<br>
 </p>
 
@@ -135,19 +137,15 @@ const content =
 	<br>
 </p>
 
-<p id="isPasted" style="margin-left: 80px; line-height: 1;"><span style="font-size: 18px;"><strong>William Shakespeare</strong></span></p>
+<h4 id="isPasted" style="margin-left: 80px; line-height: 1;"><span style="font-size: 18px;"><strong><span style="color: rgb(26, 32, 44);">William Shakespeare</span></strong></span></h4>
 
-<p style="margin-left: 80px; line-height: 1;"><em>Othello</em></p>
+<p style="margin-left: 80px; line-height: 1;"><em><span style="color: rgb(113, 128, 150);">Othello</span></em></p>
 
 <p style="line-height: 1; margin-left: 100px;">
 	<br>
 </p>
 
-<p>&nbsp; &nbsp;</p>
-
-<p>&nbsp;<span style="font-size: 16px;">&hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl &nbsp;away &nbsp;richer than all his tribe&hellip;</span></p>
-
-<p>
+<p><span style="font-size: 16px; color: rgb(45, 55, 72);">&hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl &nbsp;away &nbsp;richer than all his tribe&hellip;</span>
 	<br>
 </p>
 
@@ -162,23 +160,17 @@ const content =
 <p style="margin-left: 20px;">
 	<br>
 </p>
-
-<p style="margin-left: 20px;">
-	<br>
-</p>
 <hr>
 
 <p>
 	<br>
 </p>
 
+<p><span style="font-size: 18px;"><strong><span style="color: rgb(52, 52, 52);">Part B</span></strong></span><span style="font-size: 16px; color: rgb(52, 52, 52);"><strong>:&nbsp;</strong>Connect the main ideas stated by the authors above. How do their ideas compliment each other? Explain..</span></p>
+
 <p>
 	<br>
 </p>
-
-<p><span style="font-size: 18px;"><strong>Part B</strong></span><span style="font-size: 16px;"><strong> : </strong>Connect the main ideas stated by the authors above. How do their ideas compliment each other? Explain..</span></p>
-
-<p>&nbsp; &nbsp;</p>
 
 <table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
 	<tbody>
@@ -229,7 +221,7 @@ onMounted(() => {
   if (typeof window !== "undefined") {
     const url = new URL(window.location.href);
     if (url.searchParams.has("reset")) {
-      localStorage.removeItem("my-document-1");
+      localStorage.removeItem("my-document-data");
       url.searchParams.delete("reset");
       window.history.replaceState({}, "", url);
     }
