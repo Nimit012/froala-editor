@@ -64,16 +64,16 @@
 <script setup>
 import PrevIcon from "@/assets/icons/chevron-right.svg?component";
 const content =
-  ref(`<h2 style="text-align: left;"><strong><span style="font-size: 24px; color: rgb(26, 32, 44);">Quotable Connections</span></strong><span style="font-size: 24px; color: rgb(26, 32, 44);"></span></h2>
+  ref(`<p><strong><span style="font-size: 24px; color: rgb(26, 32, 44);">Quotable Connections</span></strong>
+
+</p>
 
 <blockquote>
 
 	<p><span style="font-size: 20px; color: rgb(0, 0, 0);"><em>&nbsp;</em><em>&quot;I sit with Shakespeare and he winces not.&quot; &mdash;W.E.B. DuBois</em></span></p>
 </blockquote>
 
-<p>
-	<br>
-</p>
+
 <hr>
 
 <p>
@@ -81,10 +81,12 @@ const content =
 </p>
 
 <p style="
-    color: #343434;
-"><strong><span style="font-size: 18px; color: rgb(52, 52, 52);">Part A</span></strong><span style="font-size: 16px;"><span style="color: rgb(52, 52, 52);">: Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></span></p>
+    color: #343434;"><strong><span style="font-size: 18px; color: rgb(52, 52, 52);">Part A</span></strong><span style="font-size: 16px;"><span style="color: rgb(52, 52, 52);">: Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></span></p>
 
-<p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>
+	<br>
+</p>
+
 
 <p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
@@ -96,17 +98,20 @@ const content =
 	<br>
 </p>
 
-<p><span style="font-size: 16px; color: rgb(45, 55, 72);">...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
+<p><span style="font-size: 16px; color: rgb(45, 55, 72);">...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;others</strong>&hellip;</span></p>
 
-<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
+<p><span style="font-size: 16px; color: rgb(45, 55, 72);">
+ &nbsp; &nbsp;<style>
+      .fr-input-control::placeholder {
+        font-style: italic;
+        color: #9ca3af;
+      }
+    </style><assessment-input class="fr-input-control" contenteditable="false" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764240212257-7okipq81n" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false"><span>Please add your response here.</span></assessment-input>
+	</span></p>
 
-<p><span style="font-size: 16px;">&nbsp; &nbsp;&nbsp;</span></p>
+<p>
+	<br>
+</p>
 
 <p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
@@ -117,19 +122,27 @@ const content =
 <p style="line-height: 1; margin-left: 20px;">
 	&nbsp;</p>
 
-<p><span style="font-size: 16px; color: rgb(45, 55, 72);">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span>
+<p><span style="font-size: 16px; color: rgb(45, 55, 72);">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span></p>
+
+<p>
 	<br>
 </p>
 
-<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1146px; height: 106px; padding: 16px; vertical-align: top;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
 
-<p>&nbsp; &nbsp; &nbsp;</p>
+
+<p>
+	<style>
+		.fr-input-control::placeholder {
+			font-style: italic; color: #9ca3af;
+		}
+
+	</style>
+	<assessment-input class="fr-input-control" contenteditable="false" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764240231233-u6wa9ivmp" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false"><span>Please add your response here.</span></assessment-input>
+</p>
+
+<p>
+	<br>
+</p>
 
 <p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764047689070_image3.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></p>
 
@@ -145,17 +158,21 @@ const content =
 	<br>
 </p>
 
-<p><span style="font-size: 16px; color: rgb(45, 55, 72);">&hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl &nbsp;away &nbsp;richer than all his tribe&hellip;</span>
+<p><span style="font-size: 16px; color: rgb(45, 55, 72);">&hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl &nbsp;away &nbsp;richer than all his tribe&hellip;</span></p>
+
+<p>
 	<br>
 </p>
 
-<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
+<p>
+	<style>
+		.fr-input-control::placeholder {
+			font-style: italic; color: #9ca3af;
+		}
+
+	</style>
+	<assessment-input class="fr-input-control" contenteditable="false" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764240263232-ws4qfsphd" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false"><span>Please add your response here.</span></assessment-input>
+</p>
 
 <p style="margin-left: 20px;">
 	<br>
@@ -172,21 +189,15 @@ const content =
 	<br>
 </p>
 
-<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
-
-<p><span style="font-size: 16px;">
-
-
-<br>
-</span></p>
-
-<p style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1">Froala Editor</a></p>
+<p><span style="font-size: 16px; color: rgb(52, 52, 52);">
+      <style>
+      .fr-input-control::placeholder {
+        font-style: italic;
+        color: #9ca3af;
+      }
+    </style>
+      <assessment-input class="fr-input-control" contenteditable="false" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764240273552-ldxv6b4c1" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false"><span>Please add your response here.</span></assessment-input>
+	</span></p>
 
 
 `);
