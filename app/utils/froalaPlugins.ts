@@ -175,6 +175,45 @@ async function handleInsertFlashcard(editor: any) {
 // PLUGIN - Single Dropdown
 // ============================================================================
 
+// // Simple Design Block Plugin
+// FroalaEditor.DefineIcon("designBlockIcon", {
+//   NAME: "th-large", // Using a built-in icon
+// });
+
+// const simpleDesignBlockPlugin: FroalaPlugin = {
+//   name: "insertSimpleBlock",
+//   config: {
+//     title: "Insert Header Block",
+//     icon: "gradpathIcon",
+//     focus: true,
+//     undo: true,
+//     refreshAfterCallback: true,
+//   },
+//   callback: function () {
+//     const editor = this;
+
+//     // This is a simple Froala Design Block HTML
+//     const blockHtml = `
+// <section class="fdb-block" style="padding: 100px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+//   <div class="container">
+//     <div class="row text-center">
+//       <div class="col-12">
+//         <h1 style="color: white; font-size: 48px; margin-bottom: 20px;">Welcome to Our Website</h1>
+//         <p class="lead" style="color: rgba(255,255,255,0.9); font-size: 24px;">Edit this text to make it your own</p>
+//         <p style="margin-top: 30px;">
+//           <a class="btn btn-primary btn-lg" href="#" style="padding: 15px 40px; font-size: 18px;">Get Started</a>
+//         </p>
+//       </div>
+//     </div>
+//   </div>
+// </section>
+//     `;
+
+//     // Insert it at cursor position
+//     editor.html.insert(blockHtml);
+//   },
+// };
+
 FroalaEditor.DefineIcon("gradpathIcon", {
   template: "text",
   NAME: '<span style="font-size:13px; font-weight:500;">GRADPATH CAPABILITIES</span>',

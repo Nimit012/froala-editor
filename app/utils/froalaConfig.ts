@@ -140,7 +140,7 @@ export const getFroalaConfig = (
     events: {
       contentChanged: function (this: FroalaEditor) {
         const content = this.html.get();
-
+        emit("update:modelValue", content);
         if (autoSave) {
           saveToStorage(content);
         }

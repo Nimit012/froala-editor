@@ -191,7 +191,7 @@ const content =
 
 `);
 const isPreviewModalOpen = ref(false);
-
+console.log("content", content);
 const froalaConfig = {
   documentReady: true,
   height: 500,
