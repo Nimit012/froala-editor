@@ -14,19 +14,19 @@ export interface InputFieldData {
 }
 
 export const generateInputFieldHtml = (data: InputFieldData): string => {
-  const { 
-    placeholder, 
-    fieldName, 
-    fieldId, 
+  const {
+    placeholder,
+    fieldName,
+    fieldId,
     inputType,
-    singleLineType = 'text',
+    singleLineType = "text",
     minRows = 3,
     maxRows = 10,
     maxWords = 1000,
     enableFormatting = false,
     allowImageUpload = false,
     spellChecker = true,
-    disablePaste = false
+    disablePaste = false,
   } = data;
 
   const baseStyles = `
@@ -70,21 +70,12 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
   return `
       <style>${baseStyles}</style>
       <div 
-        class="fr-input-field-container fr-deletable"
+        class="fr-input-field-container"
         data-field-id="${fieldId}"
         contenteditable="false"
         style="display: flex; align-items: center; gap: 8px; margin: 12px 0; user-select: none;"
       >
         ${inputElement}
-        <button 
-          class="fr-input-delete-btn"
-          data-field-id="${fieldId}"
-          type="button"
-          onclick="window.deleteInputField('${fieldId}'); return false;"
-          style="padding: 6px 12px; background: #ef4444; color: white; border: none; border-radius: 6px; font-size: 13px; cursor: pointer; font-weight: 500; pointer-events: auto; opacity: 1; white-space: nowrap;"
-        >
-          Delete
-        </button>
       </div>
     `;
 };

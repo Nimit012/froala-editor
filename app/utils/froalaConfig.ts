@@ -19,7 +19,7 @@ export const getFroalaConfig = (
   initialModelValue: string
 ) => {
   return {
-    key:"MZC1rD1B4G4I3A15B10C8jF1QUg1Xc2OZE1ABVJRDRNGGUH1ITrA1C7A6B5E1E4H4E1A9B5==",
+    key: "MZC1rD1B4G4I3A15B10C8jF1QUg1Xc2OZE1ABVJRDRNGGUH1ITrA1C7A6B5E1E4H4E1A9B5==",
     documentReady: true,
     height: "auto",
     width: "100%",
@@ -124,7 +124,6 @@ export const getFroalaConfig = (
       "formatUL",
       "outdent",
       "indent",
-      "|",
       "insertLink",
       "insertImage",
       "insertVideo",
@@ -134,6 +133,8 @@ export const getFroalaConfig = (
       "fullscreen",
       "html",
       "specialCharacters",
+      "|",
+      "insertComponentsDropdown",
     ],
 
     events: {
