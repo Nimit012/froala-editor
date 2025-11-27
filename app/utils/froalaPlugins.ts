@@ -114,7 +114,7 @@ async function handleInsertInputField(editor: any) {
     maxWords?: number;
     enableFormatting?: boolean;
     allowImageUpload?: boolean;
-    spellChecker?: boolean;
+    spellCheck?: boolean;
     disablePaste?: boolean;
   }>(InputFieldForm);
 
@@ -141,7 +141,7 @@ async function handleInsertInputField(editor: any) {
     maxWords: result.data.maxWords,
     enableFormatting: result.data.enableFormatting,
     allowImageUpload: result.data.allowImageUpload,
-    spellChecker: result.data.spellChecker,
+    spellCheck: result.data.spellCheck,
     disablePaste: result.data.disablePaste,
     fieldName,
     fieldId,

@@ -9,14 +9,13 @@ export interface InputFieldData {
   maxWords?: number;
   enableFormatting?: boolean;
   allowImageUpload?: boolean;
-  spellChecker?: boolean;
+  spellCheck?: boolean;
   disablePaste?: boolean;
 }
 
 export const generateInputFieldHtml = (data: InputFieldData): string => {
   const {
     placeholder,
-    fieldName,
     fieldId,
     inputType,
     singleLineType = "text",
@@ -25,7 +24,7 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
     maxWords = 1000,
     enableFormatting = false,
     allowImageUpload = false,
-    spellChecker = true,
+    spellCheck = true,
     disablePaste = false,
   } = data;
 
@@ -38,34 +37,30 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
 
   const inputElement =
     inputType === "multi"
-      ? `<textarea 
+      ? `<assessment-input 
           class="fr-input-control" 
-          placeholder="${placeholder || ""}" 
-          data-input-type="multi"
-          data-field-id="${fieldId}"
-          data-field-name="${fieldName}"
+          data-placeholder="${placeholder || ""}" 
+          data-field-type="multi"
+          data-id="${fieldId}"
           data-min-rows="${minRows}"
           data-max-rows="${maxRows}"
           data-max-words="${maxWords}"
-          data-enable-formatting="${enableFormatting}"
-          data-allow-image-upload="${allowImageUpload}"
-          data-spell-checker="${spellChecker}"
+          data-basic-formatting="${enableFormatting}"
+          data-image-upload="${allowImageUpload}"
+          data-spell-check="${spellCheck}"
           data-disable-paste="${disablePaste}"
-          contenteditable="false"
-          style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7;"
-        ></textarea>`
-      : `<input 
+          style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7; height: 150px; width: 100%;"
+        ><span>${placeholder}</span></assessment-input>`
+      : `<assessment-input 
           type="${singleLineType}" 
           class="fr-input-control" 
-          placeholder="${placeholder || ""}"
-          data-input-type="single"
-          data-single-line-type="${singleLineType}"
-          data-field-id="${fieldId}"
-          data-field-name="${fieldName}"
-          data-spell-checker="${spellChecker}"
-          contenteditable="false"
-          style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7;"
-        />`;
+          data-placeholder="${placeholder || ""}"
+          data-field-type="single"
+          data-input-type="${singleLineType}"
+          data-id="${fieldId}"
+          data-spell-check="${spellCheck}"
+          style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7; height: 150px; width: 100%;"
+        ><span>${placeholder}</span></assessment-input>`;
 
   return `
       <style>${baseStyles}</style>
@@ -75,8 +70,8 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
         contenteditable="false"
         style="display: flex; align-items: center; gap: 8px; margin: 12px 0; user-select: none;"
       >
-        ${inputElement}
-      </div>
+      ${inputElement}
+    </div>
     `;
 };
 

@@ -64,7 +64,9 @@
 <script setup>
 import PrevIcon from "@/assets/icons/chevron-right.svg?component";
 const content =
-  ref(`<h2 style="text-align: left;"><strong><span style="font-size: 24px; color: rgb(26, 32, 44);">Quotable Connections</span></strong><span style="font-size: 24px; color: rgb(26, 32, 44);"></span></h2>
+  ref(`<p><strong><span style="font-size: 24px; color: rgb(26, 32, 44);">Quotable Connections</span></strong>
+
+</p>
 
 <blockquote>
 
@@ -81,8 +83,7 @@ const content =
 </p>
 
 <p style="
-    color: #343434;
-"><strong><span style="font-size: 18px; color: rgb(52, 52, 52);">Part A</span></strong><span style="font-size: 16px;"><span style="color: rgb(52, 52, 52);">: Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></span></p>
+    color: #343434;"><strong><span style="font-size: 18px; color: rgb(52, 52, 52);">Part A</span></strong><span style="font-size: 16px;"><span style="color: rgb(52, 52, 52);">: Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></span></p>
 
 <p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
 
@@ -98,13 +99,18 @@ const content =
 
 <p><span style="font-size: 16px; color: rgb(45, 55, 72);">...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
 
-<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
+
+
+
+<style>
+	.fr-input-control::placeholder {
+		font-style: italic; color: #9ca3af;
+	}
+
+</style>
+<div class="fr-input-field-container" data-field-id="input-1764237186060-1usu59vhd" contenteditable="false" data-text="Please add your response here." style="display: flex; align-items: center; gap: 8px; margin: 12px 0; user-select: none;">
+	<assessment-input class="fr-input-control" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764237186060-1usu59vhd" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false" style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7; height: 150px; width: 100%;"><span>Please add your response here.</span></assessment-input>
+</div>
 
 <p><span style="font-size: 16px;">&nbsp; &nbsp;&nbsp;</span></p>
 
@@ -121,13 +127,18 @@ const content =
 	<br>
 </p>
 
-<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1146px; height: 106px; padding: 16px; vertical-align: top;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
+
+
+
+<style>
+	.fr-input-control::placeholder {
+		font-style: italic; color: #9ca3af;
+	}
+
+</style>
+<div class="fr-input-field-container" data-field-id="input-1764237193723-ijhoius1v" contenteditable="false" data-text="Please add your response here." style="display: flex; align-items: center; gap: 8px; margin: 12px 0; user-select: none;">
+	<assessment-input class="fr-input-control" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764237193723-ijhoius1v" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false" style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7; height: 150px; width: 100%;"><span>Please add your response here.</span></assessment-input>
+</div>
 
 <p>&nbsp; &nbsp; &nbsp;</p>
 
@@ -149,13 +160,18 @@ const content =
 	<br>
 </p>
 
-<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
+
+
+
+<style>
+	.fr-input-control::placeholder {
+		font-style: italic; color: #9ca3af;
+	}
+
+</style>
+<div class="fr-input-field-container" data-field-id="input-1764237201883-jr1gy81gh" contenteditable="false" data-text="Please add your response here." style="display: flex; align-items: center; gap: 8px; margin: 12px 0; user-select: none;">
+	<assessment-input class="fr-input-control" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764237201883-jr1gy81gh" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false" style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7; height: 150px; width: 100%;"><span>Please add your response here.</span></assessment-input>
+</div>
 
 <p style="margin-left: 20px;">
 	<br>
@@ -172,21 +188,17 @@ const content =
 	<br>
 </p>
 
-<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
 
-<p><span style="font-size: 16px;">
+<style>
+	.fr-input-control::placeholder {
+		font-style: italic; color: #9ca3af;
+	}
 
+</style>
+<div class="fr-input-field-container" data-field-id="input-1764237210491-qbq99i73u" contenteditable="false" data-text="Please add your response here." style="display: flex; align-items: center; gap: 8px; margin: 12px 0; user-select: none;">
+	<assessment-input class="fr-input-control" data-placeholder="Please add your response here." data-field-type="multi" data-id="input-1764237210491-qbq99i73u" data-min-rows="3" data-max-rows="10" data-max-words="1000" data-basic-formatting="false" data-image-upload="false" data-spell-check="true" data-disable-paste="false" style="flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; pointer-events: none; opacity: 0.7; height: 150px; width: 100%;"><span>Please add your response here.</span></assessment-input>
+</div>
 
-<br>
-</span></p>
-
-<p style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1">Froala Editor</a></p>
 
 
 `);
