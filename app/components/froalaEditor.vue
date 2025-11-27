@@ -5,10 +5,14 @@
 </template>
 
 <script setup>
-import FroalaEditor from "froala-editor"
-import { loadFromStorage, saveToStorage, clearStorage } from "~/utils/froalaStorage"
-import { getFroalaConfig } from "~/utils/froalaConfig"
-import { registerFroalaPlugins } from "~/utils/froalaPlugins"
+import FroalaEditor from "froala-editor";
+import {
+  loadFromStorage,
+  saveToStorage,
+  clearStorage,
+} from "~/utils/froalaStorage";
+import { getFroalaConfig } from "~/utils/froalaConfig";
+import { registerFroalaPlugins } from "~/utils/froalaPlugins";
 
 const props = defineProps({
   modelValue: {
@@ -31,25 +35,25 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-})
+});
 
-const emit = defineEmits(["update:modelValue"])
+const emit = defineEmits(["update:modelValue"]);
 
-const froalaContainer = ref(null)
-let editor = null
+const froalaContainer = ref(null);
+let editor = null;
 
 // Create wrapper functions that bind the storageKey
 const saveToStorageWrapper = (content) => {
-  saveToStorage(props.storageKey, content)
-}
+  saveToStorage(props.storageKey, content);
+};
 
 const loadFromStorageWrapper = () => {
-  return loadFromStorage(props.storageKey)
-}
+  return loadFromStorage(props.storageKey);
+};
 
 const clearStorageWrapper = () => {
-  clearStorage(props.storageKey)
-}
+  clearStorage(props.storageKey);
+};
 
 const defaultConfig = {
   ...getFroalaConfig(
@@ -60,59 +64,59 @@ const defaultConfig = {
     props.modelValue
   ),
   ...props.config,
-}
+};
 
 // Track plugin registration globally to avoid multiple registrations
-const PLUGINS_REGISTERED_KEY = "__froala_plugins_registered__"
+const PLUGINS_REGISTERED_KEY = "__froala_plugins_registered__";
 
 onMounted(() => {
   // Register plugins only once across all editor instances
   if (!window[PLUGINS_REGISTERED_KEY]) {
-    registerFroalaPlugins()
-    window[PLUGINS_REGISTERED_KEY] = true
+    registerFroalaPlugins();
+    window[PLUGINS_REGISTERED_KEY] = true;
   }
 
   nextTick(() => {
     if (froalaContainer.value) {
-      editor = new FroalaEditor(`#${props.editorId}`, defaultConfig)
+      editor = new FroalaEditor(`#${props.editorId}`, defaultConfig);
     }
-  })
-})
+  });
+});
 
 onBeforeUnmount(() => {
   if (editor) {
     if (props.autoSave) {
-      saveToStorageWrapper(editor.html.get())
+      saveToStorageWrapper(editor.html.get());
     }
-    editor.destroy()
-    editor = null
+    editor.destroy();
+    editor = null;
   }
-})
+});
 
 watch(
   () => props.modelValue,
   (newValue) => {
     if (editor && editor.html.get() !== newValue) {
-      editor.html.set(newValue || "")
+      editor.html.set(newValue || "");
     }
   }
-)
+);
 
 defineExpose({
   saveToStorage: () => {
     if (editor) {
-      saveToStorageWrapper(editor.html.get())
+      saveToStorageWrapper(editor.html.get());
     }
   },
   clearStorage: clearStorageWrapper,
   loadFromStorage: () => {
-    const content = loadFromStorageWrapper()
+    const content = loadFromStorageWrapper();
     if (content && editor) {
-      editor.html.set(content)
+      editor.html.set(content);
     }
-    return content
+    return content;
   },
-})
+});
 </script>
 
 <style>
@@ -122,8 +126,8 @@ defineExpose({
 .fr-element.fr-view hr {
   border: 0 !important;
   border-top: 2px solid #ccc !important;
-  height : 0 !important;
-  margin : 12px 0px  !important;
+  height: 0 !important;
+  margin: 12px 0px !important;
 }
 .fr-toolbar .fr-btn-grp:not(:last-child)::after {
   content: "";
@@ -159,7 +163,7 @@ defineExpose({
   height: 636px !important;
 }
 .fr-fullscreen .fr-wrapper .fr-element {
-padding: 0  !important;
+  padding: 0 !important;
 }
 .fr-element {
   max-width: 1440px;
@@ -202,16 +206,21 @@ padding: 0  !important;
 
 .fr-input-control {
   display: block;
-  width: 100%;
-  padding: 8px 12px;
-  font-size: 14px;
   font-family: inherit;
   margin: 12px 0;
-  pointer-events: none;
   background-color: rgb(248, 250, 252);
   border: 1px dashed rgb(203, 213, 224);
   border-radius: 6px;
   padding: 12px;
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.7;
+  height: 150px;
+  width: 100%;
 }
 
 .circle {
@@ -261,9 +270,8 @@ padding: 0  !important;
   padding-left: 0.5em;
 }
 
-
 .fr-view a {
-  color: #007bff;       /* Change this to your desired color */
+  color: #007bff; /* Change this to your desired color */
   text-decoration: underline;
 }
 
@@ -279,9 +287,8 @@ p:has(a[href*="froala.com"]) {
   border: none !important;
   border-radius: 0px !important;
   background-color: white;
- border-bottom: 2px solid #e0e0e0 !important;
- border-top : 2px solid #e0e0e0 !important;
- padding-left: 16px !important;
+  border-bottom: 2px solid #e0e0e0 !important;
+  border-top: 2px solid #e0e0e0 !important;
+  padding-left: 16px !important;
 }
-
 </style>
