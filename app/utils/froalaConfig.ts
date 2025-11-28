@@ -63,6 +63,8 @@ export const getFroalaConfig = (
       "br",
       "hr",
       "input",
+      "mprescripts", // WIRIS requirement
+      "none", // WIRIS requirement
     ],
     htmlAllowedStyleProps: [".*"],
     htmlRemoveTags: [],
@@ -105,6 +107,8 @@ export const getFroalaConfig = (
       "subscript",
       "superscript",
       "strikeThrough",
+      "wirisEditor", // WIRIS: Math formula button
+      "wirisChemistry", // WIRIS: Chemistry formula button
       "|",
       "alignLeft",
       "alignRight",

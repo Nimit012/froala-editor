@@ -37,6 +37,15 @@ const props = defineProps({
   },
 });
 
+useHead({
+  script: [
+    {
+      src: "https://www.wiris.net/demo/plugins/app/WIRISplugins.js?viewer=image",
+      defer: true,
+    },
+  ],
+});
+
 const emit = defineEmits(["update:modelValue"]);
 
 const froalaContainer = ref(null);
