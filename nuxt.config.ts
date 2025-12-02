@@ -21,11 +21,11 @@ export default defineNuxtConfig({
         },
 
         // Froala Design Blocks CSS
-        { rel: 'stylesheet', href: 'path/to/froala-design-blocks.css' }
+
       ],
       script: [
         // Froala Design Blocks JS
-        { src: 'path/to/froala-design-blocks.js', defer: true }
+        { src: 'https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/js/froala_blocks.min.js', defer: true }
       ]
     }
   },

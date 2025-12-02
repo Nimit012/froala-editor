@@ -44,7 +44,12 @@ onMounted(async () => {
 
     try {
       // Import Froala Design Blocks CSS
-      await import("froala-design-blocks/dist/css/froala_blocks.min.css");
+      // Import Froala Design Blocks CSS
+      const froalaBlocksCSS = document.createElement("link");
+      froalaBlocksCSS.rel = "stylesheet";
+      froalaBlocksCSS.href =
+        "https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/css/froala_blocks.min.css";
+      document.head.appendChild(froalaBlocksCSS);
 
       // Import Bootstrap CSS (required dependency)
       const bootstrapCSS = document.createElement("link");
@@ -88,8 +93,8 @@ onMounted(async () => {
           name.className = "block-name";
           name.textContent = `Block ${index + 1}`;
 
-          card.appendChild(preview);
           card.appendChild(name);
+          card.appendChild(preview);
 
           card.addEventListener("click", () => {
             handleBlockSelect(block.outerHTML);
@@ -118,19 +123,29 @@ const createFallbackBlocks = () => {
       name: "Hero Section",
       html: `<section class="fdb-block">
   <div class="container">
-    <div class="row">
-      <div class="col text-center">
-        <h1>Froala Design Blocks</h1>
-        <p class="lead">Subtitle text about launch comes here.</p>
-        <p class="lead">
-          <a href="https://www.froala.com" class="mx-2">Learn More <i class="fas fa-angle-right"></i></a>
-          <a href="https://www.froala.com" class="mx-2">Buy <i class="fas fa-angle-right"></i></a>
-        </p>
+    <div class="row text-center align-items-center">
+      <div class="col-8 col-md-4">
+        <img alt="image" class="img-fluid" src="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/photos/map-1.jpg">
       </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <img alt="image" class="img-fluid mt-5" src="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/draws/hosting.svg">
+
+      <div class="col-4 col-md-2">
+        <div class="row">
+          <div class="col-12">
+            <img alt="image" class="img-fluid" src="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/photos/map-2.jpg">
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12">
+            <img alt="image" class="img-fluid" src="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/photos/map-3.jpg">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-5 ml-auto pt-5 pt-md-0">
+        <img alt="image" class="fdb-icon" src="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/icons/github.svg">
+        <h1>Design Blocks</h1>
+        <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
       </div>
     </div>
   </div>
@@ -139,17 +154,14 @@ const createFallbackBlocks = () => {
     {
       name: "Feature Cards",
       html: `<section class="fdb-block">
+  <div class="col-fill-left" style="background-image: url(https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/people/5.jpg);">
+  </div>
+
   <div class="container">
-    <div class="row text-left">
-      <div class="col-12 col-md-6">
-        <img alt="image" class="fdb-icon" src="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/icons/gift.svg">
-        <h3><strong>Awesome Things</strong></h3>
-        <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far from the countries Vokalia and Consonantia.</p>
-      </div>
-      <div class="col-12 col-md-6 pt-5 pt-md-0">
-        <img alt="image" class="fdb-icon" src="https://cdn.jsdelivr.net/gh/froala/design-blocks@master/dist/imgs/icons/cloud.svg">
-        <h3><strong>More Awesomeness</strong></h3>
-        <p class="lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, far far away, behind the word mountains, far from the countries <a href="https://www.froala.com">Vokalia and Consonantia</a>, there live the blind texts. </p>
+    <div class="row justify-content-end">
+      <div class="col-12 col-md-5 text-center">
+        <h1>Froala Blocks</h1>
+        <p class="lead">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove</p>
       </div>
     </div>
   </div>
@@ -166,13 +178,11 @@ const createFallbackBlocks = () => {
       <div class="col-12 col-md-6 col-lg-5 ml-md-auto text-left">
         <h1>Froala Blocks</h1>
         <p class="lead">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-        <p><a class="btn btn-secondary mt-4">Download</a></p>
       </div>
     </div>
   </div>
 </section>`,
     },
-
   ];
 
   const grid = document.createElement("div");
@@ -190,8 +200,8 @@ const createFallbackBlocks = () => {
     name.className = "block-name";
     name.textContent = block.name;
 
-    card.appendChild(preview);
     card.appendChild(name);
+    card.appendChild(preview);
 
     card.addEventListener("click", () => {
       handleBlockSelect(block.html);
@@ -277,7 +287,7 @@ onBeforeUnmount(() => {
 .blocks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 30px;
 }
 
 .block-card {
@@ -310,11 +320,12 @@ onBeforeUnmount(() => {
 }
 
 .block-name {
-  padding: 12px 16px;
-  font-weight: 500;
-  color: #374151;
-  border-top: 1px solid #e5e7eb;
-  background: #f9fafb;
+  padding: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
 }
 
 .modal-footer {
