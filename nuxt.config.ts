@@ -18,7 +18,14 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-        }
+        },
+
+        // Froala Design Blocks CSS
+        { rel: 'stylesheet', href: 'path/to/froala-design-blocks.css' }
+      ],
+      script: [
+        // Froala Design Blocks JS
+        { src: 'path/to/froala-design-blocks.js', defer: true }
       ]
     }
   },

@@ -150,6 +150,24 @@ async function handleInsertInputField(editor: any) {
   editor.html.insert(html);
 }
 
+async function handleInsertDesignBlocks(editor: any) {
+  editor.selection.save();
+
+  const DesignBlocksSelector = (await import("~/components/plugin/DesignBlocks/DesignBlocksSelector.vue")).default;
+
+  const result = await openModal<string>(DesignBlocksSelector);
+
+  if (!result.confirmed || !result.data) {
+    editor.selection.restore();
+    return;
+  }
+
+  editor.selection.restore();
+
+  // Insert the selected block HTML
+  editor.html.insert(result.data);
+}
+
 async function handleInsertFlashcard(editor: any) {
   editor.selection.save();
 
@@ -233,6 +251,7 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
       insertFlashcard: "Insert Flashcard",
       insertGraph: "Insert Graph",
       insertEquation: "Insert Equation",
+      insertDesignBlocks: "Insert Design Blocks",
     },
   },
   callback: async function (this: any, _cmd: string, val: string) {
@@ -243,6 +262,8 @@ const insertComponentsDropdownPlugin: FroalaPlugin = {
       await handleInsertInputField(editor);
     } else if (val === "insertFlashcard") {
       await handleInsertFlashcard(editor);
+    } else if (val === "insertDesignBlocks") {
+      await handleInsertDesignBlocks(editor);
     }
   },
 };

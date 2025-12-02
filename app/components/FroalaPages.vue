@@ -38,13 +38,13 @@
       // Initialize Froala Pages
       pagesInstance = new FroalaPages(`#${props.editorId}`, {
         // Add your Froala Pages license key here if you have one
-        // key: 'YOUR_LICENSE_KEY',
+        key: 'MZC1rD1B4G4I3A15B10C8jF1QUg1Xc2OZE1ABVJRDRNGGUH1ITrA1C7A6B5E1E4H4E1A9B5==',
         
         // Event handlers
         events: {
           contentChanged: function() {
-            const html = pagesInstance.html.get()
-            emit('update:modelValue', html)
+              const html = pagesInstance.html.get()
+              emit('update:modelValue', html)
           },
           initialized: function() {
             if (props.modelValue) {
@@ -63,7 +63,7 @@
     }
   })
   
-  // Expose methods
+  // Expose methods with safety checks
   defineExpose({
     getHTML: () => {
       return pagesInstance ? pagesInstance.html.get() : ''
@@ -79,7 +79,13 @@
     setJSON: (json) => {
       if (pagesInstance) {
         pagesInstance.json.set(json)
-      }
+      } 
+    },
+    getInstance: () => {
+      return pagesInstance
+    },
+    isReady: () => {
+      return pagesInstance !== null
     }
   })
   </script>
