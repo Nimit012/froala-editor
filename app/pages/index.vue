@@ -1,40 +1,35 @@
 <template>
   <div>
-    <section class="flex align-middle my-4 gap-6 p-4s">
-      <h1 class="text-3xl ml-36">My Document Editor</h1>
-
-      <div class="actions ml-auto">
-        <button
-          class="btn btn-primary"
-          @click="openPreviewModal"
-          :disabled="!content.trim()"
-        >
-          Preview Document
-        </button>
-        <button class="btn btn-secondary ml-3" @click="saveDocument">
-          Save Document
-        </button>
-      </div>
-    </section>
     <ClientOnly>
       <template #default>
         <div class="docs-layout">
           <div class="header">
-            <ul class="breadcrumbs">
-              <li>Survey Course</li>
-              <li>
-                <span class="separator">❯</span>
-                ELA
-              </li>
-              <li>
-                <span class="separator">❯</span>
-                Othello's Renaissance
-              </li>
-            </ul>
+            <div>
+              <ul class="breadcrumbs">
+                <li>Survey Course</li>
+                <li>
+                  <span class="separator">❯</span>
+                  ELA
+                </li>
+                <li>
+                  <span class="separator">❯</span>
+                  Othello's Renaissance
+                </li>
+              </ul>
 
-            <h1 class="step-name" style="margin: 0">
-              Segment : Quotable Connections
-            </h1>
+              <h1 class="step-name" style="margin: 0">
+                Segment : Quotable Connections
+              </h1>
+            </div>
+            <div class="actions ml-auto">
+              <button
+                class="btn btn-primary"
+                @click="openPreviewModal"
+                :disabled="!content.trim()"
+              >
+                Preview Document
+              </button>
+            </div>
           </div>
 
           <FroalaEditor
@@ -376,6 +371,7 @@ onMounted(() => {
   top: 0 !important;
   z-index: 100 !important;
   padding: 32px;
+  display: flex;
 
   padding-left: 24px !important;
   padding-bottom: 16px !important;
