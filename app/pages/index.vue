@@ -58,17 +58,14 @@
 
 <script setup>
 import PrevIcon from "@/assets/icons/chevron-right.svg?component";
-const content =
-  ref(`<p><strong><span style="font-size: 24px; color: rgb(26, 32, 44);">Quotable Connections</span></strong>
+const content = ref(`<h1>
 
-</p>
+	Quotable Connections</h1>
 
 <blockquote>
 
 	<p><span style="font-size: 20px; color: rgb(0, 0, 0);"><em>&nbsp;</em><em>&quot;I sit with Shakespeare and he winces not.&quot; &mdash;W.E.B. DuBois</em></span></p>
 </blockquote>
-
-
 <hr>
 
 <p>
@@ -82,8 +79,7 @@ const content =
 	<br>
 </p>
 
-
-<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
+<p style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
 <h4 style="line-height: 1;">&nbsp; &nbsp; <strong><span style="font-size: 18px; color: rgb(26, 32, 44);">W.E.B Dubois</span></strong></h4>
 
@@ -108,7 +104,7 @@ const content =
 	<br>
 </p>
 
-<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
+<p style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
 
 <h4 style="line-height: 1;"><span style="font-size: 18px;"><strong><span style="color: rgb(26, 32, 44);">Ralph Ellison</span></strong></span></h4>
 
@@ -122,8 +118,6 @@ const content =
 <p>
 	<br>
 </p>
-
-
 
 <p>
 	<style>
@@ -139,13 +133,13 @@ const content =
 	<br>
 </p>
 
-<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764047689070_image3.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></p>
+<p style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764047689070_image3.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></p>
 
 <p style="margin-left: 80px; line-height: 1;">
 	<br>
 </p>
 
-<h4 id="isPasted" style="margin-left: 80px; line-height: 1;"><span style="font-size: 18px;"><strong><span style="color: rgb(26, 32, 44);">William Shakespeare</span></strong></span></h4>
+<h4 style="margin-left: 80px; line-height: 1;"><span style="font-size: 18px;"><strong><span style="color: rgb(26, 32, 44);">William Shakespeare</span></strong></span></h4>
 
 <p style="margin-left: 80px; line-height: 1;"><em><span style="color: rgb(113, 128, 150);">Othello</span></em></p>
 

@@ -239,30 +239,34 @@ defineExpose({
 }
 
 .fr-element.fr-view h1 {
-  font-size: 1.75em;
-  font-weight: 700;
-  margin: 0.67em 0;
+  font-size: 2.75rem;
+  font-weight: 600;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .fr-element.fr-view h2 {
-  font-size: 1.5em;
+  font-size: 2rem;
   font-weight: 600;
-  margin: 0.75em 0;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .fr-element.fr-view h3 {
-  font-size: 1.25em;
+  font-size: 1.125rem;
   font-weight: 600;
-  margin: 0.83em 0;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 .fr-element.fr-view h4 {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 600;
-  margin: 0.83em 0;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .fr-element.fr-view p {
-  margin: 0.5em 0;
+  margin-bottom: 1rem;
 }
 
 .fr-view ol {
