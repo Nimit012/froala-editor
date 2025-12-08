@@ -28,13 +28,6 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
     disablePaste = false,
   } = data;
 
-  const baseStyles = `
-      .fr-input-control::placeholder {
-        font-style: italic;
-        color: #9ca3af;
-      }
-    `;
-
   const inputElement =
     inputType === "multi"
       ? `<assessment-input 
@@ -62,10 +55,7 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
           data-spell-check="${spellCheck}"
         ><span>${placeholder}</span></assessment-input>`;
 
-  return `
-      <style>${baseStyles}</style>
-      ${inputElement}
-    `;
+  return `${inputElement}`;
 };
 
 function escapeHtml(text: string): string {
