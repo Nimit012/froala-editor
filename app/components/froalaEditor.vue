@@ -197,6 +197,11 @@ defineExpose({
   margin-right: 14px !important;
 }
 
+.fr-input-control::placeholder {
+  font-style: italic;
+  color: #9ca3af;
+}
+
 .fr-toolbar .fr-btn-grp .fr-dropdown {
   margin-right: 17px !important;
 }
