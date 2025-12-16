@@ -1,7 +1,7 @@
 import FroalaEditor from "froala-editor";
-import { handleInsertInputField } from "~/components/plugin/InputField/insertHandler";
-import { handleInsertFlashcard } from "~/components/plugin/Flashcard/insertHandler";
-import { handleInsertDesignBlocks } from "~/components/plugin/DesignBlocks/insertHandler";
+import { handleInsertInputField } from "~/components/plugin/InputField/actions";
+import { handleInsertFlashcard } from "~/components/plugin/Flashcard/actions";
+import { handleInsertDesignBlocks } from "~/components/plugin/DesignBlocks/actions";
 import "~/components/plugin/Flashcard/actions";
 
 /**
