@@ -1,14 +1,7 @@
-import FlashcardForm from "~/components/plugin/Flashcard/Form.vue";
-import {
-  generateFlashcardHtml,
-  type FlashcardDeckData,
-} from "~/components/plugin/Flashcard/Template";
-import { openModal } from "./modal";
+import FlashcardForm from "./Form.vue";
+import { generateFlashcardHtml, type FlashcardDeckData } from "./Template";
+import { openModal } from "~/utils/modal";
 
-/**
- * Edit an existing deck by replaying the form modal with the deck's encoded data.
- * The rendered HTML replaces the current block in-place.
- */
 async function editFlashcardDeck(deckId: string) {
   try {
     const deckElement = document.querySelector(`[data-deck-id="${deckId}"]`);
@@ -43,9 +36,6 @@ async function editFlashcardDeck(deckId: string) {
   }
 }
 
-/**
- * Remove the full deck container from the editor DOM.
- */
 function deleteFlashcardDeck(deckId: string) {
   try {
     const deckElement = document.querySelector(`[data-deck-id="${deckId}"]`);
@@ -58,9 +48,6 @@ function deleteFlashcardDeck(deckId: string) {
   }
 }
 
-/**
- * Generic helper used by component wrappers (input fields, flashcards, etc.) to delete the host block.
- */
 function deleteBlock(blockId: string) {
   try {
     const element = document.querySelector(`[data-block-id="${blockId}"]`);
@@ -77,3 +64,5 @@ if (typeof window !== "undefined") {
   (window as any).deleteFlashcardDeck = deleteFlashcardDeck;
   (window as any).deleteBlock = deleteBlock;
 }
+
+export { editFlashcardDeck, deleteFlashcardDeck, deleteBlock };

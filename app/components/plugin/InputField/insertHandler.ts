@@ -1,17 +1,8 @@
-import InputFieldForm from "~/components/plugin/InputField/Form.vue";
-import FlashcardForm from "~/components/plugin/Flashcard/Form.vue";
-import { openModal } from "./modal";
-import { generateInputFieldHtml } from "~/components/plugin/InputField/Template";
-import {
-  generateFlashcardHtml,
-  type FlashcardDeckData,
-} from "~/components/plugin/Flashcard/Template";
+import InputFieldForm from "./Form.vue";
+import { openModal } from "~/utils/modal";
+import { generateInputFieldHtml } from "./Template";
 
-/**
- * Shape of the data emitted by the input-field modal component.
- * Mirrors the props that ultimately become data-* attributes in the HTML.
- */
-export interface InputFieldModalData {
+interface InputFieldModalData {
   placeholder: string;
   inputType: "single" | "multi";
   singleLineType?: string;
@@ -24,13 +15,8 @@ export interface InputFieldModalData {
   disablePaste?: boolean;
 }
 
-// Keep simple incrementing counters so generated field IDs/names remain unique per session.
 let inputFieldCounter = 0;
-let flashcardCounter = 0;
 
-/**
- * Launches the InputField modal, converts the response into HTML, and injects it at the cursor.
- */
 export async function handleInsertInputField(editor: any) {
   editor.selection.save();
 
@@ -66,7 +52,7 @@ export async function handleInsertInputField(editor: any) {
   });
 
   const wrappedHtml = `
-    <div class="froala-component-block" data-block-id="${fieldId}" style="position: relative; margin: 10px 0; padding: 5px; transition: all 0.2s;">
+    <div class="froala-component-block" data-authoring-only="true" data-block-id="${fieldId}" style="position: relative; margin: 10px 0; padding: 5px; transition: all 0.2s;">
       <style>
         .froala-component-block:hover {
           border-color: #ccc !important;
@@ -102,48 +88,4 @@ export async function handleInsertInputField(editor: any) {
   `;
 
   editor.html.insert(wrappedHtml);
-}
-
-/**
- * Opens the design-block picker component and inserts the chosen markup verbatim.
- */
-export async function handleInsertDesignBlocks(editor: any) {
-  editor.selection.save();
-
-  const DesignBlocksSelector = (
-    await import("~/components/plugin/DesignBlocks/DesignBlocksSelector.vue")
-  ).default;
-
-  const result = await openModal<string>(DesignBlocksSelector);
-
-  if (!result.confirmed || !result.data) {
-    editor.selection.restore();
-    return;
-  }
-
-  editor.selection.restore();
-  editor.html.insert(result.data);
-}
-
-/**
- * Creates a flashcard deck from modal data and injects the rendered template.
- */
-export async function handleInsertFlashcard(editor: any) {
-  editor.selection.save();
-
-  const result = await openModal<FlashcardDeckData>(FlashcardForm, {
-    uploadEndpoint: "/api/upload-image",
-  });
-
-  if (!result.confirmed || !result.data) {
-    editor.selection.restore();
-    return;
-  }
-
-  editor.selection.restore();
-
-  flashcardCounter++;
-  const html = generateFlashcardHtml(result.data);
-
-  editor.html.insert(html);
 }

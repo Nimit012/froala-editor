@@ -1,10 +1,8 @@
 import FroalaEditor from "froala-editor";
-import {
-  handleInsertDesignBlocks,
-  handleInsertFlashcard,
-  handleInsertInputField,
-} from "./froalaInsertHandlers";
-import "./froalaFlashcardActions";
+import { handleInsertInputField } from "~/components/plugin/InputField/insertHandler";
+import { handleInsertFlashcard } from "~/components/plugin/Flashcard/insertHandler";
+import { handleInsertDesignBlocks } from "~/components/plugin/DesignBlocks/insertHandler";
+import "~/components/plugin/Flashcard/actions";
 
 /**
  * Lightweight descriptor for Froala commands that we register via RegisterCommand.
