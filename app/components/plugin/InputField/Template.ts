@@ -53,6 +53,7 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
           data-input-type="${singleLineType}"
           data-id="${fieldId}"
           data-spell-check="${spellCheck}"
+          style="height: 50px" 
         ><span>${placeholder}</span></assessment-input>`;
 
   return `${inputElement}`;
