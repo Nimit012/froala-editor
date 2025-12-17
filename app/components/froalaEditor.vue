@@ -305,4 +305,28 @@ p:has(a[href*="froala.com"]) {
   border-top: 2px solid #e0e0e0 !important;
   padding-left: 16px !important;
 }
+
+.froala-component-block:hover {
+  border-color: #ccc !important;
+  display: flex !important;
+}
+.froala-block-delete-btn {
+  display: flex !important;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 24px;
+  height: 24px;
+  color: black;
+  border-radius: 50%;
+  padding: 2px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
 </style>
