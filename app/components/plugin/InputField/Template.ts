@@ -46,7 +46,7 @@ export const generateInputFieldHtml = (data: InputFieldData): string => {
         ><span>${placeholder}</span></assessment-input>`
       : `<assessment-input 
           type="${singleLineType}" 
-          class="fr-input-control" 
+          class="fr-input-control-single" 
           contenteditable=false
           data-placeholder="${placeholder || ""}"
           data-field-type="single"

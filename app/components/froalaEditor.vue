@@ -218,6 +218,25 @@ defineExpose({
   margin: 8px 0;
 }
 
+.fr-input-control-single {
+  display: block;
+  font-family: inherit;
+  margin: 12px 0;
+  background-color: rgb(248, 250, 252);
+  border: 1px dashed rgb(203, 213, 224);
+  border-radius: 6px;
+  padding: 12px;
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.7;
+  height: 50px;
+  width: 100%;
+}
+
 .fr-input-control {
   display: block;
   font-family: inherit;
