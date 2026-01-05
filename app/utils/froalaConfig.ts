@@ -98,6 +98,7 @@ export const getFroalaConfig = (
       "margin",
       "border",
     ],
+    videoResponsive: true,
 
     toolbarButtons: [
       "undo",
