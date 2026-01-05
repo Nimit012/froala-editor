@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.921.0",
+    "@wiris/mathtype-froala": "^8.14.0",
     "froala-editor": "^4.6.0",
     "nuxt": "^4.0.1",
     "vue": "^3.5.18",

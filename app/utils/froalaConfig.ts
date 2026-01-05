@@ -70,6 +70,8 @@ export const getFroalaConfig = (
       "type",
       "contenteditable",
       "onclick",
+      "mprescripts", // WIRIS requirement
+      "none", // WIRIS requirement
     ],
     htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
     htmlAllowedStyleProps: [".*"],
@@ -127,7 +129,6 @@ export const getFroalaConfig = (
       "|",
       "insertLink",
       "insertImage",
-      "embedly",
       "insertVideo",
       "insertTable",
       "quote",
@@ -135,6 +136,10 @@ export const getFroalaConfig = (
       "fullscreen",
       "html",
       "specialCharacters",
+      "|",
+      "embedly",
+      "wirisEditor", // WIRIS: Math formula button
+      "wirisChemistry", // WIRIS: Chemistry formula button
     ],
 
     events: {

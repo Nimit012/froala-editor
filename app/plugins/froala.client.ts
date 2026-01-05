@@ -42,6 +42,15 @@ import "froala-editor/css/third_party/embedly.min.css";
 import "froala-editor/js/third_party/image_tui.min.js";
 import "froala-editor/css/third_party/image_tui.min.css";
 
-export default defineNuxtPlugin(() => {
-  // Plugin is automatically client-side only due to .client.js suffix
+export default defineNuxtPlugin(async () => {
+  if (process.client) {
+    // Dynamically import FroalaEditor
+    const { default: FroalaEditor } = await import("froala-editor");
+
+    // Make it globally available for Wiris
+    window.FroalaEditor = FroalaEditor;
+
+    // Now import Wiris plugin
+    await import("@wiris/mathtype-froala");
+  }
 });
