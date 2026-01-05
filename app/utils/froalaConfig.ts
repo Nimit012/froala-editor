@@ -135,7 +135,6 @@ export const getFroalaConfig = (
       "quote",
       "insertHR",
       "fullscreen",
-      "html",
       "specialCharacters",
       "|",
       "embedly",
