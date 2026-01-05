@@ -37,6 +37,12 @@ import "froala-editor/css/third_party/spell_checker.min.css";
 import "froala-editor/js/plugins/special_characters.min.js";
 import "froala-editor/css/plugins/special_characters.min.css";
 
+import "froala-editor/js/third_party/embedly.min.js";
+import "froala-editor/css/third_party/embedly.min.css";
+
+import "froala-editor/js/third_party/image_tui.min.js";
+import "froala-editor/css/third_party/image_tui.min.css";
+
 export default defineNuxtPlugin(async () => {
   if (process.client) {
     // Dynamically import FroalaEditor

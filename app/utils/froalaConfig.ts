@@ -122,6 +122,7 @@ export const getFroalaConfig = (
       "indent",
       "insertLink",
       "insertImage",
+      "embedly",
       "insertVideo",
       "insertTable",
       "quote",
