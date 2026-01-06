@@ -74,9 +74,11 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <blockquote>
 	<div class="callout">
 
-		<p><strong><span style="color: rgb(0, 0, 0); font-size: 18px;">Key Concept:</span></strong><span style="color: rgb(0, 0, 0); font-size: 18px;"> Photosynthesis is the process by which green plants use sunlight to synthesize nutrients from carbon dioxide and water. It generates oxygen as a byproduct.</span></p>
-	</div>
-</blockquote>
+		<p><strong><span style="color: rgb(85, 57, 130); font-size: 18px;">Key Concept:</span></strong><span style="color: rgb(85, 57, 130); font-size: 18px;"> Photosynthesis is the process by which green plants use sunlight to synthesize nutrients from carbon dioxide and water. It generates oxygen as a byproduct.</span></p><span style="color: rgb(85, 57, 130);">
+</span></div><span style="color: rgb(85, 57, 130);">
+</span></blockquote><span style="color: rgb(85, 57, 130);">
+
+</span>
 
 <p>
 	<br>
@@ -90,7 +92,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 
 <p>
 	<math xmlns="http://www.w3.org/1998/Math/MathML">
-		<mstyle mathsize="36px">
+		<mstyle mathsize="26px">
 			<mn>6</mn>
 			<msub>
 				<mi>CO</mi>
@@ -105,7 +107,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 			<mi>O</mi>
 			<mo>+</mo>
 			<mtext>light energy</mtext>
-			<mo>→</mo>
+			<mo>&#8594;</mo>
 			<msub>
 				<mi>C</mi>
 				<mn>6</mn>
@@ -127,17 +129,9 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 		</mstyle>
 	</math>
 </p>
-
-<p>
-	<br>
-</p>
 <div class="equation-block"><span style="color: rgb(0, 0, 0); font-size: 16px;">This equation shows that six molecules of carbon dioxide and six molecules of water, in the presence of light energy, produce one molecule of glucose and six molecules of oxygen.</span></div>
 
 <h3><span style="font-size: 18px;">Breaking Down the Components</span></h3>
-
-<p>
-	<br>
-</p>
 
 <table style="width: 52%; height: 100px; margin: auto calc(28%) auto auto; border-width: 1px; border-style: solid;">
 	<tbody>
@@ -260,7 +254,9 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 
 <p><span style="color: rgb(0, 0, 0); font-size: 16px;">The Calvin cycle, also known as the light-independent reactions or dark reactions, is where carbon dioxide is actually converted into glucose. This cycle occurs in the stroma of the chloroplast and consists of three main phases:</span></p>
 
-<blockquote><span style="font-size: 18px;">&quot;The Calvin cycle is nature&#39;s way of building sugar molecules, one carbon atom at a time, using the energy captured from sunlight during the light-dependent reactions.&quot;</span></blockquote>
+<blockquote><span style="font-size: 18px; color: rgb(85, 57, 130);">&quot;The Calvin cycle is nature&#39;s way of building sugar molecules, one carbon atom at a time, using the energy captured from sunlight during the light-dependent reactions.&quot;</span></blockquote><span style="color: rgb(85, 57, 130);">
+
+</span>
 
 <p>
 	<br>
