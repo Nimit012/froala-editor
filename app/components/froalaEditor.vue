@@ -161,17 +161,23 @@ defineExpose({
   font-weight: normal;
 }
 
+
+body:not(:has(.fr-fullscreen-wrapper)) .fr-wrapper {
+  height: auto !important;
+}
+
+
 .fr-wrapper {
   padding: 2rem auto !important;
-  height: auto !important;
   border: none !important;
 }
-.fr-fullscreen .fr-wrapper {
-  height: 636px !important;
-}
+
 .fr-fullscreen .fr-wrapper .fr-element {
 padding: 0  !important;
 }
+
+
+
 .fr-element {
   max-width: 1440px;
 }
