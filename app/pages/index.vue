@@ -67,9 +67,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 
 <h2><span style="font-size: 24px;">Introduction to Photosynthesis</span></h2>
 
-<p><span style="color: rgb(0, 0, 0); font-size: 16px;">Photosynthesis is one of the most important biological processes on our planet. It&#39;s how plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. Without photosynthesis, life as we know it wouldn&#39;t exist.</span></p>
-
-<p>
+<p><span style="color: rgb(0, 0, 0); font-size: 16px;">Photosynthesis is one of the most important biological processes on our planet. It&#39;s how plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. Without photosynthesis, life as we know it wouldn&#39;t exist.</span>
 	<br>
 </p>
 
@@ -80,47 +78,53 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 	</div>
 </blockquote>
 
+<p>
+	<br>
+</p>
+
 <h2><span style="font-size: 24px;">The Chemical Equation</span></h2>
 
 <p><span style="color: rgb(0, 0, 0); font-size: 16px;">The overall process of photosynthesis can be represented by this chemical equation</span>
 	<br>
 </p>
 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-	<mn>6</mn>
-	<msub>
-		<mi>CO</mi>
-		<mn>2</mn>
-	</msub>
-	<mo>+</mo>
-	<mn>6</mn>
-	<msub>
-		<mi>H</mi>
-		<mn>2</mn>
-	</msub>
-	<mi>O</mi>
-	<mo>+</mo>
-	<mtext>light energy</mtext>
-	<mo>&#8594;</mo>
-	<msub>
-		<mi>C</mi>
+<p>
+	<math xmlns="http://www.w3.org/1998/Math/MathML">
 		<mn>6</mn>
-	</msub>
-	<msub>
-		<mi>H</mi>
-		<mn>12</mn>
-	</msub>
-	<msub>
-		<mi>O</mi>
+		<msub>
+			<mi>CO</mi>
+			<mn>2</mn>
+		</msub>
+		<mo>+</mo>
 		<mn>6</mn>
-	</msub>
-	<mo>+</mo>
-	<mn>6</mn>
-	<msub>
+		<msub>
+			<mi>H</mi>
+			<mn>2</mn>
+		</msub>
 		<mi>O</mi>
-		<mn>2</mn>
-	</msub>
-</math>
+		<mo>+</mo>
+		<mtext>light energy</mtext>
+		<mo>→</mo>
+		<msub>
+			<mi>C</mi>
+			<mn>6</mn>
+		</msub>
+		<msub>
+			<mi>H</mi>
+			<mn>12</mn>
+		</msub>
+		<msub>
+			<mi>O</mi>
+			<mn>6</mn>
+		</msub>
+		<mo>+</mo>
+		<mn>6</mn>
+		<msub>
+			<mi>O</mi>
+			<mn>2</mn>
+		</msub>
+	</math>
+</p>
 
 <p>
 	<br>
@@ -174,6 +178,10 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 	</tbody>
 </table>
 
+<p>
+	<br>
+</p>
+
 <h2><span style="font-size: 24px;">How Photosynthesis Works: The Video Explanation</span></h2>
 
 <p><span style="font-size: 16px; color: rgb(0, 0, 0);">Watch this detailed explanation of the photosynthesis process</span>:</p>
@@ -188,10 +196,13 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <h2><span style="font-size: 24px;">The Role of Light in Photosynthesis</span></h2>
 
 <p><span style="color: rgb(0, 0, 0); font-size: 16px;">Light is the driving force behind photosynthesis. Different wavelengths of light affect the rate of photosynthesis differently. Chlorophyll primarily absorbs red and blue light, while reflecting green light (which is why plants appear green to us).</span></p>
+
+<p>
+	<br>
+</p>
 <figure class="image-with-caption">
-	<span class="fr-img-caption" style="width: 524px;"><span class="fr-img-wrap"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Sunlight filtering through green leaves" style="width: 524px;"><span class="fr-inner">Sunlight provides the energy that drives the photosynthetic process</span></span></span>
 	<figcaption>
-		<br>
+		<span class="fr-img-caption" style="width: 553px; display: block; vertical-align: top; margin: 5px auto; text-align: center;"><span class="fr-img-wrap"><img src="https://reader2-content-dev.comprodls.com/uploads/1767696179682_image123.jfif" style="width: 553px; display: block; vertical-align: top; margin: 5px auto; text-align: center;"><span class="fr-inner">Sunlight provides the energy that drives the photosynthetic process</span></span></span>
 	</figcaption>
 </figure>
 

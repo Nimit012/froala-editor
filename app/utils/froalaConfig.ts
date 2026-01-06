@@ -123,7 +123,6 @@ export const getFroalaConfig = (
       "embedly",
       "wirisEditor", // WIRIS: Math formula button
       "wirisChemistry", // WIRIS: Chemistry formula button
-      "html"
     ],
 
     events: {
