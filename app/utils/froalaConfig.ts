@@ -53,26 +53,8 @@ export const getFroalaConfig = (
     imageMaxSize: 5 * 1024 * 1024,
     imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
 
-    htmlAllowedAttrs: [
-      "style",
-      "class",
-      "id",
-      "data-index",
-      "alt",
-      "src",
-      "href",
-      "placeholder",
-      "data-field-id",
-      "data-field-name",
-      "data-input-type",
-      "data-deck-id",
-      "data-deck-data",
-      "type",
-      "contenteditable",
-      "onclick",
-      "mprescripts", // WIRIS requirement
-      "none", // WIRIS requirement
-    ],
+    htmlAllowedAttrs: [".*"],
+
     htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
     htmlAllowedStyleProps: [".*"],
     htmlRemoveTags: [],
@@ -129,6 +111,7 @@ export const getFroalaConfig = (
       "indent",
       "|",
       "insertLink",
+      "html",
       "insertImage",
       "insertVideo",
       "insertTable",
@@ -140,6 +123,7 @@ export const getFroalaConfig = (
       "embedly",
       "wirisEditor", // WIRIS: Math formula button
       "wirisChemistry", // WIRIS: Chemistry formula button
+      "html"
     ],
 
     events: {
