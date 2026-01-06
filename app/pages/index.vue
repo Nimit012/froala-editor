@@ -74,7 +74,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <blockquote>
 	<div class="callout">
 
-		<p><strong><span style="color: rgb(85, 57, 130); font-size: 18px;">Key Concept:</span></strong><span style="color: rgb(85, 57, 130); font-size: 18px;"> Photosynthesis is the process by which green plants use sunlight to synthesize nutrients from carbon dioxide and water. It generates oxygen as a byproduct.</span></p><span style="color: rgb(85, 57, 130);">
+		<p><strong><span style="color: rgb(85, 57, 130); font-size: 16px;">Key Concept:</span></strong><span style="color: rgb(85, 57, 130); font-size: 16px;">&nbsp;Photosynthesis is the process by which green plants use sunlight to synthesize nutrients from carbon dioxide and water. It generates oxygen as a by-product.</span></p><span style="color: rgb(85, 57, 130);">
 </span></div><span style="color: rgb(85, 57, 130);">
 </span></blockquote><span style="color: rgb(85, 57, 130);">
 
@@ -107,7 +107,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 			<mi>O</mi>
 			<mo>+</mo>
 			<mtext>light energy</mtext>
-			<mo>&#8594;</mo>
+			<mo>→</mo>
 			<msub>
 				<mi>C</mi>
 				<mn>6</mn>
@@ -237,9 +237,9 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <ol>
 	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Light Intensity:</strong> Higher light intensity generally increases the rate of photosynthesis, up to a saturation point</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
 </span>
-	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Carbon Dioxide Concentration:</strong> More (CO_2) typically means faster photosynthesis</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Carbon Dioxide Concentration:</strong> More Carbon Dioxide typically means faster photosynthesis</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
 </span>
-	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Temperature:</strong> Enzymes work best at optimal temperatures (usually 25-35&deg;C for most plants)</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Temperature:</strong> Enzymes work best at optimal temperatures (usually 25-3<s></s>5&deg;C for most plants)</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
 </span>
 	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Water Availability:</strong> Adequate water is essential for the light-dependent reactions</li>
 </ol>
@@ -254,7 +254,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 
 <p><span style="color: rgb(0, 0, 0); font-size: 16px;">The Calvin cycle, also known as the light-independent reactions or dark reactions, is where carbon dioxide is actually converted into glucose. This cycle occurs in the stroma of the chloroplast and consists of three main phases:</span></p>
 
-<blockquote><span style="font-size: 18px; color: rgb(85, 57, 130);">&quot;The Calvin cycle is nature&#39;s way of building sugar molecules, one carbon atom at a time, using the energy captured from sunlight during the light-dependent reactions.&quot;</span></blockquote><span style="color: rgb(85, 57, 130);">
+<blockquote><span style="font-size: 16px; color: rgb(85, 57, 130);">&quot;The Calvin cycle is nature&#39;s way of building sugar molecules, one carbon atom at a time, using the energy captured from sunlight during the light-dependent reactions.&quot;</span></blockquote><span style="color: rgb(85, 57, 130);">
 
 </span>
 
