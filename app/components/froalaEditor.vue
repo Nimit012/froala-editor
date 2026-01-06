@@ -284,7 +284,6 @@ p:has(a[href*="froala.com"]) {
 
 .fr-toolbar {
   position: sticky !important;
-  top: 123px !important; /* equal to header height */
   z-index: 999 !important;
   background: white !important;
   border: none !important;

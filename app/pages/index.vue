@@ -19,7 +19,7 @@
     <ClientOnly>
       <template #default>
         <div class="docs-layout">
-          <div class="header">
+          <!-- <div class="header">
             <ul class="breadcrumbs">
               <li>Survey Course</li>
               <li>
@@ -35,7 +35,7 @@
             <h1 class="step-name" style="margin: 0">
               Segment : Quotable Connections
             </h1>
-          </div>
+          </div> -->
 
           <FroalaEditor
             v-model="content"
