@@ -63,133 +63,135 @@
 
 <script setup>
 import PrevIcon from "@/assets/icons/chevron-right.svg?component";
-const content =
-  ref(`<h2 style="text-align: left;"><strong><span style="font-size: 24px; color: rgb(26, 32, 44);">Quotable Connections</span></strong><span style="font-size: 24px; color: rgb(26, 32, 44);"></span></h2>
+const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynthesis: The Foundation of Life</span></h1>
+
+<h2><span style="font-size: 24px;">Introduction to Photosynthesis</span></h2>
+
+<p><span style="color: rgb(0, 0, 0); font-size: 16px;">Photosynthesis is one of the most important biological processes on our planet. It&#39;s how plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. Without photosynthesis, life as we know it wouldn&#39;t exist.</span></p>
+
+<p>
+    <br>
+</p>
 
 <blockquote>
+    <div class="callout">
 
-	<p><span style="font-size: 20px; color: rgb(0, 0, 0);"><em>&nbsp;</em><em>&quot;I sit with Shakespeare and he winces not.&quot; &mdash;W.E.B. DuBois</em></span></p>
+        <p><strong><span style="color: rgb(0, 0, 0); font-size: 18px;">Key Concept:</span></strong><span style="color: rgb(0, 0, 0); font-size: 18px;"> Photosynthesis is the process by which green plants use sunlight to synthesize nutrients from carbon dioxide and water. It generates oxygen as a byproduct.</span></p>
+    </div>
 </blockquote>
 
-<p>
-	<br>
-</p>
-<hr>
+<h2><span style="font-size: 24px;">The Chemical Equation</span></h2>
+
+<p><span style="color: rgb(0, 0, 0); font-size: 16px;">The overall process of photosynthesis can be represented by this chemical equation:</span></p>
 
 <p>
-	<br>
+    <br>
 </p>
+<div class="equation-block">
+    <br><span style="color: rgb(0, 0, 0); font-size: 16px;">This equation shows that six molecules of carbon dioxide and six molecules of water, in the presence of light energy, produce one molecule of glucose and six molecules of oxygen.</span></div>
 
-<p style="
-    color: #343434;
-"><strong><span style="font-size: 18px; color: rgb(52, 52, 52);">Part A</span></strong><span style="font-size: 16px;"><span style="color: rgb(52, 52, 52);">: Read each quote carefully. State the main idea of each one in your own words using the response area provided.</span></span></p>
+<h3><span style="font-size: 18px;">Breaking Down the Components</span></h3>
 
-<p>&nbsp; &nbsp; &nbsp;&nbsp;</p>
-
-<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1763377070650_image1.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
-
-<h4 style="line-height: 1;">&nbsp; &nbsp; <strong><span style="font-size: 18px; color: rgb(26, 32, 44);">W.E.B Dubois</span></strong></h4>
-
-<p style="line-height: 1;">&nbsp; &nbsp; <span style="font-size: 14px;"><em><span style="color: rgb(113, 128, 150);">The Souls Of Black Folk</span></em></span></p>
-
-<p>
-	<br>
-</p>
-
-<p><span style="font-size: 16px; color: rgb(45, 55, 72);">...the Negro is a sort of seventh son, born with a veil, and gifted with second-sight in this American world,&mdash;a world which yields him no true self-consciousness, but only lets him &nbsp; &nbsp; &nbsp; &nbsp; see himself through the revelation of the other world. It is a peculiar sensation, this <strong>double-consciousness</strong>, this sense of always <strong>looking at one&#39;s self through the eyes of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; others</strong>&hellip;</span></p>
-
-<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
+<table style="margin-right: calc(31%); width: 69%;">
+    <thead>
+        <tr>
+            <th style="width: 22.3188%; text-align: center;">Component</th>
+            <th style="width: 26.0502%; text-align: center;">Chemical Formula</th>
+            <th style="width: 51.5757%; text-align: center;">Role in Photosynthesis</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width: 22.3188%; text-align: center;">Carbon Dioxide</td>
+            <td style="width: 26.0502%; text-align: center;">
+                <br>
+            </td>
+            <td style="width: 51.5757%; text-align: center;">Raw material absorbed from atmosphere</td>
+        </tr>
+        <tr>
+            <td style="width: 22.3188%; text-align: center;">Water</td>
+            <td style="width: 26.0502%; text-align: center;">
+                <br>
+            </td>
+            <td style="width: 51.5757%; text-align: center;">Raw material absorbed through roots</td>
+        </tr>
+        <tr>
+            <td style="width: 22.3188%; text-align: center;">Glucose</td>
+            <td style="width: 26.0502%; text-align: center;">
+                <br>
+            </td>
+            <td style="width: 51.5757%; text-align: center;">Energy-rich product used by plant</td>
+        </tr>
+        <tr>
+            <td style="width: 22.3188%; text-align: center;">Oxygen</td>
+            <td style="width: 26.0502%; text-align: center;">
+                <br>
+            </td>
+            <td style="width: 51.5757%; text-align: center;">Byproduct released into atmosphere</td>
+        </tr>
+    </tbody>
 </table>
 
-<p><span style="font-size: 16px;">&nbsp; &nbsp;&nbsp;</span></p>
+<h2><span style="font-size: 24px;">How Photosynthesis Works: The Video Explanation</span></h2>
 
-<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764046601559_image2.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle">&nbsp; </p>
+<p><span style="font-size: 16px; color: rgb(0, 0, 0);">Watch this detailed explanation of the photosynthesis process</span>:</p>
 
-<h4 style="line-height: 1;"><span style="font-size: 18px;"><strong><span style="color: rgb(26, 32, 44);">Ralph Ellison</span></strong></span></h4>
-
-<p style="line-height: 1;"><em><span style="color: rgb(113, 128, 150);">Invisible Man</span></em></p>
-
-<p style="line-height: 1; margin-left: 20px;">
-	&nbsp;</p>
-
-<p><span style="font-size: 16px; color: rgb(45, 55, 72);">I am an invisible man&hellip;<strong> I am invisible</strong>, understand, simply because people refuse to see me&hellip; they see only my surroundings, themselves or figments of their imagination, anything except me.</span>
-	<br>
-</p>
-
-<table style="width: 96%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1146px; height: 106px; padding: 16px; vertical-align: top;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
-
-<p>&nbsp; &nbsp; &nbsp;</p>
-
-<p id="isPasted" style="line-height: 1;"><img src="https://reader2-content-dev.comprodls.com/uploads/1764047689070_image3.png" style="width: 70px; display: inline-block; vertical-align: bottom; margin: 5px 15px 5px 0px; text-align: left; max-width: calc(100% - 5px); float: left;" class="circle"></p>
-
-<p style="margin-left: 80px; line-height: 1;">
-	<br>
-</p>
-
-<h4 id="isPasted" style="margin-left: 80px; line-height: 1;"><span style="font-size: 18px;"><strong><span style="color: rgb(26, 32, 44);">William Shakespeare</span></strong></span></h4>
-
-<p style="margin-left: 80px; line-height: 1;"><em><span style="color: rgb(113, 128, 150);">Othello</span></em></p>
-
-<p style="line-height: 1; margin-left: 100px;">
-	<br>
-</p>
-
-<p><span style="font-size: 16px; color: rgb(45, 55, 72);">&hellip;<strong>Speak of me as I am. Nothing extenuate, nor set down aught in malice</strong>. Then must you speak of one that loved not wisely but too well&hellip; Of one whose hand threw a pearl &nbsp;away &nbsp;richer than all his tribe&hellip;</span>
-	<br>
-</p>
-
-<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
-
-<p style="margin-left: 20px;">
-	<br>
-</p>
-<hr>
+<p><span contenteditable="false" draggable="true" class="fr-video fr-deletable fr-draggable" style="display: block; clear: both; text-align: center;"><iframe width="640" height="360" src="https://www.youtube.com/embed/uixA8ZXx0KU?&wmode=opaque&rel=0" frameborder="0" allowfullscreen="" class="fr-draggable"><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span></iframe>
+    </span></p>
 
 <p>
-	<br>
+    <br>
 </p>
 
-<p><span style="font-size: 18px;"><strong><span style="color: rgb(52, 52, 52);">Part B</span></strong></span><span style="font-size: 16px; color: rgb(52, 52, 52);"><strong>:&nbsp;</strong>Connect the main ideas stated by the authors above. How do their ideas compliment each other? Explain..</span></p>
+<h2><span style="font-size: 24px;">The Role of Light in Photosynthesis</span></h2>
+
+<p><span style="color: rgb(0, 0, 0); font-size: 16px;">Light is the driving force behind photosynthesis. Different wavelengths of light affect the rate of photosynthesis differently. Chlorophyll primarily absorbs red and blue light, while reflecting green light (which is why plants appear green to us).</span></p>
+<figure class="image-with-caption">
+    <span class="fr-img-caption" style="width: 524px;"><span class="fr-img-wrap"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Sunlight filtering through green leaves" style="width: 524px;"><span class="fr-inner">Sunlight provides the energy that drives the photosynthetic process</span></span></span>
+    <figcaption>
+        <br>
+    </figcaption>
+</figure>
+
+<h3><span style="font-size: 18px;">Factors Affecting Photosynthetic Rate</span></h3>
+
+<p><span style="color: rgb(0, 0, 0); font-size: 16px;">Several environmental factors influence how quickly photosynthesis occurs:</span></p>
+
+<ol>
+    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Light Intensity:</strong> Higher light intensity generally increases the rate of photosynthesis, up to a saturation point</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+</span>
+    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Carbon Dioxide Concentration:</strong> More \(CO_2\) typically means faster photosynthesis</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+</span>
+    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Temperature:</strong> Enzymes work best at optimal temperatures (usually 25-35&deg;C for most plants)</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+</span>
+    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Water Availability:</strong> Adequate water is essential for the light-dependent reactions</li>
+</ol>
+<div class="callout callout-warning">
+
+    <p>
+        <br>
+    </p>
+</div>
+
+<h2><span style="font-size: 24px;">Advanced Topic: The Calvin Cycle</span></h2>
+
+<p><span style="color: rgb(0, 0, 0); font-size: 16px;">The Calvin cycle, also known as the light-independent reactions or dark reactions, is where carbon dioxide is actually converted into glucose. This cycle occurs in the stroma of the chloroplast and consists of three main phases:</span></p>
+
+<blockquote><span style="font-size: 18px;">&quot;The Calvin cycle is nature&#39;s way of building sugar molecules, one carbon atom at a time, using the energy captured from sunlight during the light-dependent reactions.&quot;</span></blockquote>
 
 <p>
-	<br>
+    <br>
 </p>
 
-<table style="width: 97%; height: 100px; margin: auto auto auto calc(0%); border-width: 1px; border-style: solid;">
-	<tbody>
-		<tr>
-			<td style="width: 1200px; text-align: left; padding: 16px; vertical-align: top; height: 106px;">Please add your response here.</td>
-		</tr>
-	</tbody>
-</table>
+<h2><span style="font-size: 24px;">Additional Resources</span></h2>
 
-<p><span style="font-size: 16px;">
+<p><span style="font-size: 16px; color: rgb(0, 0, 0);">Explore these curated resources to deepen your understanding:</span></p>
 
-
-<br>
-</span></p>
-
-<p style="text-align: center; font-size: 14px; margin-top: 30px; opacity: 0.65; font-family: sans-serif;">Powered by <a href="https://www.froala.com/wysiwyg-editor?pb=1">Froala Editor</a></p>
-
-
-`);
+<p>
+    <a href="https://www.khanacademy.org/science/biology" class="embedded-link" target="_blank" rel="noopener noreferrer">Khan Academy: Biology</a>
+    <a href="https://www.nature.com/subjects/photosynthesis" class="embedded-link" target="_blank" rel="noopener noreferrer">Nature: Photosynthesis Research</a>
+    <a href="https://www.nasa.gov/audience/forstudents/photosynthesis" class="embedded-link" target="_blank" rel="noopener noreferrer">NASA: Photosynthesis Overview</a>
+</p>`)
 const isPreviewModalOpen = ref(false);
 
 const froalaConfig = {
