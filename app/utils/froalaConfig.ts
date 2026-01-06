@@ -54,8 +54,8 @@ export const getFroalaConfig = (
     imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
 
     htmlAllowedAttrs: [".*"],
-
-    htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input"],
+    htmlAllowedTags: [".*"],
+    htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input", "mprescripts","none"],
     htmlAllowedStyleProps: [".*"],
     htmlRemoveTags: [],
     htmlUntouched: true,
