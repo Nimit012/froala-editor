@@ -104,7 +104,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 		<mi>O</mi>
 		<mo>+</mo>
 		<mtext>light energy</mtext>
-		<mo>→</mo>
+		<mo>&#8594;</mo>
 		<msub>
 			<mi>C</mi>
 			<mn>6</mn>
@@ -133,18 +133,20 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 
 <h3><span style="font-size: 18px;">Breaking Down the Components</span></h3>
 
-<table style="margin-right: calc(31%); width: 69%;">
-	<thead>
-		<tr>
-			<th style="width: 22.3188%; text-align: center;">Component</th>
-			<th style="width: 26.0502%; text-align: center;">Chemical Formula</th>
-			<th style="width: 51.5757%; text-align: center;">Role in Photosynthesis</th>
-		</tr>
-	</thead>
+<p>
+	<br>
+</p>
+
+<table style="width: 52%; height: 100px; margin: auto calc(28%) auto auto; border-width: 1px; border-style: solid;">
 	<tbody>
 		<tr>
-			<td style="width: 22.3188%; text-align: center;">Carbon Dioxide</td>
-			<td style="width: 26.0502%; text-align: center;">
+			<td style="width: 33.3333%; text-align: center; background-color: rgb(209, 213, 216);"><strong>Component</strong></td>
+			<td style="width: 24.5504%; text-align: center; background-color: rgb(209, 213, 216);"><strong>Chemical Formula</strong></td>
+			<td style="width: 42.0168%; text-align: center; background-color: rgb(209, 213, 216);"><strong>Role in Photosynthesis</strong></td>
+		</tr>
+		<tr>
+			<td style="width: 33.3333%; text-align: center;">Carbon Dioxide</td>
+			<td style="width: 24.5504%;">
 				<math xmlns="http://www.w3.org/1998/Math/MathML" class="wrs_chemistry">
 					<msub>
 						<mi>CO</mi>
@@ -152,28 +154,54 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 					</msub>
 				</math>
 			</td>
-			<td style="width: 51.5757%; text-align: center;">Raw material absorbed from atmosphere</td>
+			<td style="width: 42.0168%; text-align: center;">Raw material absorbed through roots</td>
 		</tr>
 		<tr>
-			<td style="width: 22.3188%; text-align: center;">Water</td>
-			<td style="width: 26.0502%; text-align: center;">
-				<br>
+			<td style="width: 33.3333%; text-align: center;">Water</td>
+			<td style="width: 24.5504%;">
+				<math xmlns="http://www.w3.org/1998/Math/MathML" class="wrs_chemistry">
+					<msub>
+						<mi mathvariant="normal">H</mi>
+						<mn>2</mn>
+					</msub>
+					<mi mathvariant="normal">O</mi>
+				</math>
 			</td>
-			<td style="width: 51.5757%; text-align: center;">Raw material absorbed through roots</td>
+			<td style="width: 42.0168%; text-align: center;">Raw material absorbed through roots</td>
 		</tr>
 		<tr>
-			<td style="width: 22.3188%; text-align: center;">Glucose</td>
-			<td style="width: 26.0502%; text-align: center;">
-				<br>
+			<td style="width: 33.3333%; text-align: center;">Glucose</td>
+			<td style="width: 24.5504%;">
+				<math xmlns="http://www.w3.org/1998/Math/MathML" class="wrs_chemistry">
+					<msub>
+						<mi mathvariant="normal">C</mi>
+						<mn>6</mn>
+					</msub>
+					<msub>
+						<mi mathvariant="normal">H</mi>
+						<mn>12</mn>
+					</msub>
+					<msub>
+						<mi mathvariant="normal">O</mi>
+						<mn>6</mn>
+					</msub>
+				</math>
 			</td>
-			<td style="width: 51.5757%; text-align: center;">Energy-rich product used by plant</td>
+			<td style="width: 42.0168%; text-align: center;">Energy-rich product used by plant</td>
 		</tr>
 		<tr>
-			<td style="width: 22.3188%; text-align: center;">Oxygen</td>
-			<td style="width: 26.0502%; text-align: center;">
+			<td style="width: 33.3333%; text-align: center;">Oxygen</td>
+			<td style="width: 24.5504%;">
+				<math xmlns="http://www.w3.org/1998/Math/MathML" class="wrs_chemistry">
+					<msub>
+						<mi mathvariant="normal">O</mi>
+						<mn>2</mn>
+					</msub>
+				</math>
+			</td>
+			<td style="width: 42.0168%; text-align: center;">Byproduct released into atmosphere
 				<br>
 			</td>
-			<td style="width: 51.5757%; text-align: center;">Byproduct released into atmosphere</td>
 		</tr>
 	</tbody>
 </table>
@@ -186,7 +214,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 
 <p><span style="font-size: 16px; color: rgb(0, 0, 0);">Watch this detailed explanation of the photosynthesis process</span>:</p>
 
-<p><span contenteditable="false" draggable="true" class="fr-video fr-deletable fr-draggable" style="display: block; clear: both; text-align: center;"><iframe width="640" height="360" src="https://www.youtube.com/embed/uixA8ZXx0KU?&wmode=opaque&rel=0" frameborder="0" allowfullscreen="" class="fr-draggable"><span class="fr-mk" style="display: none;">&nbsp;</span><span class="fr-mk" style="display: none;">&nbsp;</span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span></iframe>
+<p><span contenteditable="false" draggable="true" class="fr-video fr-deletable fr-draggable" style="display: block; clear: both; text-align: center;"><iframe width="640" height="360" src="https://www.youtube.com/embed/uixA8ZXx0KU?&wmode=opaque&rel=0" frameborder="0" allowfullscreen="" class="fr-draggable"><span class="fr-mk" style="display: none;">&nbsp;</span><span class="fr-mk" style="display: none;">&nbsp;</span><span class="fr-mk" style="display: none;">&nbsp;</span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span></iframe>
 	</span></p>
 
 <p>
