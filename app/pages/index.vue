@@ -90,39 +90,41 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 
 <p>
 	<math xmlns="http://www.w3.org/1998/Math/MathML">
-		<mn>6</mn>
-		<msub>
-			<mi>CO</mi>
-			<mn>2</mn>
-		</msub>
-		<mo>+</mo>
-		<mn>6</mn>
-		<msub>
-			<mi>H</mi>
-			<mn>2</mn>
-		</msub>
-		<mi>O</mi>
-		<mo>+</mo>
-		<mtext>light energy</mtext>
-		<mo>&#8594;</mo>
-		<msub>
-			<mi>C</mi>
+		<mstyle mathsize="36px">
 			<mn>6</mn>
-		</msub>
-		<msub>
-			<mi>H</mi>
-			<mn>12</mn>
-		</msub>
-		<msub>
-			<mi>O</mi>
+			<msub>
+				<mi>CO</mi>
+				<mn>2</mn>
+			</msub>
+			<mo>+</mo>
 			<mn>6</mn>
-		</msub>
-		<mo>+</mo>
-		<mn>6</mn>
-		<msub>
+			<msub>
+				<mi>H</mi>
+				<mn>2</mn>
+			</msub>
 			<mi>O</mi>
-			<mn>2</mn>
-		</msub>
+			<mo>+</mo>
+			<mtext>light energy</mtext>
+			<mo>→</mo>
+			<msub>
+				<mi>C</mi>
+				<mn>6</mn>
+			</msub>
+			<msub>
+				<mi>H</mi>
+				<mn>12</mn>
+			</msub>
+			<msub>
+				<mi>O</mi>
+				<mn>6</mn>
+			</msub>
+			<mo>+</mo>
+			<mn>6</mn>
+			<msub>
+				<mi>O</mi>
+				<mn>2</mn>
+			</msub>
+		</mstyle>
 	</math>
 </p>
 

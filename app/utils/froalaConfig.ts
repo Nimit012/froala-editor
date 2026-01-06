@@ -78,10 +78,9 @@ export const getFroalaConfig = (
       "background-color",
       "padding",
       "margin",
-      "border",
+      "border",,
     ],
     videoResponsive: true,
-
     toolbarButtons: [
       "undo",
       "redo",
