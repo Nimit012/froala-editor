@@ -70,87 +70,129 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <p><span style="color: rgb(0, 0, 0); font-size: 16px;">Photosynthesis is one of the most important biological processes on our planet. It&#39;s how plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. Without photosynthesis, life as we know it wouldn&#39;t exist.</span></p>
 
 <p>
-    <br>
+	<br>
 </p>
 
 <blockquote>
-    <div class="callout">
+	<div class="callout">
 
-        <p><strong><span style="color: rgb(0, 0, 0); font-size: 18px;">Key Concept:</span></strong><span style="color: rgb(0, 0, 0); font-size: 18px;"> Photosynthesis is the process by which green plants use sunlight to synthesize nutrients from carbon dioxide and water. It generates oxygen as a byproduct.</span></p>
-    </div>
+		<p><strong><span style="color: rgb(0, 0, 0); font-size: 18px;">Key Concept:</span></strong><span style="color: rgb(0, 0, 0); font-size: 18px;"> Photosynthesis is the process by which green plants use sunlight to synthesize nutrients from carbon dioxide and water. It generates oxygen as a byproduct.</span></p>
+	</div>
 </blockquote>
 
 <h2><span style="font-size: 24px;">The Chemical Equation</span></h2>
 
-<p><span style="color: rgb(0, 0, 0); font-size: 16px;">The overall process of photosynthesis can be represented by this chemical equation:</span></p>
+<p><span style="color: rgb(0, 0, 0); font-size: 16px;">The overall process of photosynthesis can be represented by this chemical equation</span>
+	<br>
+</p>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+	<mn>6</mn>
+	<msub>
+		<mi>CO</mi>
+		<mn>2</mn>
+	</msub>
+	<mo>+</mo>
+	<mn>6</mn>
+	<msub>
+		<mi>H</mi>
+		<mn>2</mn>
+	</msub>
+	<mi>O</mi>
+	<mo>+</mo>
+	<mtext>light energy</mtext>
+	<mo>&#8594;</mo>
+	<msub>
+		<mi>C</mi>
+		<mn>6</mn>
+	</msub>
+	<msub>
+		<mi>H</mi>
+		<mn>12</mn>
+	</msub>
+	<msub>
+		<mi>O</mi>
+		<mn>6</mn>
+	</msub>
+	<mo>+</mo>
+	<mn>6</mn>
+	<msub>
+		<mi>O</mi>
+		<mn>2</mn>
+	</msub>
+</math>
 
 <p>
-    <br>
+	<br>
 </p>
-<div class="equation-block">
-    <br><span style="color: rgb(0, 0, 0); font-size: 16px;">This equation shows that six molecules of carbon dioxide and six molecules of water, in the presence of light energy, produce one molecule of glucose and six molecules of oxygen.</span></div>
+<div class="equation-block"><span style="color: rgb(0, 0, 0); font-size: 16px;">This equation shows that six molecules of carbon dioxide and six molecules of water, in the presence of light energy, produce one molecule of glucose and six molecules of oxygen.</span></div>
 
 <h3><span style="font-size: 18px;">Breaking Down the Components</span></h3>
 
 <table style="margin-right: calc(31%); width: 69%;">
-    <thead>
-        <tr>
-            <th style="width: 22.3188%; text-align: center;">Component</th>
-            <th style="width: 26.0502%; text-align: center;">Chemical Formula</th>
-            <th style="width: 51.5757%; text-align: center;">Role in Photosynthesis</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="width: 22.3188%; text-align: center;">Carbon Dioxide</td>
-            <td style="width: 26.0502%; text-align: center;">
-                <br>
-            </td>
-            <td style="width: 51.5757%; text-align: center;">Raw material absorbed from atmosphere</td>
-        </tr>
-        <tr>
-            <td style="width: 22.3188%; text-align: center;">Water</td>
-            <td style="width: 26.0502%; text-align: center;">
-                <br>
-            </td>
-            <td style="width: 51.5757%; text-align: center;">Raw material absorbed through roots</td>
-        </tr>
-        <tr>
-            <td style="width: 22.3188%; text-align: center;">Glucose</td>
-            <td style="width: 26.0502%; text-align: center;">
-                <br>
-            </td>
-            <td style="width: 51.5757%; text-align: center;">Energy-rich product used by plant</td>
-        </tr>
-        <tr>
-            <td style="width: 22.3188%; text-align: center;">Oxygen</td>
-            <td style="width: 26.0502%; text-align: center;">
-                <br>
-            </td>
-            <td style="width: 51.5757%; text-align: center;">Byproduct released into atmosphere</td>
-        </tr>
-    </tbody>
+	<thead>
+		<tr>
+			<th style="width: 22.3188%; text-align: center;">Component</th>
+			<th style="width: 26.0502%; text-align: center;">Chemical Formula</th>
+			<th style="width: 51.5757%; text-align: center;">Role in Photosynthesis</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="width: 22.3188%; text-align: center;">Carbon Dioxide</td>
+			<td style="width: 26.0502%; text-align: center;">
+				<math xmlns="http://www.w3.org/1998/Math/MathML" class="wrs_chemistry">
+					<msub>
+						<mi>CO</mi>
+						<mn>2</mn>
+					</msub>
+				</math>
+			</td>
+			<td style="width: 51.5757%; text-align: center;">Raw material absorbed from atmosphere</td>
+		</tr>
+		<tr>
+			<td style="width: 22.3188%; text-align: center;">Water</td>
+			<td style="width: 26.0502%; text-align: center;">
+				<br>
+			</td>
+			<td style="width: 51.5757%; text-align: center;">Raw material absorbed through roots</td>
+		</tr>
+		<tr>
+			<td style="width: 22.3188%; text-align: center;">Glucose</td>
+			<td style="width: 26.0502%; text-align: center;">
+				<br>
+			</td>
+			<td style="width: 51.5757%; text-align: center;">Energy-rich product used by plant</td>
+		</tr>
+		<tr>
+			<td style="width: 22.3188%; text-align: center;">Oxygen</td>
+			<td style="width: 26.0502%; text-align: center;">
+				<br>
+			</td>
+			<td style="width: 51.5757%; text-align: center;">Byproduct released into atmosphere</td>
+		</tr>
+	</tbody>
 </table>
 
 <h2><span style="font-size: 24px;">How Photosynthesis Works: The Video Explanation</span></h2>
 
 <p><span style="font-size: 16px; color: rgb(0, 0, 0);">Watch this detailed explanation of the photosynthesis process</span>:</p>
 
-<p><span contenteditable="false" draggable="true" class="fr-video fr-deletable fr-draggable" style="display: block; clear: both; text-align: center;"><iframe width="640" height="360" src="https://www.youtube.com/embed/uixA8ZXx0KU?&wmode=opaque&rel=0" frameborder="0" allowfullscreen="" class="fr-draggable"><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span></iframe>
-    </span></p>
+<p><span contenteditable="false" draggable="true" class="fr-video fr-deletable fr-draggable" style="display: block; clear: both; text-align: center;"><iframe width="640" height="360" src="https://www.youtube.com/embed/uixA8ZXx0KU?&wmode=opaque&rel=0" frameborder="0" allowfullscreen="" class="fr-draggable"><span class="fr-mk" style="display: none;">&nbsp;</span><span class="fr-mk" style="display: none;">&nbsp;</span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span><span class="fr-mk" style="display: none;"> </span></iframe>
+	</span></p>
 
 <p>
-    <br>
+	<br>
 </p>
 
 <h2><span style="font-size: 24px;">The Role of Light in Photosynthesis</span></h2>
 
 <p><span style="color: rgb(0, 0, 0); font-size: 16px;">Light is the driving force behind photosynthesis. Different wavelengths of light affect the rate of photosynthesis differently. Chlorophyll primarily absorbs red and blue light, while reflecting green light (which is why plants appear green to us).</span></p>
 <figure class="image-with-caption">
-    <span class="fr-img-caption" style="width: 524px;"><span class="fr-img-wrap"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Sunlight filtering through green leaves" style="width: 524px;"><span class="fr-inner">Sunlight provides the energy that drives the photosynthetic process</span></span></span>
-    <figcaption>
-        <br>
-    </figcaption>
+	<span class="fr-img-caption" style="width: 524px;"><span class="fr-img-wrap"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Sunlight filtering through green leaves" style="width: 524px;"><span class="fr-inner">Sunlight provides the energy that drives the photosynthetic process</span></span></span>
+	<figcaption>
+		<br>
+	</figcaption>
 </figure>
 
 <h3><span style="font-size: 18px;">Factors Affecting Photosynthetic Rate</span></h3>
@@ -158,19 +200,19 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <p><span style="color: rgb(0, 0, 0); font-size: 16px;">Several environmental factors influence how quickly photosynthesis occurs:</span></p>
 
 <ol>
-    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Light Intensity:</strong> Higher light intensity generally increases the rate of photosynthesis, up to a saturation point</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Light Intensity:</strong> Higher light intensity generally increases the rate of photosynthesis, up to a saturation point</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
 </span>
-    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Carbon Dioxide Concentration:</strong> More \(CO_2\) typically means faster photosynthesis</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Carbon Dioxide Concentration:</strong> More (CO_2) typically means faster photosynthesis</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
 </span>
-    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Temperature:</strong> Enzymes work best at optimal temperatures (usually 25-35&deg;C for most plants)</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
+	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Temperature:</strong> Enzymes work best at optimal temperatures (usually 25-35&deg;C for most plants)</li><span style="color: rgb(0, 0, 0); font-size: 16px;">
 </span>
-    <li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Water Availability:</strong> Adequate water is essential for the light-dependent reactions</li>
+	<li style="color: rgb(0, 0, 0); font-size: 16px;"><strong>Water Availability:</strong> Adequate water is essential for the light-dependent reactions</li>
 </ol>
 <div class="callout callout-warning">
 
-    <p>
-        <br>
-    </p>
+	<p>
+		<br>
+	</p>
 </div>
 
 <h2><span style="font-size: 24px;">Advanced Topic: The Calvin Cycle</span></h2>
@@ -180,7 +222,7 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <blockquote><span style="font-size: 18px;">&quot;The Calvin cycle is nature&#39;s way of building sugar molecules, one carbon atom at a time, using the energy captured from sunlight during the light-dependent reactions.&quot;</span></blockquote>
 
 <p>
-    <br>
+	<br>
 </p>
 
 <h2><span style="font-size: 24px;">Additional Resources</span></h2>
@@ -188,10 +230,11 @@ const content = ref(`<h1><span style="font-size: 36px;">Understanding Photosynth
 <p><span style="font-size: 16px; color: rgb(0, 0, 0);">Explore these curated resources to deepen your understanding:</span></p>
 
 <p>
-    <a href="https://www.khanacademy.org/science/biology" class="embedded-link" target="_blank" rel="noopener noreferrer">Khan Academy: Biology</a>
-    <a href="https://www.nature.com/subjects/photosynthesis" class="embedded-link" target="_blank" rel="noopener noreferrer">Nature: Photosynthesis Research</a>
-    <a href="https://www.nasa.gov/audience/forstudents/photosynthesis" class="embedded-link" target="_blank" rel="noopener noreferrer">NASA: Photosynthesis Overview</a>
-</p>`)
+	<a href="https://www.khanacademy.org/science/biology" class="embedded-link" target="_blank" rel="noopener noreferrer">Khan Academy: Biology</a>
+	<a href="https://www.nature.com/subjects/photosynthesis" class="embedded-link" target="_blank" rel="noopener noreferrer">Nature: Photosynthesis Research</a>
+	<a href="https://www.nasa.gov/audience/forstudents/photosynthesis" class="embedded-link" target="_blank" rel="noopener noreferrer">NASA: Photosynthesis Overview</a>
+</p>
+`)
 const isPreviewModalOpen = ref(false);
 
 const froalaConfig = {
