@@ -25,6 +25,10 @@ export default defineNuxtConfig({
           src: "https://cdn.jsdelivr.net/npm/tui-image-editor@3.2.2/dist/tui-image-editor.min.js",
           defer: true,
         },
+        // {
+        //   src: "https://www.wiris.net/demo/plugins/app/WIRISplugins.js?viewer=none",
+        //   defer: true,
+        // },
       ],
     },
   },

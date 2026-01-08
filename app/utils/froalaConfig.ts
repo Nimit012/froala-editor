@@ -26,6 +26,8 @@ export const getFroalaConfig = (
     spellcheck: true,
     pastePlain: true,
     toolbarSticky: false,
+    imageEditButtons: [ 'imageReplace', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize', 'wirisEditor','wirisChemistry'], 
+
     fontSize: [
       "8",
       "10",
