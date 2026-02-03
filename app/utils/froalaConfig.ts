@@ -16,7 +16,7 @@ export const getFroalaConfig = (
   autoSave: boolean,
   saveToStorage: (content: string) => void,
   loadFromStorage: () => string | null,
-  initialModelValue: string
+  initialModelValue: string,
 ) => {
   return {
     key: "MZC1rD1B4G4I3A15B10C8jF1QUg1Xc2OZE1ABVJRDRNGGUH1ITrA1C7A6B5E1E4H4E1A9B5==",
@@ -26,7 +26,24 @@ export const getFroalaConfig = (
     spellcheck: true,
     pastePlain: true,
     toolbarSticky: false,
-    imageEditButtons: [ 'imageReplace', 'imageAlign', 'imageCaption', 'imageRemove', '|', 'imageLink', 'linkOpen', 'linkEdit', 'linkRemove', '-', 'imageDisplay', 'imageStyle', 'imageAlt', 'imageSize', 'wirisEditor','wirisChemistry'], 
+    imageEditButtons: [
+      "imageReplace",
+      "imageAlign",
+      "imageCaption",
+      "imageRemove",
+      "|",
+      "imageLink",
+      "linkOpen",
+      "linkEdit",
+      "linkRemove",
+      "-",
+      "imageDisplay",
+      "imageStyle",
+      "imageAlt",
+      "imageSize",
+      "wirisEditor",
+      "wirisChemistry",
+    ],
 
     fontSize: [
       "8",
@@ -57,7 +74,15 @@ export const getFroalaConfig = (
 
     htmlAllowedAttrs: [".*"],
     htmlAllowedTags: [".*"],
-    htmlAllowedEmptyTags: ["textarea", "img", "br", "hr", "input", "mprescripts","none"],
+    htmlAllowedEmptyTags: [
+      "textarea",
+      "img",
+      "br",
+      "hr",
+      "input",
+      "mprescripts",
+      "none",
+    ],
     htmlAllowedStyleProps: [".*"],
     htmlRemoveTags: [],
     htmlUntouched: true,
