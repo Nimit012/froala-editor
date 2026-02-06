@@ -176,7 +176,9 @@ body:not(:has(.fr-fullscreen-wrapper)) .fr-wrapper {
 padding: 0  !important;
 }
 
-
+.Wirisformula {
+  display: inline;
+}
 
 .fr-element {
   max-width: 1440px;
